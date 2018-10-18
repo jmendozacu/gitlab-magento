@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Head -->    
+<?php echo $this->getChildHtml('head') ?>
+<!-- /Head -->
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php
+$http_host = $_SERVER['HTTP_HOST'];
+if( $http_host === 'www.purcosmetics.com' || $http_host === 'purcosmetics.com' || $http_host === 'staging.purcosmetics.com' || $http_host === 'development.purcosmetics.com'){
+$fbid = '504469726410042';
+ 
+}
+if( $http_host === 'www.cosmedix.com' || $http_host === 'cosmedix.com' || $http_host === 'staging.cosmedix.com' || $http_host === 'development.cosmedix.com'){
+$fbid = '138843616656556';
+
+}
+?>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <div class="main-container col1-layout">
+            <div class="main">
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('footer_before') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

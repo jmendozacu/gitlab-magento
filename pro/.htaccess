@@ -1,0 +1,67 @@
+#RewriteCond %{HTTP_HOST} ^uat.purcosmetics.com
+#RewriteRule ^ - [E=MAGE_RUN_CODE:pur_store]
+#RewriteCond %{HTTP_HOST} ^uat.cosmedix.com
+#RewriteRule ^ - [E=MAGE_RUN_CODE:cosb2c_store]
+
+SetEnvIf Host www.purcosmetics.com MAGE_RUN_CODE=pur_store
+SetEnvIf Host www.cosmedix.com MAGE_RUN_CODE=cosb2c_store
+
+
+RewriteEngine on
+RewriteBase /pro/
+RedirectMatch 301 /pro/blog(.*) /blog$1
+
+
+
+    DirectoryIndex index.php
+
+<IfModule mod_php5.c>
+    php_value memory_limit 512M
+    php_value max_execution_time 18000
+    php_flag magic_quotes_gpc off
+    php_flag session.auto_start off
+    php_flag suhosin.session.cryptua off
+    php_flag zend.ze1_compatibility_mode Off
+
+</IfModule>
+
+<IfModule mod_security.c>
+    SecFilterEngine Off
+    SecFilterScanPOST Off
+</IfModule>
+
+<IfModule mod_deflate.c>
+</IfModule>
+
+<IfModule mod_ssl.c>
+    SSLOptions StdEnvVars
+
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    RewriteEngine on
+    RewriteRule ^api/rest api.php?type=rest [QSA,L]
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteCond %{REQUEST_METHOD} ^TRAC[EK]
+    RewriteRule .* - [L,R=405]
+    RewriteCond %{REQUEST_URI} !^/(media|skin|js)/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteRule .* index.php [L]
+
+</IfModule>
+    AddDefaultCharset Off
+<IfModule mod_expires.c>
+    ExpiresDefault "access plus 1 year"
+
+</IfModule>
+    Order allow,deny
+    Allow from all
+    <Files RELEASE_NOTES.txt>
+        order allow,deny
+        deny from all
+
+    </Files>
+

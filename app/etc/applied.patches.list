@@ -1,0 +1,441 @@
+2016-05-13 20:08:05 UTC | SUPEE-7405-EE-1-14-2-2 | EE_1.14.2.2 | v1 | 91465c744a824111902e2911fd63fd8cb6c32f05 | Tue Jan 19 14:27:03 2016 +0200 | e1fc3c59c9..91465c744a
+patching file app/code/core/Enterprise/Checkout/Block/Adminhtml/Manage/Form/Coupon.php
+patching file app/code/core/Enterprise/GoogleAnalyticsUniversal/Block/Ga.php
+patching file app/code/core/Enterprise/PageCache/etc/config.xml
+patching file app/code/core/Enterprise/Pbridge/etc/config.xml
+patching file app/code/core/Enterprise/Pci/Model/Observer.php
+patching file app/code/core/Enterprise/Pci/Model/Resource/Admin/User.php
+patching file app/code/core/Enterprise/Pci/etc/config.xml
+patching file app/code/core/Enterprise/Persistent/etc/config.xml
+patching file app/code/core/Enterprise/SalesArchive/etc/config.xml
+patching file app/code/core/Enterprise/WebsiteRestriction/etc/config.xml
+patching file app/code/core/Mage/Admin/Model/Observer.php
+patching file app/code/core/Mage/Admin/Model/Redirectpolicy.php
+patching file app/code/core/Mage/Admin/Model/Resource/User.php
+patching file app/code/core/Mage/Admin/Model/User.php
+patching file app/code/core/Mage/Adminhtml/Block/Sales/Order/View/Tab/History.php
+patching file app/code/core/Mage/Adminhtml/Block/Widget/Grid.php
+patching file app/code/core/Mage/Adminhtml/Helper/Catalog/Product/Edit/Action/Attribute.php
+patching file app/code/core/Mage/Adminhtml/Helper/Sales.php
+patching file app/code/core/Mage/Adminhtml/Model/System/Config/Backend/File.php
+patching file app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Image.php
+patching file app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Image/Favicon.php
+patching file app/code/core/Mage/Adminhtml/controllers/IndexController.php
+patching file app/code/core/Mage/Authorizenet/Helper/Admin.php
+patching file app/code/core/Mage/Authorizenet/Helper/Data.php
+patching file app/code/core/Mage/Authorizenet/controllers/Adminhtml/Authorizenet/Directpost/PaymentController.php
+patching file app/code/core/Mage/Captcha/etc/config.xml
+patching file app/code/core/Mage/Catalog/Block/Product/View/Options/Type/Select.php
+patching file app/code/core/Mage/Catalog/Model/Category/Attribute/Backend/Image.php
+patching file app/code/core/Mage/Catalog/Model/Resource/Product/Attribute/Backend/Image.php
+patching file app/code/core/Mage/CatalogIndex/etc/config.xml
+patching file app/code/core/Mage/CatalogInventory/Helper/Minsaleqty.php
+patching file app/code/core/Mage/Checkout/Block/Cart/Item/Renderer.php
+patching file app/code/core/Mage/Checkout/controllers/CartController.php
+patching file app/code/core/Mage/Checkout/controllers/OnepageController.php
+patching file app/code/core/Mage/Core/Helper/Data.php
+patching file app/code/core/Mage/Core/Model/App.php
+patching file app/code/core/Mage/Core/Model/Config.php
+patching file app/code/core/Mage/Core/Model/Email/Queue.php
+patching file app/code/core/Mage/Core/Model/Email/Template/Filter.php
+patching file app/code/core/Mage/Core/Model/File/Validator/Image.php
+patching file app/code/core/Mage/Core/Model/Input/Filter/MaliciousCode.php
+patching file app/code/core/Mage/Core/Model/Session.php
+patching file app/code/core/Mage/Customer/controllers/AccountController.php
+patching file app/code/core/Mage/Dataflow/Model/Convert/Parser/Csv.php
+patching file app/code/core/Mage/Downloadable/controllers/CustomerController.php
+patching file app/code/core/Mage/ImportExport/Model/Export/Adapter/Abstract.php
+patching file app/code/core/Mage/ImportExport/Model/Export/Adapter/Csv.php
+patching file app/code/core/Mage/ImportExport/Model/Import/Entity/Abstract.php
+patching file app/code/core/Mage/ImportExport/etc/config.xml
+patching file app/code/core/Mage/ImportExport/etc/system.xml
+patching file app/code/core/Mage/Newsletter/Model/Observer.php
+patching file app/code/core/Mage/Newsletter/Model/Queue.php
+patching file app/code/core/Mage/Page/etc/system.xml
+patching file app/code/core/Mage/Paypal/controllers/PayflowController.php
+patching file app/code/core/Mage/Paypal/controllers/PayflowadvancedController.php
+patching file app/code/core/Mage/Paypal/etc/config.xml
+patching file app/code/core/Mage/Persistent/etc/config.xml
+patching file app/code/core/Mage/Review/controllers/ProductController.php
+patching file app/code/core/Mage/Rss/Block/Catalog/Salesrule.php
+patching file app/code/core/Mage/Rss/Helper/Order.php
+patching file app/code/core/Mage/Sales/Helper/Guest.php
+patching file app/code/core/Mage/Sales/Model/Quote/Address.php
+patching file app/code/core/Mage/Sales/Model/Quote/Item.php
+patching file app/code/core/Zend/Xml/Security.php
+patching file app/design/adminhtml/default/default/template/authorizenet/directpost/iframe.phtml
+patching file app/design/adminhtml/default/default/template/bundle/sales/creditmemo/create/items/renderer.phtml
+patching file app/design/adminhtml/default/default/template/bundle/sales/creditmemo/view/items/renderer.phtml
+patching file app/design/adminhtml/default/default/template/bundle/sales/invoice/create/items/renderer.phtml
+patching file app/design/adminhtml/default/default/template/bundle/sales/invoice/view/items/renderer.phtml
+patching file app/design/adminhtml/default/default/template/bundle/sales/order/view/items/renderer.phtml
+patching file app/design/adminhtml/default/default/template/bundle/sales/shipment/create/items/renderer.phtml
+patching file app/design/adminhtml/default/default/template/bundle/sales/shipment/view/items/renderer.phtml
+patching file app/design/adminhtml/default/default/template/catalog/product/composite/fieldset/options/type/file.phtml
+patching file app/design/adminhtml/default/default/template/downloadable/sales/items/column/downloadable/creditmemo/name.phtml
+patching file app/design/adminhtml/default/default/template/downloadable/sales/items/column/downloadable/invoice/name.phtml
+patching file app/design/adminhtml/default/default/template/downloadable/sales/items/column/downloadable/name.phtml
+patching file app/design/adminhtml/default/default/template/enterprise/checkout/form/coupon.phtml
+patching file app/design/adminhtml/default/default/template/sales/items/column/name.phtml
+patching file app/design/adminhtml/default/default/template/sales/items/renderer/default.phtml
+patching file app/design/adminhtml/default/default/template/sales/order/totals/discount.phtml
+patching file app/design/adminhtml/default/default/template/sales/order/view/info.phtml
+patching file app/design/frontend/base/default/template/catalog/product/view/options/type/file.phtml
+patching file app/design/frontend/base/default/template/rss/order/details.phtml
+patching file lib/Varien/File/Uploader.php
+patching file lib/Varien/Io/File.php
+
+
+2016-05-13 20:15:36 UTC | SUPEE-7405 | EE_1.14.2.2 | v1.1 | 483b8e0f2bee6a24f63206110230d10167284cc9 | Fri Feb 5 12:29:34 2016 +0200 | 91465c744a824111902e2911fd63fd8cb6c32f05..483b8e0f2bee6a24f63206110230d10167284cc9
+patching file app/code/core/Mage/Adminhtml/Helper/Sales.php
+patching file app/code/core/Mage/Core/Model/Config.php
+patching file app/code/core/Mage/Sales/Model/Quote/Item.php
+patching file lib/Varien/File/Uploader.php
+
+
+2016-10-20 14:15:58 UTC | SUPEE-8788 | EE_1.14.2.2 | v2 | ffc6da0b1557615a510ca69334387b61b36b9cff | Mon Sep 26 10:34:42 2016 +0300 | 483b8e0f2b..ffc6da0b15
+patching file `app/code/core/Enterprise/Catalog/Block/Adminhtml/Redirect/Select/Category/Tree.php'
+patching file `app/code/core/Enterprise/ImportExport/Model/Scheduled/Operation.php'
+patching file `app/code/core/Enterprise/Invitation/Block/Adminhtml/Invitation/Grid.php'
+patching file `app/code/core/Enterprise/Invitation/Block/Adminhtml/Invitation/View.php'
+patching file `app/code/core/Enterprise/Invitation/controllers/IndexController.php'
+patching file `app/code/core/Enterprise/PageCache/Model/Processor.php'
+patching file `app/code/core/Enterprise/Pbridge/Model/Pbridge/Api/Abstract.php'
+patching file `app/code/core/Enterprise/Pbridge/etc/config.xml'
+patching file `app/code/core/Enterprise/Pbridge/etc/system.xml'
+patching file `app/code/core/Enterprise/Pci/Model/Encryption.php'
+patching file `app/code/core/Mage/Adminhtml/Block/Catalog/Product/Helper/Form/Gallery/Content.php'
+patching file `app/code/core/Mage/Adminhtml/Block/Cms/Wysiwyg/Images/Content/Uploader.php'
+patching file `app/code/core/Mage/Adminhtml/Block/Media/Uploader.php'
+patching file `app/code/core/Mage/Adminhtml/Block/Urlrewrite/Category/Tree.php'
+patching file `app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Serialized.php'
+patching file `app/code/core/Mage/Adminhtml/controllers/DashboardController.php'
+patching file `app/code/core/Mage/Adminhtml/controllers/IndexController.php'
+patching file `app/code/core/Mage/Adminhtml/controllers/Media/UploaderController.php'
+patching file `app/code/core/Mage/Catalog/Helper/Image.php'
+patching file `app/code/core/Mage/Catalog/etc/config.xml'
+patching file `app/code/core/Mage/Catalog/etc/system.xml'
+patching file `app/code/core/Mage/Centinel/Model/Api.php'
+patching file `app/code/core/Mage/Centinel/Model/Api/Client.php'
+patching file `app/code/core/Mage/Core/Block/Abstract.php'
+patching file `app/code/core/Mage/Core/Helper/Url.php'
+patching file `app/code/core/Mage/Core/Model/Encryption.php'
+patching file `app/code/core/Mage/Core/Model/Input/Filter/MaliciousCode.php'
+patching file `app/code/core/Mage/Core/functions.php'
+patching file `app/code/core/Mage/Customer/Block/Address/Book.php'
+patching file `app/code/core/Mage/Customer/controllers/AddressController.php'
+patching file `app/code/core/Mage/Dataflow/Model/Profile.php'
+patching file `app/code/core/Mage/Downloadable/Block/Adminhtml/Catalog/Product/Edit/Tab/Downloadable/Links.php'
+patching file `app/code/core/Mage/Downloadable/Block/Adminhtml/Catalog/Product/Edit/Tab/Downloadable/Samples.php'
+patching file `app/code/core/Mage/Downloadable/Helper/File.php'
+patching file `app/code/core/Mage/Oauth/Model/Server.php'
+patching file `app/code/core/Mage/Paygate/Model/Authorizenet.php'
+patching file `app/code/core/Mage/Payment/Block/Info/Checkmo.php'
+patching file `app/code/core/Mage/Paypal/Model/Express/Checkout.php'
+patching file `app/code/core/Mage/Paypal/Model/Resource/Payment/Transaction.php'
+patching file `app/code/core/Mage/Sales/Model/Resource/Order/Payment.php'
+patching file `app/code/core/Mage/Sales/Model/Resource/Order/Payment/Transaction.php'
+patching file `app/code/core/Mage/Sales/Model/Resource/Quote/Payment.php'
+patching file `app/code/core/Mage/Sales/Model/Resource/Recurring/Profile.php'
+patching file `app/code/core/Mage/Uploader/Block/Abstract.php'
+patching file `app/code/core/Mage/Uploader/Block/Multiple.php'
+patching file `app/code/core/Mage/Uploader/Block/Single.php'
+patching file `app/code/core/Mage/Uploader/Helper/Data.php'
+patching file `app/code/core/Mage/Uploader/Helper/File.php'
+patching file `app/code/core/Mage/Uploader/Model/Config/Abstract.php'
+patching file `app/code/core/Mage/Uploader/Model/Config/Browsebutton.php'
+patching file `app/code/core/Mage/Uploader/Model/Config/Misc.php'
+patching file `app/code/core/Mage/Uploader/Model/Config/Uploader.php'
+patching file `app/code/core/Mage/Uploader/etc/config.xml'
+patching file `app/code/core/Mage/Uploader/etc/jstranslator.xml'
+patching file `app/code/core/Mage/Usa/Model/Shipping/Carrier/Dhl.php'
+patching file `app/code/core/Mage/Usa/Model/Shipping/Carrier/Dhl/International.php'
+patching file `app/code/core/Mage/Usa/Model/Shipping/Carrier/Fedex.php'
+patching file `app/code/core/Mage/Usa/Model/Shipping/Carrier/Ups.php'
+patching file `app/code/core/Mage/Usa/etc/config.xml'
+patching file `app/code/core/Mage/Usa/etc/system.xml'
+patching file `app/code/core/Mage/Wishlist/Helper/Data.php'
+patching file `app/code/core/Mage/Wishlist/controllers/IndexController.php'
+patching file `app/code/core/Mage/XmlConnect/Block/Adminhtml/Mobile/Edit/Tab/Design.php'
+patching file `app/code/core/Mage/XmlConnect/Block/Adminhtml/Mobile/Edit/Tab/Design/Images.php'
+patching file `app/code/core/Mage/XmlConnect/controllers/Adminhtml/MobileController.php'
+patching file `app/design/adminhtml/default/default/layout/cms.xml'
+patching file `app/design/adminhtml/default/default/layout/main.xml'
+patching file `app/design/adminhtml/default/default/layout/xmlconnect.xml'
+patching file `app/design/adminhtml/default/default/template/catalog/product/helper/gallery.phtml'
+patching file `app/design/adminhtml/default/default/template/cms/browser/content/uploader.phtml'
+patching file `app/design/adminhtml/default/default/template/downloadable/product/edit/downloadable.phtml'
+patching file `app/design/adminhtml/default/default/template/downloadable/product/edit/downloadable/links.phtml'
+patching file `app/design/adminhtml/default/default/template/downloadable/product/edit/downloadable/samples.phtml'
+patching file `app/design/adminhtml/default/default/template/enterprise/invitation/view/tab/general.phtml'
+patching file `app/design/adminhtml/default/default/template/media/uploader.phtml'
+patching file `app/design/adminhtml/default/default/template/xmlconnect/edit/tab/design.phtml'
+patching file `app/etc/modules/Mage_All.xml'
+patching file `app/locale/en_US/Mage_Media.csv'
+patching file `app/locale/en_US/Mage_Uploader.csv'
+patching file `downloader/lib/Mage/HTTP/Client/Curl.php'
+patching file `js/lib/uploader/flow.min.js'
+patching file `js/lib/uploader/fusty-flow-factory.js'
+patching file `js/lib/uploader/fusty-flow.js'
+patching file `js/mage/adminhtml/product.js'
+patching file `js/mage/adminhtml/uploader/instance.js'
+patching file `lib/Unserialize/Parser.php'
+patching file `lib/Unserialize/Reader/Arr.php'
+patching file `lib/Unserialize/Reader/ArrValue.php'
+patching file `lib/Unserialize/Reader/Null.php'
+patching file `skin/adminhtml/default/default/boxes.css'
+patching file `skin/adminhtml/default/default/media/flex.swf'
+patching file `skin/adminhtml/default/default/media/uploader.swf'
+patching file `skin/adminhtml/default/default/media/uploaderSingle.swf'
+patching file `skin/adminhtml/default/default/xmlconnect/boxes.css'
+patching file `skin/adminhtml/default/enterprise/boxes.css'
+
+
+2017-02-13 05:26:56 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 05:27:45 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523 | REVERTED
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 05:28:45 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 05:29:23 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523 | REVERTED
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 05:30:07 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 05:32:15 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523 | REVERTED
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 05:32:43 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 06:07:11 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523 | REVERTED
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 06:07:15 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 06:16:53 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523 | REVERTED
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 06:16:59 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 06:17:02 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523 | REVERTED
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-02-13 06:17:35 UTC | SUPEE-9652 | EE_1.14.3.1 | v1 | 4038f0785d828794083f53f10c01aaa6af403523 | Tue Jan 24 15:03:12 2017 +0200 | 9586981e6ca8b255014b242d50b68b88525b0754..4038f0785d828794083f53f10c01aaa6af403523
+patching file `lib/Zend/Mail/Transport/Sendmail.php'
+
+
+2017-06-26 12:36:23 UTC | SUPEE-8788 | EE_1.14.2.2 | v2 | ffc6da0b1557615a510ca69334387b61b36b9cff | Mon Sep 26 10:34:42 2016 +0300 | 483b8e0f2b..ffc6da0b15 | REVERTED
+patching file app/code/core/Enterprise/Catalog/Block/Adminhtml/Redirect/Select/Category/Tree.php
+patching file app/code/core/Enterprise/ImportExport/Model/Scheduled/Operation.php
+patching file app/code/core/Enterprise/Invitation/Block/Adminhtml/Invitation/Grid.php
+patching file app/code/core/Enterprise/Invitation/Block/Adminhtml/Invitation/View.php
+patching file app/code/core/Enterprise/Invitation/controllers/IndexController.php
+patching file app/code/core/Enterprise/PageCache/Model/Processor.php
+patching file app/code/core/Enterprise/Pbridge/Model/Pbridge/Api/Abstract.php
+patching file app/code/core/Enterprise/Pbridge/etc/config.xml
+patching file app/code/core/Enterprise/Pbridge/etc/system.xml
+patching file app/code/core/Enterprise/Pci/Model/Encryption.php
+patching file app/code/core/Mage/Adminhtml/Block/Catalog/Product/Helper/Form/Gallery/Content.php
+patching file app/code/core/Mage/Adminhtml/Block/Cms/Wysiwyg/Images/Content/Uploader.php
+patching file app/code/core/Mage/Adminhtml/Block/Media/Uploader.php
+patching file app/code/core/Mage/Adminhtml/Block/Urlrewrite/Category/Tree.php
+patching file app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Serialized.php
+patching file app/code/core/Mage/Adminhtml/controllers/DashboardController.php
+patching file app/code/core/Mage/Adminhtml/controllers/IndexController.php
+patching file app/code/core/Mage/Adminhtml/controllers/Media/UploaderController.php
+patching file app/code/core/Mage/Catalog/Helper/Image.php
+patching file app/code/core/Mage/Catalog/etc/config.xml
+patching file app/code/core/Mage/Catalog/etc/system.xml
+patching file app/code/core/Mage/Centinel/Model/Api.php
+patching file app/code/core/Mage/Centinel/Model/Api/Client.php
+patching file app/code/core/Mage/Core/Block/Abstract.php
+patching file app/code/core/Mage/Core/Helper/Url.php
+patching file app/code/core/Mage/Core/Model/Encryption.php
+patching file app/code/core/Mage/Core/Model/Input/Filter/MaliciousCode.php
+patching file app/code/core/Mage/Core/functions.php
+patching file app/code/core/Mage/Customer/Block/Address/Book.php
+patching file app/code/core/Mage/Customer/controllers/AddressController.php
+patching file app/code/core/Mage/Dataflow/Model/Profile.php
+patching file app/code/core/Mage/Downloadable/Block/Adminhtml/Catalog/Product/Edit/Tab/Downloadable/Links.php
+patching file app/code/core/Mage/Downloadable/Block/Adminhtml/Catalog/Product/Edit/Tab/Downloadable/Samples.php
+patching file app/code/core/Mage/Downloadable/Helper/File.php
+patching file app/code/core/Mage/Oauth/Model/Server.php
+patching file app/code/core/Mage/Paygate/Model/Authorizenet.php
+patching file app/code/core/Mage/Payment/Block/Info/Checkmo.php
+patching file app/code/core/Mage/Paypal/Model/Express/Checkout.php
+patching file app/code/core/Mage/Paypal/Model/Resource/Payment/Transaction.php
+patching file app/code/core/Mage/Sales/Model/Resource/Order/Payment.php
+patching file app/code/core/Mage/Sales/Model/Resource/Order/Payment/Transaction.php
+patching file app/code/core/Mage/Sales/Model/Resource/Quote/Payment.php
+patching file app/code/core/Mage/Sales/Model/Resource/Recurring/Profile.php
+patching file app/code/core/Mage/Uploader/Block/Abstract.php
+patching file app/code/core/Mage/Uploader/Block/Multiple.php
+patching file app/code/core/Mage/Uploader/Block/Single.php
+patching file app/code/core/Mage/Uploader/Helper/Data.php
+patching file app/code/core/Mage/Uploader/Helper/File.php
+patching file app/code/core/Mage/Uploader/Model/Config/Abstract.php
+patching file app/code/core/Mage/Uploader/Model/Config/Browsebutton.php
+patching file app/code/core/Mage/Uploader/Model/Config/Misc.php
+patching file app/code/core/Mage/Uploader/Model/Config/Uploader.php
+patching file app/code/core/Mage/Uploader/etc/config.xml
+patching file app/code/core/Mage/Uploader/etc/jstranslator.xml
+patching file app/code/core/Mage/Usa/Model/Shipping/Carrier/Dhl.php
+patching file app/code/core/Mage/Usa/Model/Shipping/Carrier/Dhl/International.php
+patching file app/code/core/Mage/Usa/Model/Shipping/Carrier/Fedex.php
+patching file app/code/core/Mage/Usa/Model/Shipping/Carrier/Ups.php
+patching file app/code/core/Mage/Usa/etc/config.xml
+patching file app/code/core/Mage/Usa/etc/system.xml
+patching file app/code/core/Mage/Wishlist/Helper/Data.php
+patching file app/code/core/Mage/Wishlist/controllers/IndexController.php
+patching file app/code/core/Mage/XmlConnect/Block/Adminhtml/Mobile/Edit/Tab/Design.php
+patching file app/code/core/Mage/XmlConnect/Block/Adminhtml/Mobile/Edit/Tab/Design/Images.php
+patching file app/code/core/Mage/XmlConnect/controllers/Adminhtml/MobileController.php
+patching file app/design/adminhtml/default/default/layout/cms.xml
+patching file app/design/adminhtml/default/default/layout/main.xml
+patching file app/design/adminhtml/default/default/layout/xmlconnect.xml
+patching file app/design/adminhtml/default/default/template/catalog/product/helper/gallery.phtml
+patching file app/design/adminhtml/default/default/template/cms/browser/content/uploader.phtml
+patching file app/design/adminhtml/default/default/template/downloadable/product/edit/downloadable.phtml
+patching file app/design/adminhtml/default/default/template/downloadable/product/edit/downloadable/links.phtml
+patching file app/design/adminhtml/default/default/template/downloadable/product/edit/downloadable/samples.phtml
+patching file app/design/adminhtml/default/default/template/enterprise/invitation/view/tab/general.phtml
+patching file app/design/adminhtml/default/default/template/media/uploader.phtml
+patching file app/design/adminhtml/default/default/template/xmlconnect/edit/tab/design.phtml
+patching file app/etc/modules/Mage_All.xml
+patching file app/locale/en_US/Mage_Media.csv
+patching file app/locale/en_US/Mage_Uploader.csv
+patching file downloader/lib/Mage/HTTP/Client/Curl.php
+patching file js/lib/uploader/flow.min.js
+patching file js/lib/uploader/fusty-flow-factory.js
+patching file js/lib/uploader/fusty-flow.js
+patching file js/mage/adminhtml/product.js
+patching file js/mage/adminhtml/uploader/instance.js
+patching file lib/Unserialize/Parser.php
+patching file lib/Unserialize/Reader/Arr.php
+patching file lib/Unserialize/Reader/ArrValue.php
+patching file lib/Unserialize/Reader/Null.php
+patching file skin/adminhtml/default/default/boxes.css
+patching file skin/adminhtml/default/default/media/flex.swf
+patching file skin/adminhtml/default/default/media/uploader.swf
+patching file skin/adminhtml/default/default/media/uploaderSingle.swf
+patching file skin/adminhtml/default/default/xmlconnect/boxes.css
+patching file skin/adminhtml/default/enterprise/boxes.css
+
+
+2017-06-26 12:36:28 UTC | SUPEE-8788 | EE_1.14.2.2 | v2 | ffc6da0b1557615a510ca69334387b61b36b9cff | Mon Sep 26 10:34:42 2016 +0300 | 483b8e0f2b..ffc6da0b15
+patching file app/code/core/Enterprise/Catalog/Block/Adminhtml/Redirect/Select/Category/Tree.php
+patching file app/code/core/Enterprise/ImportExport/Model/Scheduled/Operation.php
+patching file app/code/core/Enterprise/Invitation/Block/Adminhtml/Invitation/Grid.php
+patching file app/code/core/Enterprise/Invitation/Block/Adminhtml/Invitation/View.php
+patching file app/code/core/Enterprise/Invitation/controllers/IndexController.php
+patching file app/code/core/Enterprise/PageCache/Model/Processor.php
+patching file app/code/core/Enterprise/Pbridge/Model/Pbridge/Api/Abstract.php
+patching file app/code/core/Enterprise/Pbridge/etc/config.xml
+patching file app/code/core/Enterprise/Pbridge/etc/system.xml
+patching file app/code/core/Enterprise/Pci/Model/Encryption.php
+patching file app/code/core/Mage/Adminhtml/Block/Catalog/Product/Helper/Form/Gallery/Content.php
+patching file app/code/core/Mage/Adminhtml/Block/Cms/Wysiwyg/Images/Content/Uploader.php
+patching file app/code/core/Mage/Adminhtml/Block/Media/Uploader.php
+patching file app/code/core/Mage/Adminhtml/Block/Urlrewrite/Category/Tree.php
+patching file app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Serialized.php
+patching file app/code/core/Mage/Adminhtml/controllers/DashboardController.php
+patching file app/code/core/Mage/Adminhtml/controllers/IndexController.php
+patching file app/code/core/Mage/Adminhtml/controllers/Media/UploaderController.php
+patching file app/code/core/Mage/Catalog/Helper/Image.php
+patching file app/code/core/Mage/Catalog/etc/config.xml
+patching file app/code/core/Mage/Catalog/etc/system.xml
+patching file app/code/core/Mage/Centinel/Model/Api.php
+patching file app/code/core/Mage/Centinel/Model/Api/Client.php
+patching file app/code/core/Mage/Core/Block/Abstract.php
+patching file app/code/core/Mage/Core/Helper/Url.php
+patching file app/code/core/Mage/Core/Model/Encryption.php
+patching file app/code/core/Mage/Core/Model/Input/Filter/MaliciousCode.php
+patching file app/code/core/Mage/Core/functions.php
+patching file app/code/core/Mage/Customer/Block/Address/Book.php
+patching file app/code/core/Mage/Customer/controllers/AddressController.php
+patching file app/code/core/Mage/Dataflow/Model/Profile.php
+patching file app/code/core/Mage/Downloadable/Block/Adminhtml/Catalog/Product/Edit/Tab/Downloadable/Links.php
+patching file app/code/core/Mage/Downloadable/Block/Adminhtml/Catalog/Product/Edit/Tab/Downloadable/Samples.php
+patching file app/code/core/Mage/Downloadable/Helper/File.php
+patching file app/code/core/Mage/Oauth/Model/Server.php
+patching file app/code/core/Mage/Paygate/Model/Authorizenet.php
+patching file app/code/core/Mage/Payment/Block/Info/Checkmo.php
+patching file app/code/core/Mage/Paypal/Model/Express/Checkout.php
+patching file app/code/core/Mage/Paypal/Model/Resource/Payment/Transaction.php
+patching file app/code/core/Mage/Sales/Model/Resource/Order/Payment.php
+patching file app/code/core/Mage/Sales/Model/Resource/Order/Payment/Transaction.php
+patching file app/code/core/Mage/Sales/Model/Resource/Quote/Payment.php
+patching file app/code/core/Mage/Sales/Model/Resource/Recurring/Profile.php
+patching file app/code/core/Mage/Uploader/Block/Abstract.php
+patching file app/code/core/Mage/Uploader/Block/Multiple.php
+patching file app/code/core/Mage/Uploader/Block/Single.php
+patching file app/code/core/Mage/Uploader/Helper/Data.php
+patching file app/code/core/Mage/Uploader/Helper/File.php
+patching file app/code/core/Mage/Uploader/Model/Config/Abstract.php
+patching file app/code/core/Mage/Uploader/Model/Config/Browsebutton.php
+patching file app/code/core/Mage/Uploader/Model/Config/Misc.php
+patching file app/code/core/Mage/Uploader/Model/Config/Uploader.php
+patching file app/code/core/Mage/Uploader/etc/config.xml
+patching file app/code/core/Mage/Uploader/etc/jstranslator.xml
+patching file app/code/core/Mage/Usa/Model/Shipping/Carrier/Dhl.php
+patching file app/code/core/Mage/Usa/Model/Shipping/Carrier/Dhl/International.php
+patching file app/code/core/Mage/Usa/Model/Shipping/Carrier/Fedex.php
+patching file app/code/core/Mage/Usa/Model/Shipping/Carrier/Ups.php
+patching file app/code/core/Mage/Usa/etc/config.xml
+patching file app/code/core/Mage/Usa/etc/system.xml
+patching file app/code/core/Mage/Wishlist/Helper/Data.php
+patching file app/code/core/Mage/Wishlist/controllers/IndexController.php
+patching file app/code/core/Mage/XmlConnect/Block/Adminhtml/Mobile/Edit/Tab/Design.php
+patching file app/code/core/Mage/XmlConnect/Block/Adminhtml/Mobile/Edit/Tab/Design/Images.php
+patching file app/code/core/Mage/XmlConnect/controllers/Adminhtml/MobileController.php
+patching file app/design/adminhtml/default/default/layout/cms.xml
+patching file app/design/adminhtml/default/default/layout/main.xml
+patching file app/design/adminhtml/default/default/layout/xmlconnect.xml
+patching file app/design/adminhtml/default/default/template/catalog/product/helper/gallery.phtml
+patching file app/design/adminhtml/default/default/template/cms/browser/content/uploader.phtml
+patching file app/design/adminhtml/default/default/template/downloadable/product/edit/downloadable.phtml
+patching file app/design/adminhtml/default/default/template/downloadable/product/edit/downloadable/links.phtml
+patching file app/design/adminhtml/default/default/template/downloadable/product/edit/downloadable/samples.phtml
+patching file app/design/adminhtml/default/default/template/enterprise/invitation/view/tab/general.phtml
+patching file app/design/adminhtml/default/default/template/media/uploader.phtml
+patching file app/design/adminhtml/default/default/template/xmlconnect/edit/tab/design.phtml
+patching file app/etc/modules/Mage_All.xml
+patching file app/locale/en_US/Mage_Media.csv
+patching file app/locale/en_US/Mage_Uploader.csv
+patching file downloader/lib/Mage/HTTP/Client/Curl.php
+patching file js/lib/uploader/flow.min.js
+patching file js/lib/uploader/fusty-flow-factory.js
+patching file js/lib/uploader/fusty-flow.js
+patching file js/mage/adminhtml/product.js
+patching file js/mage/adminhtml/uploader/instance.js
+patching file lib/Unserialize/Parser.php
+patching file lib/Unserialize/Reader/Arr.php
+patching file lib/Unserialize/Reader/ArrValue.php
+patching file lib/Unserialize/Reader/Null.php
+patching file skin/adminhtml/default/default/boxes.css
+patching file skin/adminhtml/default/default/media/flex.swf
+patching file skin/adminhtml/default/default/media/uploader.swf
+patching file skin/adminhtml/default/default/media/uploaderSingle.swf
+patching file skin/adminhtml/default/default/xmlconnect/boxes.css
+patching file skin/adminhtml/default/enterprise/boxes.css
+
+
