@@ -153,7 +153,7 @@
 
                                                             <?php foreach ($calculationTierPriceQty as $_qty): ?>
 
-                                                                <?php $tierPrice = $this->getTierPrices($_product, $_qty, $totalBundlePrice); ?>
+                                                                <?php $tierPrice = $this->getTierPricesB2B($_product, $_qty, $totalBundlePrice); ?>
                                                                 <div class="table-column price-cell">
                                                                     <div><?php echo '$' . $tierPrice ?></div>
                                                                 </div>
@@ -376,7 +376,7 @@
 
                                                         <?php foreach ($calculationTierPriceQty as $_qty): ?>
 
-                                                            <?php $tierPrice = $this->getTierPrices($_product, $_qty, $totalBundlePrice); ?>
+                                                            <?php $tierPrice = $this->getTierPricesB2B($_product, $_qty, $totalBundlePrice); ?>
                                                             <div class="table-column price-cell">
                                                                 <div><?php echo '$' . $tierPrice ?></div>
                                                             </div>
