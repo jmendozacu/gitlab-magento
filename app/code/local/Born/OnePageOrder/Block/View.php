@@ -310,7 +310,7 @@ class Born_OnePageOrder_Block_View extends Mage_Catalog_Block_Product_View_Abstr
     }
     
 
-    public function getTierPrices($product, $qty = null, $totalBundlePrice = null)
+    public function getTierPricesB2B($product, $qty = null, $totalBundlePrice = null)
     {
         if (is_null($product) || is_null($qty)) {
             return;
