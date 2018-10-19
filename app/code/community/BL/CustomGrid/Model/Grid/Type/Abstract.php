@@ -243,11 +243,11 @@ abstract class BL_CustomGrid_Model_Grid_Type_Abstract extends Varien_Object
     {
         return array(
             'csv' => array(
-                'url'   => 'adminhtml/blcg_custom_grid/exportCsv',
+                'url'   => 'customgrid/custom_grid/exportCsv',
                 'label' => Mage::helper('customgrid')->__('CSV'),
             ),
             'xml' => array(
-                'url'   => 'adminhtml/blcg_custom_grid/exportExcel', 
+                'url'   => 'customgrid/custom_grid/exportExcel', 
                 'label' => Mage::helper('customgrid')->__('Excel'),
             ),
         );
@@ -292,7 +292,7 @@ abstract class BL_CustomGrid_Model_Grid_Type_Abstract extends Varien_Object
     */
     public function isExportRequest($request, $gridType)
     {
-        $action = $request->getRouteName()
+        $action = $request->getModuleName()
             . '/' . $request->getControllerName()
             . '/' . $request->getActionName();
             
@@ -444,7 +444,7 @@ abstract class BL_CustomGrid_Model_Grid_Type_Abstract extends Varien_Object
     {
         return $this->_getFieldUrl(
             $type, $id, $config,
-            'adminhtml/blcg_custom_grid_editor/edit' . ($config['in_grid'] ? 'InGrid' : '')
+            'customgrid/custom_grid_editor/edit' . ($config['in_grid'] ? 'InGrid' : '')
         );
     }
     
@@ -460,7 +460,7 @@ abstract class BL_CustomGrid_Model_Grid_Type_Abstract extends Varien_Object
     {
         return $this->_getFieldUrl(
             $type, $id, $config,
-            'adminhtml/blcg_custom_grid_editor/save'
+            'customgrid/custom_grid_editor/save'
         );
     }
     
@@ -499,7 +499,7 @@ abstract class BL_CustomGrid_Model_Grid_Type_Abstract extends Varien_Object
     {
         return $this->_getAttributeUrl(
             $type, $code, $attribute, $config,
-            'adminhtml/blcg_custom_grid_editor/edit' . ($config['in_grid'] ? 'InGrid' : '')
+            'customgrid/custom_grid_editor/edit' . ($config['in_grid'] ? 'InGrid' : '')
         );
     }
     
@@ -516,7 +516,7 @@ abstract class BL_CustomGrid_Model_Grid_Type_Abstract extends Varien_Object
     {
         return $this->_getAttributeUrl(
             $type, $code, $attribute, $config,
-            'adminhtml/blcg_custom_grid_editor/save'
+            'customgrid/custom_grid_editor/save'
         );
     }
     

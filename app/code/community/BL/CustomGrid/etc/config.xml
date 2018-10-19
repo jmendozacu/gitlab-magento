@@ -17,7 +17,7 @@
 <config>
     <modules>
         <BL_CustomGrid>
-            <version>0.9.2.1</version>
+            <version>0.9.0</version>
         </BL_CustomGrid>
     </modules>
     <global>
@@ -63,13 +63,13 @@
     </global>
     <admin>
         <routers>
-            <adminhtml>
+            <customgrid>
+                <use>admin</use>
                 <args>
-                    <modules>
-                        <customgrid after="Mage_Adminhtml">BL_CustomGrid</customgrid>
-                    </modules>
+                    <module>BL_CustomGrid</module>
+                    <frontName>customgrid</frontName>
                 </args>
-            </adminhtml>
+            </customgrid>
         </routers>
     </admin>
     <adminhtml>
