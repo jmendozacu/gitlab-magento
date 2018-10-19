@@ -68,7 +68,11 @@ class GetTaxRequest
 
     public function __construct()
 	{
-	
+        $customer = (Mage::app()->getStore()->isAdmin()) ? Mage::getSingleton('adminhtml/session_quote')->getCustomer(): Mage::getSingleton('customer/session')->getCustomer();
+        $customerTaxExemptNumber = ($customer) ? (string)$customer->getTaxExemptNumber(): '';
+            if(isset($customerTaxExemptNumber)&&!empty($customerTaxExemptNumber)){
+                $this->ExemptionNo = $customerTaxExemptNumber;
+            }
 		$this->DocDate = date("Y-m-d");
 		$this->Commit=false;
 		$this->BRBuyer_IsExempt_COFINS=false;	//Changed for 15.6.0.0
@@ -86,7 +90,7 @@ class GetTaxRequest
 		$this->DocCode = date("Y-m-d-H-i-s.u");
 		$this->CustomerCode='CustomerCodeString';
 		$this->Lines=array(new Line());
-				
+
 		$this->ServiceMode=ServiceMode::$Automatic;
 		$this->ExchangeRate=1.0;	
 
