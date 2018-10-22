@@ -42,23 +42,25 @@ class Astral_Integrations_Helper_ProductDecorator extends Mage_Core_Helper_Abstr
 
             if ($product->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
                 $childIds = Mage::getResourceSingleton('catalog/product_type_configurable')->getChildrenIds($product->getId());
-                $childProductCollection = Mage::getModel('catalog/product')
-                    ->getCollection()
-                    ->addIdFilter ($childIds)
-                    ->addAttributeToSelect('price');
+                if (!Mage::helper('astral_integrations_helper')->recursiveIsEmpty($childIds)) {
+                    $childProductCollection = Mage::getModel('catalog/product')
+                        ->getCollection()
+                        ->addIdFilter ($childIds)
+                        ->addAttributeToSelect('price');
 
-                foreach($childProductCollection as $childProduct) {
-                    $simplePrice = number_format($childProduct->getData('price'), 2);
-                    if ($simplePrice < $value) {
-                        $value = $simplePrice;
+                    foreach($childProductCollection as $childProduct) {
+                        $simplePrice = number_format($childProduct->getData('price'), 2);
+                        if ($simplePrice < $value) {
+                            $value = $simplePrice;
+                        }
+                        $id[] = $childProduct->getData('sku');
+                        //Get each child product
+                        $content[] = [
+                            'id' => $childProduct->getData('sku'),
+                            'item_price' => $simplePrice,
+                            'quantity' => $quantity
+                        ];
                     }
-                    $id[] = $childProduct->getData('sku');
-                    //Get each child product
-                    $content[] = [
-                        'id' => $childProduct->getData('sku'),
-                        'item_price' => $simplePrice,
-                        'quantity' => $quantity
-                    ];
                 }
             } else if($product->getTypeId() == 
                 Mage_Catalog_Model_Product_Type::TYPE_BUNDLE) {
@@ -88,7 +90,5 @@ class Astral_Integrations_Helper_ProductDecorator extends Mage_Core_Helper_Abstr
 
         return $pixelViewContentEvent;
     }
-
-
 
 }
