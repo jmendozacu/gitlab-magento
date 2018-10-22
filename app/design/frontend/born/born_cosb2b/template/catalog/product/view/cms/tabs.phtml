@@ -1,3 +1,4 @@
+
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
 
@@ -44,7 +45,7 @@
 
             <!-- Study Results -->
             <?php $_studyResultsCollection = $this->getStudyResultsCollection() ?>
-            <?php if ($_studyResultsCollection->count()): ?>
+            <?php if (isset($_studyResultsCollection) && $_studyResultsCollection->count()): ?>
                 <div class="study-results">
                     <div class="study-results-outer" style="color:#<?php echo $this->getCmsStudyResultsColor(); ?>">
                         <div class="study-results-inner">
@@ -73,6 +74,7 @@
                     <div class="visual-results-inner">
                         <?php $index = 0; ?>
                         <?php $_visualResults = $this->getVisualResultsArray(); ?>
+                        <?php if(isset($_visualResults) && !empty($_visualResults)): ?>
                         <?php foreach ($_visualResults as $_result): ?>
                             <div class="visual-result-block index-<?php echo $index++?>">
                                 <?php if($_product->getData($_result['image']) && $_product->getData($_result['image']) != 'no_selection') : ?>
@@ -83,9 +85,11 @@
                                 <?php endif ?>
                             </div>
                         <?php endforeach ?>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
+            
         </div>
     <?php endif ?>
 
@@ -95,7 +99,10 @@
 
         <div class="application-container">
             <?php $index = 1; ?>
-            <?php $maxApplicationBlocks = $this->getMaxApplicationBlocks() ?>
+            <?php
+            $maxApplicationBlocks = $this->getMaxApplicationBlocks();
+            $maxApplicationBlocks = 2;
+            ?>
             <?php while($index <= $maxApplicationBlocks): ?>
                 <?php $_applicationColors = $this->getApplicationColors($index) ?>
                 <div class="application index-<?php echo $index?>" style="color:#<?php echo $_applicationColors['background_color']?>">
