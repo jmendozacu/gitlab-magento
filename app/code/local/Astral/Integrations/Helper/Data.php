@@ -55,4 +55,20 @@ class Astral_Integrations_Helper_Data extends Mage_Core_Helper_Abstract {
         return Mage::getStoreConfig('astral_integrations_admin/steelhouse/steelhouse_id', Mage::app()->getStore());
     }
 
+    public function recursiveIsEmpty($array) {
+        $isEmpty = true;
+        if (is_array($array) && count($array) > 0) {
+            foreach ($array as $subarray) {
+                if ($isEmpty) {
+                    $isEmpty = $isEmpty && $this->recursiveIsEmpty($subarray);
+                } else {
+                    break;
+                }
+            }
+        } else {
+            $isEmpty = empty($array);
+        }
+        return $isEmpty;
+    }
+
 }
