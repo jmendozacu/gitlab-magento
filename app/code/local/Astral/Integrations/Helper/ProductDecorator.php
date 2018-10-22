@@ -42,7 +42,7 @@ class Astral_Integrations_Helper_ProductDecorator extends Mage_Core_Helper_Abstr
 
             if ($product->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
                 $childIds = Mage::getResourceSingleton('catalog/product_type_configurable')->getChildrenIds($product->getId());
-                if (Mage::helper('astral_integrations_helper')->recursiveIsEmpty($childIds)) {
+                if (!Mage::helper('astral_integrations_helper')->recursiveIsEmpty($childIds)) {
                     $childProductCollection = Mage::getModel('catalog/product')
                         ->getCollection()
                         ->addIdFilter ($childIds)
