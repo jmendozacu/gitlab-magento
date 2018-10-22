@@ -1,38 +1,3 @@
-<!-- born/success -->
-<div class="page-title">
-    <h1><?php echo $this->__('Your order has been received.') ?></h1>
-</div>
-<?php echo $this->getMessagesBlock()->toHtml() ?>
-<h2 class="sub-title"><?php echo $this->__('Thank you for your purchase!') ?></h2>
-<?php if ($this->getOrderId()):?>
-<?php if ($this->getCanViewOrder()) :?>
-    <p><?php echo $this->__('Your order # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?></p>
-<?php  else :?>
-    <p><?php echo $this->__('Your order # is: %s.', $this->escapeHtml($this->getOrderId())) ?></p>
-<?php endif;?>
-    <p><?php echo $this->__('You will receive an order confirmation email with details of your order and a link to track its progress.') ?></p>
-<?php if ($this->getCanViewOrder() && $this->getCanPrintOrder()) :?>
-    <p>
-        <?php echo $this->__('Click <a href="%s" onclick="this.target=\'_blank\'">here to print</a> a copy of your order confirmation.', $this->getPrintUrl()) ?>
-        <?php echo $this->getChildHtml() ?>
-    </p>
-<?php endif;?>
-<?php endif;?>
-<?php if ($this->getAgreementRefId()): ?>
-    <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
-<?php endif;?>
-<?php if ($profiles = $this->getRecurringProfiles()):?>
-<p><?php echo $this->__('Your recurring payment profiles:'); ?></p>
-<ul class="disc">
-<?php foreach($profiles as $profile):?>
-<?php $profileIdHtml = ($this->getCanViewProfiles() ? sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getProfileUrl($profile)), $this->escapeHtml($this->getObjectData($profile, 'reference_id'))) : $this->escapeHtml($this->getObjectData($profile, 'reference_id')));?>
-    <li><?php echo $this->__('Payment profile # %s: "%s".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description')))?></li>
-<?php endforeach;?>
-</ul>
-<?php endif;?>
-<div class="buttons-set">
-    <button type="button" class="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Continue Shopping')) ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
-</div>
 <?php 
 /*********************************
 ****Common Order Object For tracking
@@ -42,7 +7,45 @@ $orderId = $this->getOrderId();
 $ip = $_SERVER['REMOTE_ADDR'];
 $amount = number_format($order->subtotal,2);
 $storeId = Mage::app()->getStore()->getId();
+$mavId = '';
+$applied_total = '';
 ?>
+
+<!-- born/success -->
+<div class="page-title">
+    <h1><?php echo $this->__('Thank you for your purchase!') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<?php if ($this->getOrderId()):?>
+    <p style="font-family:'Gotham A','Gotham B',sans-serif;"><?php echo $this->__('Your order # is <span style="font-weight:500;"">%s</span>.', $this->escapeHtml($this->getOrderId())) ?></p>
+    <p style="font-family:'Gotham A','Gotham B',sans-serif;"><?php echo $this->__('You will recieve an order confirmation email shortly!') ?></p>
+<?php endif;?>
+<?php if ($this->getAgreementRefId()): ?>
+    <p style="font-family:'Gotham A','Gotham B',sans-serif;"><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
+<?php endif;?>
+<?php if ($profiles = $this->getRecurringProfiles()):?>
+<p style="font-family:'Gotham A','Gotham B',sans-serif;"><?php echo $this->__('Your recurring payment profiles:'); ?></p>
+<ul class="disc">
+<?php foreach($profiles as $profile):?>
+<?php $profileIdHtml = ($this->getCanViewProfiles() ? sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getProfileUrl($profile)), $this->escapeHtml($this->getObjectData($profile, 'reference_id'))) : $this->escapeHtml($this->getObjectData($profile, 'reference_id')));?>
+    <li><?php echo $this->__('Payment profile # %s: "%s".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description')))?></li>
+<?php endforeach;?>
+</ul>
+<?php endif;?>
+<?php if (Mage::getStoreConfig('born_affiliate/cj_tracking/enable', $storeId)): ?>
+    <style type="text/css">
+        #mavrck-points-for-purchase {
+            height: 500px;
+        }
+        @media screen and (min-width: 756px) {
+            #mavrck-points-for-purchase {
+                height: 425px;
+            }
+        }
+    </style>
+
+    <div id="mavrck-points-for-purchase" style="margin:0 auto;max-width:800px;min-width:350px;width:100%;"></div>
+<?php endif; ?>
 <!-- Comission Junction Tracking Code -->
 <?php
 
@@ -89,9 +92,6 @@ if (Mage::getStoreConfig('born_affiliate/cj_tracking/enable', $storeId)):
     $cjParams .= ($discount)?'&DISCOUNT='.round($discount,2):'';
     $cjParams .= ($couponCode)?'&COUPON='.$couponCode:'';
     ?>
-
-    <iframe height="1" width="1" frameborder="0" scrolling="no" src="https://www.emjcd.com/tags/c?containerTagId=<?php echo $container_id; ?>&CID=<?php echo $merchant_id; ?>&OID=<?php echo $this->getOrderId(); ?>&TYPE=<?php echo $merchant_type; ?><?php echo $cjParams ?>&CURRENCY=<?php echo $currency; ?>" name="cj_conversion"></iframe>
-
 <?php endif; ?>
 <!-- End Comission Junction Tracking Code -->
 
@@ -163,32 +163,54 @@ jQuery( document ).ready(function() {
 
     // Prodloop }
     
-    }elseif($url === 'www.purcosmetics.com' || $url === 'purcosmetics.com'|| $url === 'development.purcosmetics.com'|| $url === 'uat.purcosmetics.com'|| $url === 'staging.purcosmetics.com'){
-    $mavId = '48AC2B392DC345288E4BCBE478FF95BC';
+    } elseif($url === 'www.purcosmetics.com' || $url === 'purcosmetics.com'|| $url === 'development.purcosmetics.com'|| $url === 'uat.purcosmetics.com'|| $url === 'staging.purcosmetics.com'){
+        $mavId = '48AC2B392DC345288E4BCBE478FF95BC';
     }
-    
 
 ?>
-<!-- Mavrck Conversion trigger -->
-<script>  
-mvk('fireConversion', '<?php echo $mavId; ?>', '<?php echo $applied_total ?>','0.0','');
-</script>
-<!-- /Mavrck Conversion trigger -->
-<!-- Criteo Conversion trigger -->
-<script type="text/javascript"> 
-var items = JSON.parse('<?php echo $itemsListEnc; ?>');
-window.criteo_q = window.criteo_q || []; 
-window.criteo_q.push(         
-{ event: "setAccount", account: criteoAccountId },         
-{ event: "setSiteType", type: "d" },             
-{ event: "trackTransaction", id: "<?php echo $this->escapeHtml($this->getOrderId()); ?>", item: items});
-</script>
-<!-- /Criteo Conversion trigger -->
-<!-- /Facebook Conversion trigger -->
-<script>
-fbq('track', 'Purchase', {value: <?php echo $applied_total; ?>, currency:'USD'});
-</script>
-<!-- /Facebook Conversion trigger -->
+
+
+
+<?php 
+if (Mage::getStoreConfig('born_affiliate/cj_tracking/enable', $storeId)):
+
+    $appliedRules = array();
+
+    if (strlen($order->getAppliedRuleIds()) > 0) {
+        foreach(explode(",",$order->getAppliedRuleIds()) as $ruleId){       
+            $rule = Mage::getModel('salesrule/rule')->load($ruleId);
+            $couponCode = $rule->getCouponCode(); 
+            if (isset($couponCode) && !empty($couponCode) && $couponCode != 'null') {
+                array_push($appliedRules, $rule->getCouponCode());
+            }
+        }
+    }
+    $couponCodes = json_encode($appliedRules);
+    ?>
+
+    <!-- Mavrck Conversion trigger -->
+    <script>  
+        mvk('fireConversion', '<?php echo $mavId; ?>', '<?php echo $applied_total ?>','0.0','', '<?php echo $order->getIncrementId(); ?>', '<?php echo $couponCodes; ?>');
+    </script>
+
+
+    <!-- /Mavrck Conversion trigger -->
+    <!-- Criteo Conversion trigger -->
+    <script type="text/javascript"> 
+    var items = JSON.parse('<?php echo $itemsListEnc; ?>');
+    window.criteo_q = window.criteo_q || []; 
+    window.criteo_q.push(         
+    { event: "setAccount", account: criteoAccountId },         
+    { event: "setSiteType", type: "d" },             
+    { event: "trackTransaction", id: "<?php echo $this->escapeHtml($this->getOrderId()); ?>", item: items});
+    </script>
+    <!-- /Criteo Conversion trigger -->
+    <!-- /Facebook Conversion trigger -->
+    <script>
+    fbq('track', 'Purchase', {value: <?php echo $applied_total; ?>, currency:'USD'});
+    </script>
+    <!-- /Facebook Conversion trigger -->
+<?php endif; ?>
 <!-- GA EC Conversion trigger -->
 <?php
     if($storeId == 1){
