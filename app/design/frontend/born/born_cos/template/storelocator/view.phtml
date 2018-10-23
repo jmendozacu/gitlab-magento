@@ -1,5 +1,8 @@
-<div class="storelocator">
+<?php
 
+$apiKey = Mage::getStoreConfig('storelocator/storelocator/google_api_key');?>
+<div class="storelocator">
+<?php if (isset($apiKey) && !empty($apiKey)): ?>
 
     <div class="map-container">
         <div class="mobile-search-result">
@@ -11,7 +14,6 @@
 
         </div>
         <div id="map-canvas" style="height: 100%; margin: 0px; padding: 0px;">
-
         </div>
     </div>
 
@@ -57,7 +59,11 @@
                 </div>
 
             </form>
-
-    <div class="stores wrapper"></div>
-    <?php echo $this->getChildHtml('spa_of_the_month_block') ?>
+<?php endif;?>
+    <div class="stores wrapper">
+        <?php if (Mage::getModel('cms/block')->load('spa_of_the_month')->getIsActive()) {
+                echo $this->getChildHtml('spa_of_the_month');
+            } ?>
+    </div>
 </div>
+

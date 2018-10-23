@@ -11,7 +11,7 @@ SkuLookup.prototype = {
     addProductToCart: function(productSku, qty, e) {
         var scope = this;
         var button = e.target || e.srcElement || {};
-        var hostName = window.location.hostName;
+        var hostname = window.location.hostname;
         if (qty < 1) {
             alert('Invalid Qty');
             return;
@@ -22,9 +22,9 @@ SkuLookup.prototype = {
             if (success.status==200) {
                 var productId = success.data.product_id;
                 var formkey = success.data.form_key;
-                if (hostName.includes('purcosmetics')) {
+                if (hostname.includes('purcosmetics')) {
                     scope.wpAddToCart(productId, qty, formkey, button);
-                } else if (hostName.includes('cosmedix')) {
+                } else if (hostname.includes('cosmedix')) {
                     scope.cosAddToCart(productId, qty, button);
                 }
             } else {
