@@ -8,8 +8,6 @@ define([
 
   'use strict';
 
-  var apiKey = 'AIzaSyCyygoRWU-jR1R9H7EpLwMhf6ApX1ZU1Qk';
-
   var StorelocatorView = Backbone.View.extend({
     initialize: function () {
 
@@ -123,8 +121,8 @@ define([
         if (previousMarkerIndex != undefined) {
           markerArr[previousMarkerIndex].infoBox.close();
           //$('.icon-map_pin_' + (previousMarkerIndex + 1)).removeClass('icon-map_pin_' + (previousMarkerIndex + 1) + '_filled');
-          var srcNotFilled = '/skin/frontend/rwd/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '.svg';
-          var srcFilled = '/skin/frontend/rwd/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '_filled.svg';
+          var srcNotFilled = '/skin/frontend/born/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '.svg';
+          var srcFilled = '/skin/frontend/born/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '_filled.svg';
           $('img[src="' + srcFilled + '"]').attr('src', srcNotFilled);
           $('.store-list-store').removeClass('dark');
         }
@@ -163,7 +161,7 @@ define([
             icon: ' ',
             map: map,
             //labelContent: '<span class="icon-map_pin_' + (i + 1) + '"></span>',
-            labelContent: '<img class="map-pins" src="/skin/frontend/rwd/born/images/map_pins/map_pin_' + (i + 1) + '.svg' + '"/>',
+            labelContent: '<img class="map-pins" src="/skin/frontend/born/born/images/map_pins/map_pin_' + (i + 1) + '.svg' + '"/>',
             labelAnchor: new google.maps.Point(20, 30),
             labelClass: "marker-label"
           });
@@ -184,8 +182,8 @@ define([
               toggleSpin();
               previousMarkerIndex = i;
               //$('.icon-map_pin_' + (i + 1)).addClass('icon-map_pin_' + (i + 1) + '_filled');
-              var srcNotFilled = '/skin/frontend/rwd/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '.svg';
-              var srcFilled = '/skin/frontend/rwd/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '_filled.svg';
+              var srcNotFilled = '/skin/frontend/born/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '.svg';
+              var srcFilled = '/skin/frontend/born/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '_filled.svg';
               $('img[src="' + srcNotFilled + '"]').attr('src', srcFilled);
               markerArr[i].infoBox.open(map, this);
               $($('.store-list-store')[i]).addClass('dark');
@@ -200,8 +198,8 @@ define([
       map.addListener('bounds_changed', function () {
         if (previousMarkerIndex != undefined) {
           //$('.icon-map_pin_' + (previousMarkerIndex + 1)).addClass('icon-map_pin_' + (previousMarkerIndex + 1) + '_filled');
-          var srcNotFilled = '/skin/frontend/rwd/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '.svg';
-          var srcFilled = '/skin/frontend/rwd/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '_filled.svg';
+          var srcNotFilled = '/skin/frontend/born/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '.svg';
+          var srcFilled = '/skin/frontend/born/born/images/map_pins/map_pin_' + (previousMarkerIndex + 1) + '_filled.svg';
           $('img[src="' + srcNotFilled + '"]').attr('src', srcFilled);
         }
       });
