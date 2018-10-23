@@ -8,8 +8,6 @@ define([
 
   'use strict';
 
-  var apiKey = 'AIzaSyCyygoRWU-jR1R9H7EpLwMhf6ApX1ZU1Qk';
-
   var StorelocatorView = Backbone.View.extend({
     initialize: function () {
 
@@ -40,6 +38,9 @@ define([
         event.preventDefault();
 
         $('.storelocator').addClass('show-map');
+        if (window.innerWidth <= 768) {
+          $('.storelocator').addClass('map-view');
+        }
 
         var parsedParams = $(this).serializeArray();
 
@@ -99,6 +100,17 @@ define([
       $('.link-edit-search').on('click', function () {
         $('.storelocator').removeClass('show-map');
         $('.mobile-search-result h2').remove();
+      });
+
+      $('.btn-map').on('click', function (e) {
+        e.preventDefault();
+        $('.storelocator').addClass('map-view');
+        $(this).addClass('current').siblings().removeClass('current');
+      });
+      $('.btn-stores-list').on('click', function (e) {
+        e.preventDefault();
+        $('.storelocator').removeClass('map-view');
+        $(this).addClass('current').siblings().removeClass('current');
       });
 
       var markerArr = [],
@@ -194,11 +206,11 @@ define([
 
       function includeSearchTitle(model) {
         var totalHtml = '' +
-          '<h2 class="searchTitle">{{storesLength}} Results for '+
+          '<h2 class="searchTitle">{{storesLength}} Results for ' +
           'Zip Code “{{postal_code.value}}”, Distance “{{distance.value}}”</h2>';
         var compiletotalHtml = _.template(totalHtml);
 
-        if (window.innerWidth < 768) {
+        if (window.innerWidth <= 768) {
           $('.mobile-search-result').prepend(compiletotalHtml(model));
         } else {
           $('.stores').prepend(compiletotalHtml(model));
@@ -208,10 +220,10 @@ define([
       function includeStores(stores) {
         var $list = $('<div class="store-list">').appendTo('.stores');
 
-        // todo: complete bind vars to template
         var htmlBlock = '' +
-          '<div class="store-list-store">' +
+          '<div class="store-list-store" data-is-elite="{{store.is_elite}}">' +
             '<div class="store-list-inner">' +
+              '<div class="store-list-elite"></div>' +
               '<div class="store-list-step">{{index}}</div>' +
               '<div class="store-list-title">{{store.company}}</div>' +
               '<div class="store-list-text">{{store.street}}</div>' +
@@ -234,7 +246,13 @@ define([
               $('.icon-map_pin_' + (i + 1)).addClass('icon-map_pin_' + (i + 1) + '_filled');
               $(this).parent().parent().addClass('dark');
               map.panTo({lat: +stores[i].lat, lng: +stores[i].lng - (8 / (1.5 * map.getZoom()))});
-              $('html, body').animate({scrollTop: 0});
+              if (window.innerWidth <= 768) {
+                $('html, body').animate({scrollTop: 200});
+                $('.storelocator').addClass('map-view');
+                $('.btn-map').addClass('current').siblings().removeClass('current');
+              } else {
+                $('html, body').animate({scrollTop: 0});
+              }
             });
           })(i);
         }
