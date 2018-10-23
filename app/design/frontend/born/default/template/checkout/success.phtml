@@ -92,8 +92,6 @@ if (Mage::getStoreConfig('born_affiliate/cj_tracking/enable', $storeId)):
     $cjParams .= ($couponCode)?'&COUPON='.$couponCode:'';
     ?>
 
-    <iframe height="1" width="1" frameborder="0" scrolling="no" src="https://www.emjcd.com/tags/c?containerTagId=<?php echo $container_id; ?>&CID=<?php echo $merchant_id; ?>&OID=<?php echo $this->getOrderId(); ?>&TYPE=<?php echo $merchant_type; ?><?php echo $cjParams ?>&CURRENCY=<?php echo $currency; ?>" name="cj_conversion"></iframe>
-
 <?php endif; ?>
 <!-- End Comission Junction Tracking Code -->
 

@@ -62,6 +62,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
         $event = array();
         if (isset($order) && !empty($order)) {
 
+            $event['OID'] = $order->getIncrementId();
             $event['CID'] = $cJid;
             $event['containerTagId'] = $containerId;
             $event['TYPE'] = $merchantType;
