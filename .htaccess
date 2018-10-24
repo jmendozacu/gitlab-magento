@@ -23,6 +23,8 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
     Options +FollowSymLinks
     RewriteEngine on
+	RewriteRule ^(api.php/) - [L,R=403]
+	RewriteRule ^(install.php/) - [L,R=403]
 	RewriteRule ^(index.php/)?admin/ - [L,R=403]
 	RewriteRule ^(index.php/)?v2_soap/ - [L,R=403]	
 	RewriteCond %{REQUEST_URI} ^/media/css/.*\.css$ [OR]
