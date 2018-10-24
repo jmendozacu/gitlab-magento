@@ -1,13 +1,7 @@
 RedirectMatch 404 /\.git
 FileETag none
-SetEnvIf Host development.purcosmetics.com MAGE_RUN_CODE=pur_store
-SetEnvIf Host uat.purcosmetics.com MAGE_RUN_CODE=pur_store
-SetEnvIf Host staging.purcosmetics.com MAGE_RUN_CODE=pur_store
 SetEnvIf Host www.purcosmetics.com MAGE_RUN_CODE=pur_store
 SetEnvIf Host purcosmetics.com MAGE_RUN_CODE=pur_store
-SetEnvIf Host development.cosmedix.com MAGE_RUN_CODE=cosb2c_store
-SetEnvIf Host uat.cosmedix.com MAGE_RUN_CODE=cosb2c_store
-SetEnvIf Host staging.cosmedix.com MAGE_RUN_CODE=cosb2c_store
 SetEnvIf Host www.cosmedix.com MAGE_RUN_CODE=cosb2c_store
 SetEnvIf Host cosmedix.com MAGE_RUN_CODE=cosb2c_store
 DirectoryIndex index.php
@@ -29,6 +23,8 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
     Options +FollowSymLinks
     RewriteEngine on
+	RewriteRule ^(index.php/)?admin/ - [L,R=403]
+	RewriteRule ^(index.php/)?v2_soap/ - [L,R=403]	
 	RewriteCond %{REQUEST_URI} ^/media/css/.*\.css$ [OR]
 	RewriteCond %{REQUEST_URI} ^/media/js/.*\.js$	
 	RewriteRule (.*)\.(\d{10})\.(gif|png|jpg)$ $1.$3 [L,NC]
