@@ -41,7 +41,7 @@ class Astral_Optionswatch_Block_Catalog_Product_View_Swatch extends Astral_Optio
         $data = array();
         $swatches = Mage::getModel('optionswatch/swatch')->getCollection()
             ->addFieldToFilter('product_sku', array('in'=> $sku))
-            ->setOrder('sort_order');
+            ->setOrder('sort_order','ASC');
         foreach($swatches AS $swatch){
             $item = array();
             $swatch_array = $swatch->getData();
