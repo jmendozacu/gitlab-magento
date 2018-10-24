@@ -6,7 +6,7 @@ SetEnvIf Host www.cosmedix.com MAGE_RUN_CODE=cosb2c_store
 SetEnvIf Host cosmedix.com MAGE_RUN_CODE=cosb2c_store
 DirectoryIndex index.php
 <IfModule mod_php5.c>
-    php_value memory_limit 512M
+    php_value memory_limit 256M
     php_value max_execution_time 18000
     php_flag magic_quotes_gpc off
     php_flag session.auto_start off
