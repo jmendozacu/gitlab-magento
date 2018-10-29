@@ -7,7 +7,7 @@ class Astral_Optionswatch_Block_Catalog_Product_View_Swatch extends Astral_Optio
         foreach($simpleProducts as $_product) {
             $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product);
             $si = $stockItem->getData();
-            if($si['qty'] >= 1){
+            if($si['qty'] > 5){
                 $ids[] = $_product->getId();
             }
         }
