@@ -211,13 +211,9 @@
 <?php if ($this->getOrderIds()) : ?>
 	<?php $collection = Mage::getResourceModel('sales/order_collection')->addFieldToFilter('entity_id', array('in' => $this->getOrderIds())); ?>
 	<?php if ($this->getAdwords()->getGoogleConversionId()): 
-    	MAGE::LOG('ANOWAVE DEBUG::Collection Count', null, 'anowave.log');
-    	MAGE::LOG(count($collection), null, 'anowave.log');
 	?>
 		<script src="//www.googleadservices.com/pagead/conversion.js"></script>
 	    <?php foreach ($collection as $order): 
-	    	MAGE::LOG('ANOWAVE DEBUG:: Revenue', null, 'anowave.log');
-	    	MAGE::LOG($this->getRevenue($order), 1, 'anowave.log');
 	    	?>
 			<noscript><img height=1 width=1 border=0 src="//www.googleadservices.com/pagead/conversion/<?php echo $this->getAdwords()->getGoogleConversionId() ?>/?value=<?php echo $this->getRevenue($order) ?>&label=<?php echo $this->getAdwords()->getGoogleConversionLabel() ?>&script=0"></noscript>
 	    <?php endforeach ?>
