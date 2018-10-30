@@ -15,7 +15,7 @@
             </action>
             <block type="ec/track" name="ec_header" as="ec_header" template="ec/header.phtml" />
         </reference>
-        <reference name="after_body_start" after="-">
+        <reference name="before_body_end" after="-">
             <block type="ec/track" name="ec_purchase" as="ec_purchase" template="ec/purchase.phtml">
                 <block type="ec/track" name="ec_datalayer" as="ec_datalayer" template="ec/datalayer.phtml" />
                 <block type="ec/track" name="ec_visitor" as="ec_visitor" template="ec/visitor.phtml" />
@@ -29,8 +29,6 @@
                 <block type="ec/track" name="ec_perfectaudience" as="ec_perfectaudience" template="ec/perfectaudience.phtml" />
                 <block type="ec/track" name="ec_cookie" as="ec_cookie" template="ec/cookie.phtml" />
             </block>
-        </reference>
-        <reference name="before_body_end" after="-">
             <block type="ec/events" name="ec_events" as="ec_events" template="ec/events.phtml" />
             <block type="ec/track" name="ec_footer" as="ec_footer" template="ec/footer.phtml" />
         </reference>
