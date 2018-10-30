@@ -91,7 +91,7 @@
 
 			<?php if ($this->getAdwords()->getGoogleConversionId()) : ?>
 
-				window.google_conversion_id 		= <?php echo json_encode($this->getAdwords()->getGoogleConversionId()) ?>;
+				window.google_conversion_id 		= <?php echo $this->getAdwords()->getGoogleConversionId() ?>;
 				window.google_conversion_language 	= <?php echo json_encode($this->getAdwords()->getGoogleConversionLanguage()) ?>;
 				window.google_conversion_format 	= <?php echo json_encode($this->getAdwords()->getGoogleConversionFormat()) ?>;
 				window.google_conversion_label 		= <?php echo json_encode($this->getAdwords()->getGoogleConversionLabel()) ?>;
