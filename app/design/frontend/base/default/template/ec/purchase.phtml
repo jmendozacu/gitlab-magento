@@ -98,7 +98,7 @@
 				window.google_conversion_color		= <?php echo json_encode($this->getAdwords()->getGoogleConversionColor()) ?>;
 				window.google_conversion_currency 	= <?php echo json_encode($this->getAdwords()->getGoogleConversionCurrency()) ?>;
 				
-				window.google_conversion_value 		= revenue;
+				window.google_conversion_value 		= data.ecommerce.purchase.actionField.revenue;
 			  	/* ]]> */
 			<?php endif ?>
 
