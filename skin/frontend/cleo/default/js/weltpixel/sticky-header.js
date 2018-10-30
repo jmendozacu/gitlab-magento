@@ -24,7 +24,9 @@ jQuery(document).ready(function(){
     var stickyHeader = 0;
     if (jQuery('#endHeader').length) {
         stickyHeader = jQuery('#endHeader').offset().top;
-    } else {
+    }
+
+    if (stickyHeader === 0){
         stickyHeader = jQuery('#page-header').height();
     }
 
