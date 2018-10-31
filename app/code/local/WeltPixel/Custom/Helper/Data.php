@@ -44,24 +44,29 @@ class WeltPixel_Custom_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getProductImage($_product, $imageAttr, $keepRatio = true, $keepFrame = true, $imgWidth = 500, $returnPlaceholder = false)
     {
-        if ($_product->getData($imageAttr) != NULL && $_product->getData($imageAttr) != 'no_selection') {
+        $skin_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
+        $media_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+        if ($imageAttr != 'image' && $_product->getData($imageAttr) != NULL && $_product->getData($imageAttr) != 'no_selection') {
             $img = (string) $imgSrc = Mage::helper('catalog/image')
                 ->init($_product, $imageAttr)
                 ->keepAspectRatio($keepRatio)
                 ->keepFrame($keepFrame)
                 ->resize($imgWidth);
-
             if ($img) {
                 return $img;
             }
-
             return $this->getPlaceholderImage($imageAttr);
+        }elseif ($imageAttr == 'image') {
+            $image = $_product->getImage();
+                if(!isset($image)||empty($image)){
+                $image = $_product->getSmallImage();
+                }
+            return $media_url."catalog/product/".$image;
 
-        } elseif ($returnPlaceholder) {
+        }elseif ($returnPlaceholder) {
             return $this->getPlaceholderImage($imageAttr);
         }
-
-        return false;
+    return false;
     }
 
     public function getPlaceholderImage($imageAttr = 'image', $storeId = false)
