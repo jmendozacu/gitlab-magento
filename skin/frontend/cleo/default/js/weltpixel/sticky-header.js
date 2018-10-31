@@ -26,6 +26,10 @@ jQuery(document).ready(function(){
         stickyHeader = jQuery('#endHeader').offset().top;
     }
 
+    if (stickyHeader === 0){
+        stickyHeader = jQuery('#page-header').height();
+    }
+
     jQuery('#page-header').addClass('sticky-header');
     jQuery('.page').css('position', 'relative');
     if (!jQuery('.body_merged_header').length) {

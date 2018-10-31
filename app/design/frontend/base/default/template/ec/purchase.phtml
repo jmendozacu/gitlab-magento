@@ -72,6 +72,7 @@
 
 			if (window.google_tag_params && remarketing)
 			{
+ 				/* <![CDATA[ */
 				window.google_tag_params.ecomm_pagetype 	= 'purchase';
 				
 				window.google_tag_params.ecomm_prodid 		= remarketing.ecomm_prodid;
@@ -90,16 +91,15 @@
 			}
 
 			<?php if ($this->getAdwords()->getGoogleConversionId()) : ?>
-
-				window.google_conversion_id 		= <?php echo json_encode($this->getAdwords()->getGoogleConversionId()) ?>;
+				window.google_conversion_id 		= <?php echo $this->getAdwords()->getGoogleConversionId() ?>;
 				window.google_conversion_language 	= <?php echo json_encode($this->getAdwords()->getGoogleConversionLanguage()) ?>;
 				window.google_conversion_format 	= <?php echo json_encode($this->getAdwords()->getGoogleConversionFormat()) ?>;
 				window.google_conversion_label 		= <?php echo json_encode($this->getAdwords()->getGoogleConversionLabel()) ?>;
 				window.google_conversion_color		= <?php echo json_encode($this->getAdwords()->getGoogleConversionColor()) ?>;
 				window.google_conversion_currency 	= <?php echo json_encode($this->getAdwords()->getGoogleConversionCurrency()) ?>;
 				
-				window.google_conversion_value 		= revenue;
-			
+				window.google_conversion_value 		= data.ecommerce.purchase.actionField.revenue;
+			  	/* ]]> */
 			<?php endif ?>
 
 			<?php
@@ -210,9 +210,11 @@
 <script>AEC.Cookie.pushPrivate()</script>
 <?php if ($this->getOrderIds()) : ?>
 	<?php $collection = Mage::getResourceModel('sales/order_collection')->addFieldToFilter('entity_id', array('in' => $this->getOrderIds())); ?>
-	<?php if ($this->getAdwords()->getGoogleConversionId()): ?>
+	<?php if ($this->getAdwords()->getGoogleConversionId()): 
+	?>
 		<script src="//www.googleadservices.com/pagead/conversion.js"></script>
-	    <?php foreach ($collection as $order): ?>
+	    <?php foreach ($collection as $order): 
+	    	?>
 			<noscript><img height=1 width=1 border=0 src="//www.googleadservices.com/pagead/conversion/<?php echo $this->getAdwords()->getGoogleConversionId() ?>/?value=<?php echo $this->getRevenue($order) ?>&label=<?php echo $this->getAdwords()->getGoogleConversionLabel() ?>&script=0"></noscript>
 	    <?php endforeach ?>
     <?php endif ?>

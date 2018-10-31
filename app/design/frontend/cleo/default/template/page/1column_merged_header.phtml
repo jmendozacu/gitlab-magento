@@ -11,8 +11,9 @@
     <head>
         <?php echo $this->getChildHtml('head'); ?>
     </head>
-    <body<?php echo $_bodyClass; ?>><div id="wrapper">
+    <body<?php echo $_bodyClass; ?>>
         <?php echo $this->getChildHtml('after_body_start'); ?>
+        <div id="wrapper">
         <a id="top"></a>
         <div class="page layout-1column" id="page">
             <?php echo $this->getChildHtml('global_notices'); ?>
@@ -42,8 +43,8 @@
         </div><!-- /#page -->
 
         <?php echo $this->getChildHtml('global_cookie_notice') ?>
-        <?php echo $this->getChildHtml('before_body_end'); ?>
 		</div>
+        <?php echo $this->getChildHtml('before_body_end'); ?>
         <?php echo $this->getAbsoluteFooter(); ?>
     </body>
 </html>
