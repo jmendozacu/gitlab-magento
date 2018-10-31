@@ -47,7 +47,11 @@
 <?php if ($_messages): ?>
     <div id="messages_product_view"><?php echo $_messages; ?></div>
 <?php endif; ?>
-
+<style>
+    img.product-image {
+        height: 300px;
+    }
+</style>
 <div id="product-view">
     <input type="hidden" id="super_attributes" name="super_attributes" value="<?php echo $superAttributes; ?>" />
     <form action="<?php echo $_productAction; ?>" method="post" id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
@@ -285,7 +289,7 @@
                                                                     <?php endif; ?>
                                                                     <a class="product-url" href="<?php echo $_directionProduct->getProductUrl() ?>" title="<?php echo $_directionProduct->getName() ?>">
                                                                         <img
-                                                                                class="product-image"
+                                                                                class="product-image cms-product-image"
                                                                                 src="<?php echo $_customHelper->getProductImage($_directionProduct, 'image', true, true, 210); ?>"
                                                                                 alt="<?php echo $_directionProduct->getName(); ?>" />
                                                                     </a>
