@@ -72,12 +72,12 @@ if (Mage::getStoreConfig('born_affiliate/cj_tracking/enable', $storeId)):
         }        
     $itemObject = new stdClass();
     $itemObject->id = $item->getSku();
-    $itemObject->price = intval($item->getQtyOrdered());
-    $itemObject->quantity = round($item->getPrice(), 2);
+    $itemObject->price = number_format($item->getPrice(), 2);
+    $itemObject->quantity = intval($item->getQtyOrdered());
     $sku=$item->getSku();
     $qty=intval($item->getQtyOrdered());
     $amt=round($item->getPrice(), 2);
-    $total = $total + $item->getPrice();
+    $total = $total + ($item->getPrice() * $item->getQtyOrdered());
     
     $cjParams.='&ITEM'.$count.'='.$sku.'&AMT'.$count.'='.$amt.'&QTY'.$count.'='.$qty;
     $count++;
