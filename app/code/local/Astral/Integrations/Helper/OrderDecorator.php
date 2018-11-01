@@ -16,6 +16,8 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
             $revenue -= (float) $order->getShippingAmount();
         }
 
+        return $revenue;
+
     }
 
     public function getCriteoOrderEventArray($order) {
