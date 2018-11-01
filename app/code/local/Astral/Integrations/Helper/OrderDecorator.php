@@ -8,7 +8,7 @@
 class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstract {
 
     private function getRevenue($order, $excludeShipping = false) {
-        $revenue = (float) $this->getRevenue($order);
+        $revenue = (float) $order->getGrandTotal();
 
         $revenue -= (float) $order->getTaxAmount();
 
