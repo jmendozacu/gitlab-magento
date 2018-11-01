@@ -48,8 +48,10 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
                 }
             }
 
+            MAGE::log($order, 1, 'astral_integrations.log');
+
             $couponCodes = json_encode($appliedRules);
-            $total = number_format($order->getSubtotal(), 2);
+            $total = number_format($order->getSubtotalInvoiced(), 2);
 
             return 'mvk("fireConversion", "' . $mavrickId . '", "' . $total . '","", "' . $order->getIncrementId() . '", "' . $couponCodes . '");';
 
