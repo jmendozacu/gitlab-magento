@@ -77,7 +77,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
             $event['CID'] = $cJid;
             $event['containerTagId'] = $containerId;
             $event['TYPE'] = $merchantType;
-            $event['total'] = number_format(($this->getRevenue($order)), 2); 
+            $event['total'] = number_format($this->getRevenue($order), 2); 
             $event['discount'] = number_format($order->getDiscountAmount(), 2);
             $event['currency'] = $order->getOrderCurrencyCode();
             $event['couponCode'] = $order->getCouponCode();
@@ -106,7 +106,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
         if (isset($order) && !empty($order)) {
 
             $pixelOrderEvent['currency'] = $order->getOrderCurrencyCode();
-            $pixelOrderEvent['value'] = number_format(($this->getRevenue($order)), 2); 
+            $pixelOrderEvent['value'] = number_format($this->getRevenue($order), 2); 
             $pixelOrderEvent['content_type'] = 'product';
             $pixelOrderEvent['content'] = array();
             $orderItems = $order->getAllVisibleItems();
