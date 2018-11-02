@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Astral_Optionswatch>
+            <version>0.0.1</version>
+        </Astral_Optionswatch>
+    </modules>
+    <frontend>
+    <events>
+        <sales_quote_collect_totals_before>
+            <observers>
+                <frontend_shipping_rates_sales_quote_collect_totals_before>
+                    <class>shipping/observer</class>
+                    <method>hideShippingMethods</method>
+                </frontend_shipping_rates_sales_quote_collect_totals_before>
+            </observers>
+        </sales_quote_collect_totals_before>
+    </events>
+    </frontend>
+</config>
