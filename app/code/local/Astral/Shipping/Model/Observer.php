@@ -10,13 +10,15 @@ class Astral_Shipping_Model_Observer{
             $cc = $quote->getCouponCode();
             $sfs = false;
                 if(!isset($cc)||empty($cc)) {
-                //$this->hideFreeShipping($carriers);
+                $this->hideFreeShipping($carriers);
                 }elseif(isset($cc)&&!empty($cc)){
                 $oCoupon = Mage::getModel('salesrule/coupon')->load($quote->getCouponCode(), 'code');
                 $oRule = Mage::getModel('salesrule/rule')->load($oCoupon->getRuleId());
                 $sfs = $oRule->getData('simple_free_shipping');
                     if ($sfs == 0) {
-                        //$this->hideFreeShipping($carriers);
+                        $this->hideFreeShipping($carriers);
+                    }elseif($sfs == 1||$sfs == 2){
+                        $this->addFreeShipping($carriers);
                     }
                 }
             }
@@ -31,4 +33,12 @@ class Astral_Shipping_Model_Observer{
             }
     }
 
+    public function addFreeShipping($carriers){
+        $hiddenMethodCode = 'freeshipping';
+        foreach ($carriers as $carrierCode => $carrierConfig){
+            if( $carrierCode ==  $hiddenMethodCode ){
+                $store->setConfig("carriers/{$carrierCode}/active", '1');
+            }
+        }
+    }
 }
