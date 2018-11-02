@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Astral_Payments>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Astral_Payments>
+    </modules>
+</config>
