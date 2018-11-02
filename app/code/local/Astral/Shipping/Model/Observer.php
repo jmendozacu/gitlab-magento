@@ -24,11 +24,12 @@ class Astral_Shipping_Model_Observer{
             }
     }
 
-    public function hideFreeShipping($carriers){
+    public function hideFreeShipping(Varien_Event_Observer $observer){
         $hiddenMethodCode = 'freeshipping';
 		$quote              = $observer->getEvent()->getQuote();
 		$address            = $quote->getShippingAddress();
-		$store              = Mage::app()->getStore($quote->getStoreId());		
+		$store              = Mage::app()->getStore($quote->getStoreId());	
+		$carriers           = Mage::getStoreConfig('carriers', $store);		
             foreach ($carriers as $carrierCode => $carrierConfig){
                 if( $carrierCode ==  $hiddenMethodCode ){
                 $store->setConfig("carriers/{$carrierCode}/active", '0');
@@ -36,11 +37,12 @@ class Astral_Shipping_Model_Observer{
             }
     }
 
-    public function addFreeShipping($carriers){
+    public function addFreeShipping(Varien_Event_Observer $observer){
         $hiddenMethodCode = 'freeshipping';
 		$quote              = $observer->getEvent()->getQuote();
 		$address            = $quote->getShippingAddress();
-		$store              = Mage::app()->getStore($quote->getStoreId());		
+		$store              = Mage::app()->getStore($quote->getStoreId());	
+		$carriers           = Mage::getStoreConfig('carriers', $store);		
 			foreach ($carriers as $carrierCode => $carrierConfig){
 				if( $carrierCode ==  $hiddenMethodCode ){
                 $store->setConfig("carriers/{$carrierCode}/active", '1');
