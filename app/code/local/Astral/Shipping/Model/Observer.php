@@ -10,15 +10,15 @@ class Astral_Shipping_Model_Observer{
             $cc = $quote->getCouponCode();
             $sfs = false;
                 if(!isset($cc)||empty($cc)) {
-                $this->hideFreeShipping($carriers);
+                $this->hideFreeShipping($observer);
                 }elseif(isset($cc)&&!empty($cc)){
                 $oCoupon = Mage::getModel('salesrule/coupon')->load($quote->getCouponCode(), 'code');
                 $oRule = Mage::getModel('salesrule/rule')->load($oCoupon->getRuleId());
                 $sfs = $oRule->getData('simple_free_shipping');
                     if ($sfs == 0) {
-                        $this->hideFreeShipping($carriers);
+                        $this->hideFreeShipping($observer);
                     }elseif($sfs == 1||$sfs == 2){
-                        $this->addFreeShipping($carriers);
+                        $this->addFreeShipping($observer);
                     }
                 }
             }
