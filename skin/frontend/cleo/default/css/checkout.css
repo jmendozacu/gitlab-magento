@@ -1186,7 +1186,7 @@ body.not-logged-in.checkout-onepage-index:not(.opc-has-progressed-from-login) .p
     text-align: center;
 }
 body.not-logged-in.checkout-onepage-index:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section:not(#opc-login) .step-title {
-    opacity: 0;
+
 }
 body.not-logged-in.checkout-onepage-index:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-login .step-title .number {
 /*    float: left;
