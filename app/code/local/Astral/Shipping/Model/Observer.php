@@ -1,6 +1,7 @@
 <?php
 class Astral_Shipping_Model_Observer{
     public function hideShippingMethods( Varien_Event_Observer $observer ){
+        Mage::log(__METHOD__);
             if (Mage::getDesign()->getArea() ===   Mage_Core_Model_App_Area::AREA_FRONTEND){
             $quote              = $observer->getEvent()->getQuote();
             $address            = $quote->getShippingAddress();
@@ -25,6 +26,7 @@ class Astral_Shipping_Model_Observer{
     }
 
     public function hideFreeShipping($carriers){
+        Mage::log(__METHOD__);
         $hiddenMethodCode = 'freeshipping';
             foreach ($carriers as $carrierCode => $carrierConfig){
                 if( $carrierCode ==  $hiddenMethodCode ){
