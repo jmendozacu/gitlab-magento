@@ -6,11 +6,7 @@ class Astral_Payments_Model_Observer{
         $result          = $event->getResult();
 		Mage::log($result);
         $currencyCode    = Mage::app()->getStore()->getCurrentCurrencyCode();
-            if($someTrueConditionGoesHere){
-        //    $result->isAvailable = true;
-            }else{
-        //    $result->isAvailable = false;
-            }
+
     }
 
 }
