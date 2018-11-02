@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Astral_Payments>
+            <version>0.0.1</version>
+        </Astral_Payments>
+    </modules>
+
+</config>
