@@ -10,7 +10,7 @@
         <sales_quote_collect_totals_before>
             <observers>
                 <frontend_shipping_rates_sales_quote_collect_totals_before>
-                    <class>shipping/observer</class>
+                    <class>astral_shipping/observer</class>
                     <method>hideShippingMethods</method>
                 </frontend_shipping_rates_sales_quote_collect_totals_before>
             </observers>
