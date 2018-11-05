@@ -34,11 +34,13 @@ class Idevaffiliate_Idevaffiliate_Model_Observer
                     Mage::log($query, false, 'idev_conversion_log_'.date('Y-m-d').'.log');
                     Mage::log($tracking_url."?".$query, false, 'idev_conversion_log_'.date('Y-m-d').'.log');
 					$ch = curl_init();
-					curl_setopt($ch, CURLOPT_URL, $tracking_url."?".$query);
+					$url_query = $tracking_url.'?'.$query;
+					curl_setopt($ch, CURLOPT_URL, $url_query);
 					//curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					$return = curl_exec($ch);
 					curl_close($ch);
+					Mage::log($return);
 				}
 			}
 
