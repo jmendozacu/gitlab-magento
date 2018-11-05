@@ -32,9 +32,10 @@ class Idevaffiliate_Idevaffiliate_Model_Observer
                     $query = http_build_query($data);
 					Mage::log($tracking_url, false, 'idev_conversion_log_'.date('Y-m-d').'.log');
                     Mage::log($query, false, 'idev_conversion_log_'.date('Y-m-d').'.log');
+                    Mage::log($tracking_url."?".$query, false, 'idev_conversion_log_'.date('Y-m-d').'.log');
 					$ch = curl_init();
-					curl_setopt($ch, CURLOPT_URL, $tracking_url);
-					curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
+					curl_setopt($ch, CURLOPT_URL, $tracking_url."?".$query);
+					//curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					$return = curl_exec($ch);
 					curl_close($ch);
