@@ -31,7 +31,7 @@ class Idevaffiliate_Idevaffiliate_Model_Observer
                     $data['coupon_code'] = $coupon_code;
                     $query = http_build_query($data);
 					Mage::log($tracking_url, false, 'idev_conversion_log_'.date('Y-m-d').'.log');
-                    Mage::log($query, false, 'idev_conversion_log_'.date('Y-m-d').'.log');
+                    Mage::log($data, false, 'idev_conversion_log_'.date('Y-m-d').'.log');
                     $this->curl_post_async($tracking_url,$data);
 					//$ch = curl_init();
 					//curl_setopt($ch, CURLOPT_URL, $tracking_url);
