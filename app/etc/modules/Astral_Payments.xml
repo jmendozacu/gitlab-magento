@@ -6,4 +6,12 @@
             <codePool>local</codePool>
         </Astral_Payments>
     </modules>
+    <payment_method_is_active>
+        <observers>
+            <frontend_payment_rates_payment_method_is_active>
+                <class>payments/observer</class>
+                <method>addPaymentMethod</method>
+            </frontend_payment_rates_payment_method_is_active>
+        </observers>
+    </payment_method_is_active>
 </config>
