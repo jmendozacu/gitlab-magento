@@ -32,13 +32,40 @@ class Idevaffiliate_Idevaffiliate_Model_Observer
                     $query = http_build_query($data);
 					Mage::log($tracking_url, false, 'idev_conversion_log_'.date('Y-m-d').'.log');
                     Mage::log($query, false, 'idev_conversion_log_'.date('Y-m-d').'.log');
-					$ch = curl_init();
-					curl_setopt($ch, CURLOPT_URL, $tracking_url);
-					curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-					$return = curl_exec($ch);
-					curl_close($ch);
+                    $this->curl_post_async($tracking_url,$data);
+					//$ch = curl_init();
+					//curl_setopt($ch, CURLOPT_URL, $tracking_url);
+					//curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
+					//curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					//$return = curl_exec($ch);
+					//curl_close($ch);
 				}
 			}
+
+    function curl_post_async($url, $params)
+    {
+        foreach ($params as $key => &$val) {
+            if (is_array($val)) $val = implode(',', $val);
+            $post_params[] = $key.'='.urlencode($val);
+        }
+        $post_string = implode('&', $post_params);
+
+        $parts=parse_url($url);
+
+        $fp = fsockopen($parts['host'],
+            isset($parts['port'])?$parts['port']:80,
+            $errno, $errstr, 30);
+
+        $out = "POST ".$parts['path']." HTTP/1.1\r\n";
+        $out.= "Host: ".$parts['host']."\r\n";
+        $out.= "Content-Type: application/x-www-form-urlencoded\r\n";
+        $out.= "Content-Length: ".strlen($post_string)."\r\n";
+        $out.= "Connection: Close\r\n\r\n";
+        if (isset($post_string)) $out.= $post_string;
+
+        fwrite($fp, $out);
+        fclose($fp);
+    }
+
 
 }
