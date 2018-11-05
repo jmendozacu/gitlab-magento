@@ -142,7 +142,7 @@ jQuery( document ).ready(function() {
     obj.data.idev_saleamt = '<?php echo $total; ?>';
     obj.data.idev_ordernum = '<?php $this->escapeHtml($this->getOrderId()); ?>';
     obj.data.products_purchased = '<?php echo $idevItems; ?>';
-    obj.data.coupon_code = '<?php echo $couponCode; ?>'';
+    obj.data.coupon_code = '<?php echo $couponCode; ?>';
 
     var poststatus = idev.post(obj);
     
