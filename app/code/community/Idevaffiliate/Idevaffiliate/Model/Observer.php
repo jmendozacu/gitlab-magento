@@ -15,8 +15,8 @@ class Idevaffiliate_Idevaffiliate_Model_Observer
 					    foreach($items as $i) {
                         $skus[] = $i->getSku();
                         }
-                        if(isset($_SERVER['X-Forwarded-For'])){
-                        $ip = $_SERVER['X-Forwarded-For'];
+                        if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
+                        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
                         }else{
                         $ip = $_SERVER['REMOTE_ADDR'];
                         }
