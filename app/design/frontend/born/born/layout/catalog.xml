@@ -383,14 +383,10 @@ Compare products page
                 </block>
 
                 <block type="core/template_facade" name="product.info.container1" as="container1">
-                    <action method="setDataByKey"><key>alias_in_layout</key><value>container1</value></action>
-                    <action method="setDataByKeyFromRegistry"><key>options_container</key><key_in_registry>product</key_in_registry></action>
                     <action method="append"><block>product.info.options.wrapper.bottom</block></action>
                     <action method="append"><block>product.info.options.wrapper</block></action>
                 </block>
                 <block type="core/template_facade" name="product.info.container2" as="container2">
-                    <action method="setDataByKey"><key>alias_in_layout</key><value>container2</value></action>
-                    <action method="setDataByKeyFromRegistry"><key>options_container</key><key_in_registry>product</key_in_registry></action>
                     <action method="append"><block>product.info.options.wrapper</block></action>
                     <action method="append"><block>product.info.options.wrapper.bottom</block></action>
                 </block>
