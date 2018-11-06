@@ -82,6 +82,7 @@ Category default layout
            <action method="addItem"><type>skin_js</type><name>js/bundle.js</name></action>
            <action method="addItem"><type>skin_js</type><name>js/grouped-options.js</name></action>
            <action method="addJs"><name>varien/product.js</name></action>
+           <action method="addJs"><script>varien/product_options.js</script></action>
            <!--
            <action method="addJs"><name>born/pur/product.js</name></action>
            -->
