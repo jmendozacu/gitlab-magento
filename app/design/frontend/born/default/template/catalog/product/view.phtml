@@ -123,8 +123,6 @@ $storeId = Mage::app()->getStore()->getId();
                     <div class="add-to-cart-wrapper">
                         <?php echo $this->getChildHtml('product_type_data') ?>
                         <?php echo $this->getChildHtml('extrahint') ?>
-                        <?php Mage::log("BUNDLE PRODUCTS DEBUG:: Has Options", null, 'bundle.log');
-                        Mage::log($this->hasOptions(), 1, 'bundle.log'); ?>
                         <?php if (!$this->hasOptions()):?>
                             <div class="add-to-box">
                                 <?php if($_product->isSaleable()): ?>
@@ -146,6 +144,8 @@ $storeId = Mage::app()->getStore()->getId();
                     </div>
 
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                        <?php Mage::log("BUNDLE PRODUCTS DEBUG:: Has Options", null, 'bundle.log');
+                        Mage::log($this->hasOptions(), 1, 'bundle.log'); ?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif;?>
         
