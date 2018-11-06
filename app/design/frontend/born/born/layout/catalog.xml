@@ -264,6 +264,7 @@ Compare products page
         </reference>
         <reference name="head">
             <action method="addJs"><script>scriptaculous/scriptaculous.js</script></action>
+            <action method="addJs"><script>varien/product_options.js</script></action>
             <action method="addJs"><script>varien/product.js</script></action>
             <action method="unsetChild"><name>head.viewport</name></action>
         </reference>
@@ -287,6 +288,7 @@ Compare products page
             <action method="addJs"><script>varien/product.js</script></action>
             <action method="addJs"><script>varien/configurable.js</script></action>
             <action method="addJs"><name>born/product.js</name></action>
+            <action method="addJs"><script>varien/product_options.js</script></action>
             <action method="addJs"><name>born/optionswatch.js</name></action>
             <action method="addJs"><name>born/dy.js</name></action> 
             <action method="addItem"><type>skin_js</type><script>js/lib/elevatezoom/jquery.elevateZoom-3.0.8.min.js</script></action>
@@ -472,6 +474,7 @@ Product send to friend
         </reference>
         <reference name="head">
             <action method="addJs"><script>varien/product.js</script></action>
+            <action method="addJs"><script>varien/product_options.js</script></action>
         </reference>
         <reference name="content">
             <block type="catalog/product_send" name="product.send" template="catalog/product/send.phtml">

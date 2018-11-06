@@ -36,6 +36,7 @@ $storeId = Mage::app()->getStore()->getId();
 
 
 ?>
+
 <script>
     var productObject = {};
     productObject.type = '<?php echo $product_type; ?>';
@@ -43,6 +44,7 @@ $storeId = Mage::app()->getStore()->getId();
     //productObject.productData = '<?php //echo json_encode($productData); ?>';
     var product_type = '<?php echo $product_type; ?>';
     var skin_url = '<?php echo $mediaUrl; ?>';
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>    
 <?php if(isset($messages)&&!empty($messages)){ ?>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
@@ -142,6 +144,7 @@ $storeId = Mage::app()->getStore()->getId();
                     </div>
 
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                        <?php echo $this->getChildHtml('addtocart') ?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif;?>
         
