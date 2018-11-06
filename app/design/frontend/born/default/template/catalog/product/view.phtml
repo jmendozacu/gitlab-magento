@@ -123,13 +123,11 @@ $storeId = Mage::app()->getStore()->getId();
                     <div class="add-to-cart-wrapper">
                         <?php echo $this->getChildHtml('product_type_data') ?>
                         <?php echo $this->getChildHtml('extrahint') ?>
-                        <?php echo $this->getChildHtml('addtocart') ?>
+                        <?php Mage::log("BUNDLE PRODUCTS DEBUG:: Has Options", null, 'bundle.log');
+                        Mage::log($this->hasOptions(), 1, 'bundle.log'); ?>
                         <?php if (!$this->hasOptions()):?>
                             <div class="add-to-box">
-                                <?php 
-                                Mage::log("BUNDLE PRODUCTS DEBUG:: isSaleable", null, 'bundle.log');
-                                Mage::log($$_product->isSaleable(), 1, 'bundle.log');
-                                if($_product->isSaleable()): ?>
+                                <?php if($_product->isSaleable()): ?>
                                     <?php echo $this->getChildHtml('addtocart') ?>
                                     <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
                                         <span class="or"><?php echo $this->__('OR') ?></span>
