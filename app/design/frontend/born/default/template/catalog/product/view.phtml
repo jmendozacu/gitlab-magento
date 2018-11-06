@@ -146,7 +146,7 @@ $storeId = Mage::app()->getStore()->getId();
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                         <?php Mage::log("BUNDLE PRODUCTS DEBUG:: Has Options", null, 'bundle.log');
                         Mage::log($this->hasOptions(), 1, 'bundle.log'); ?>
-                        <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                        <?php echo $this->getChildHtml('container2') ?>
                     <?php endif;?>
         
                     <div id="details-box" class="details-box">

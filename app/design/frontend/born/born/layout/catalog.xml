@@ -394,6 +394,8 @@ Compare products page
                     <action method="append"><block>product.info.options.wrapper</block></action>
                     <action method="append"><block>product.info.options.wrapper.bottom</block></action>
                 </block>
+                <action method="unsetCallChild"><child>container1</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
+                <action method="unsetCallChild"><child>container2</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
                 <block type="born_package/catalog_product_view" name="bv_curation" template="catalog/product/view/curation.phtml"/>
             </block>
         </reference>
