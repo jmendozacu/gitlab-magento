@@ -62,13 +62,18 @@ class Born_Package_Block_Bundle_Catalog_Product_View_Type_Bundle extends Mage_Bu
     protected function getCustomConfig($_selection, $configurableData)
     {
         $_attributeCode = 'shade';
+        $_attributeLabel = '';
+        $_productSku = '';
+        $_productSmallImage = '';
+        $_swatchImage = '';
+
 
         $_productSku = $_selection->getSku();
         $_attributeId = $this->getAttributeId($_selection, $_attributeCode);
 
         $_productSmallImage = $_selection->getSmallImageUrl();
 
-        if($_attributeId){
+        if(isset($_attributeId) && !empty($_attributeId)) {
             $_product = Mage::getModel('catalog/product')->load($_selection->getId()); //load required to get custom attributes
             $_attributeLabel = $this->getAttributeLabel($_product, $_attributeCode);
             $_swatchImage = $this->getSwatchImage($_attributeId, $configurableData['sku']) ? $this->getSwatchImage($_attributeId, $configurableData['sku']) : $this->getAltImage($_product);
