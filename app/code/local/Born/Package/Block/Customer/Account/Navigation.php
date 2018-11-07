@@ -23,7 +23,7 @@ class Born_Package_Block_Customer_Account_Navigation extends Mage_Customer_Block
         $this->changeLabelByName('wishlist', 'My Favorites');
         $this->changeLabelByName('amxnotif.stock', 'In Stock Notifications');
         $this->changeLabelByName('amxnotif.price', 'Price Notifications');
-        $this->changeLabelByName('aw_sarp2', 'Auto Replenishment');
+        //$this->changeLabelByName('aw_sarp2', 'Auto Replenishment');
         $this->changeLabelByName('enterprise_reward', 'My Rewards');
         //Place holder links
         // $this->AddLink('stocknotification', '#', 'In Stock Notifications');

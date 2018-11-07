@@ -116,15 +116,7 @@ class Born_Package_Model_Observer {
     }
 
     private function checkForRecurringProfile($quote) {
-
-        if(!$quote){
-            return;
-        }
-        
-        $HasSubscriptionProduct = Mage::helper('aw_sarp2/quote')->isQuoteHasSubscriptionProduct($quote);
-        return $HasSubscriptionProduct;
-
-
+        return;
     }
 	/**
 	* To change the status of order to "payment review" based on the limits set for PUR and COS sites
