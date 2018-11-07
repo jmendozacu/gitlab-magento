@@ -264,7 +264,14 @@ class GetTaxResult // extends BaseResult
 	* Accessor
 	* @return array
 	*/
-    public function getMessages() { return EnsureIsArray($this->Messages->Message); }
+    public function getMessages() {
+        $data = false;
+        $messages = $this->Messages;
+            if(isset($messages)&&is_object($messages)){
+                $data = EnsureIsArray($messages->Message);
+            }
+        return $data;
+    }
     
 	public function getParameterBagItems()
 	{
