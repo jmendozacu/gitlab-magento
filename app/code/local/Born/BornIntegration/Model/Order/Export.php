@@ -74,11 +74,8 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
      * @throws Mage_Core_Model_Store_Exception
      */
     public function createOrderXml(Mage_Sales_Model_Order $order){
-		Mage::log($order->getShippingDescription());
-		Mage::log($order->getShippingMethod());
 		$storeId = $order->getStoreId();
         $salesSite = $this->_salesSite[Mage::app()->getStore($order->getStoreId())->getWebsite()->getCode()];
-		Mage::log("salesite: ".$storeId);
 			if($storeId == '1'){
 			    $bundleItemSku = $this->_bundleSku['pur'];
 			}elseif($storeId == '2'){
@@ -151,7 +148,6 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
 				if(isset($this->_shippingCodes[$order->getShippingMethod()])){			
 				$methods['m3'] = $this->_shippingCodes[$order->getShippingMethod()];
 				}
-			Mage::log($methods);
             if(isset($methods['m3'])){
             $shippingMethodXml = '<GRP ID="SOH2_3">';
             $shippingMethodXml .= '<FLD NAME="MDL">'.$this->_shippingCodes[$order->getShippingMethod()].'</FLD>';
