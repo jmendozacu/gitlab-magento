@@ -150,7 +150,8 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
             $methods['m2'] = $order->getShippingDescription();
 				if(isset($this->_shippingCodes[$order->getShippingMethod()])){			
 				$methods['m3'] = $this->_shippingCodes[$order->getShippingMethod()];
-				}		
+				}
+			Mage::log($methods);
             if(isset($methods['m3'])){
             $shippingMethodXml = '<GRP ID="SOH2_3">';
             $shippingMethodXml .= '<FLD NAME="MDL">'.$this->_shippingCodes[$order->getShippingMethod()].'</FLD>';
@@ -170,6 +171,8 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
 		$shippingMethodXml .= '<FLD NAME="BPTNUM">USPS</FLD>';
                 }elseif($order->getShippingMethod() == 'freightcollect_freightcollect'){
 		$shippingMethodXml .= '<FLD NAME="BPTNUM">COLLECT</FLD>';
+                }elseif($order->getShippingMethod() == 'freeshipping_freeshipping'){
+        $shippingMethodXml .= '<FLD NAME="BPTNUM">USPS</FLD>';
                 }elseif( strpos($order->getShippingMethod(), 'matrixrate_matrixrate_' ) !== false && $scopeId == 1) {
 		$shippingMethodXml .= '<FLD NAME="BPTNUM">'.Mage::app()->getWebsite($scopeId)->getConfig('bornintegration/general/x3_carrier').'</FLD>';
 		}
@@ -530,6 +533,8 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
 		$shippingMethodXml .= '<FLD NAME="BPTNUM">USPS</FLD>';
                 }elseif($order->getShippingMethod() == 'freightcollect_freightcollect'){
 		$shippingMethodXml .= '<FLD NAME="BPTNUM">COLLECT</FLD>';
+                }elseif($order->getShippingMethod() == 'freeshipping_freeshipping'){
+                    $shippingMethodXml .= '<FLD NAME="BPTNUM">USPS</FLD>';
                 }elseif( strpos($order->getShippingMethod(), 'matrixrate_matrixrate_' ) !== false && $scopeId == 1) {
 		$shippingMethodXml .= '<FLD NAME="BPTNUM">'.Mage::app()->getWebsite($scopeId)->getConfig('bornintegration/general/x3_carrier').'</FLD>';
 		}
