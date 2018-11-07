@@ -199,7 +199,10 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
                     }elseif(strpos($order->getShippingDescription(), 'Ground' , 0) !== FALSE){
                     $shippingMethodXml .= '<FLD NAME="MDL">USPSP</FLD>';
                     }					
-		}elseif(strpos($order->getShippingDescription(), 'TradeGlobal' , 0) !== FALSE){
+		}elseif(strpos($order->getShippingDescription(), 'Free' , 0) !== FALSE){
+            $shippingMethodXml .= '<FLD NAME="BPTNUM">USPS</FLD>';
+            $shippingMethodXml .= '<FLD NAME="MDL">USPSP</FLD>';
+        }elseif(strpos($order->getShippingDescription(), 'TradeGlobal' , 0) !== FALSE){
                 $shippingMethodXml .= '<FLD NAME="MDL">TGC</FLD>';    
                 }
                 $shippingMethodXml .= '</GRP>';		
