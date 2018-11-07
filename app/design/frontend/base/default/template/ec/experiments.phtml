@@ -18,7 +18,10 @@
 			 */
 			var experiments = {};
 
-			<?php foreach($this->getExperiments() as $experiment => $options): ?>
+			<?php 
+			$experiments = $this->getExperiments();
+			if(isset($experiments)&&!empty($experiments)&&is_array($experiments)){
+			foreach($experiments as $experiment => $options): ?>
 			
 				experiments['<?php echo $experiment ?>'] = 
 				{
@@ -27,8 +30,12 @@
 					triggered:   <?php echo $options['triggered']() ?>
 				};
 					
-			<?php endforeach ?>
-
+			<?php 
+			
+			endforeach;
+			}
+			?>
+			
 			return {
 				experiments: experiments,
 				experiments_data:[],

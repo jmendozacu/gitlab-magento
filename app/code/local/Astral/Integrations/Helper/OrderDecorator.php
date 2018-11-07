@@ -7,6 +7,19 @@
 
 class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstract {
 
+    private function getRevenue($order, $excludeShipping = false) {
+        $revenue = (float) $order->getGrandTotal();
+
+        $revenue -= (float) $order->getTaxAmount();
+
+        if ($excludeShipping) {
+            $revenue -= (float) $order->getShippingAmount();
+        }
+
+        return $revenue;
+
+    }
+
     public function getCriteoOrderEventArray($order) {
         
         $criteoOrder = array();
@@ -49,7 +62,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
             }
 
             $couponCodes = json_encode($appliedRules);
-            $total = number_format($order->getSubtotal(), 2);
+            $total = number_format($this->getRevenue($order, true), 2);
 
             return 'mvk("fireConversion", "' . $mavrickId . '", "' . $total . '","", "' . $order->getIncrementId() . '", "' . $couponCodes . '");';
 
@@ -66,7 +79,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
             $event['CID'] = $cJid;
             $event['containerTagId'] = $containerId;
             $event['TYPE'] = $merchantType;
-            $event['total'] = number_format(($order->getSubtotal() + $order->getShippingAmount()), 2); 
+            $event['total'] = number_format($this->getRevenue($order), 2); 
             $event['discount'] = number_format($order->getDiscountAmount(), 2);
             $event['currency'] = $order->getOrderCurrencyCode();
             $event['couponCode'] = $order->getCouponCode();
@@ -95,7 +108,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
         if (isset($order) && !empty($order)) {
 
             $pixelOrderEvent['currency'] = $order->getOrderCurrencyCode();
-            $pixelOrderEvent['value'] = number_format(($order->getSubtotal() + $order->getShippingAmount()), 2); 
+            $pixelOrderEvent['value'] = number_format($this->getRevenue($order), 2); 
             $pixelOrderEvent['content_type'] = 'product';
             $pixelOrderEvent['content'] = array();
             $orderItems = $order->getAllVisibleItems();
