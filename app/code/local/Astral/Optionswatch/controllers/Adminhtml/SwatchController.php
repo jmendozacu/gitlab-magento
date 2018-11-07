@@ -42,24 +42,9 @@ class Astral_Optionswatch_Adminhtml_SwatchController extends Mage_Adminhtml_Cont
             $new_data = $new_swatch->getData();
             $delete = 0;
             $swatch = $new_swatch;
-            if(isset($data['sort_order']) && !empty($data['sort_order']) && $data['sort_order'] == $old_data['sort_order']){
 
-            }
-            if(isset($data['color_code']) && !empty($data['color_code']) && $data['color_code'] == $old_data['color_code']){
-
-            }
-            if(isset($data['product_sku']) && !empty($data['product_sku']) && $data['product_sku'] == $old_data['product_sku']){
-
-            }
-            if(isset($data['description']) && !empty($data['description']) && $data['description'] == $old_data['description']){
-
-            }
             if(isset($data['image_file']) && !empty($data['image_file'])){
                 $swatch->setData('image_file',$data['image_file']['value']);
-            }
-
-            if(isset($data['cta_link']) && !empty($data['cta_link']) && $data['cta_link'] == $old_data['cta_link']){
-
             }
 
             if(isset($_FILES['image_file']['name'])&&!empty($_FILES['image_file']['name'])){
