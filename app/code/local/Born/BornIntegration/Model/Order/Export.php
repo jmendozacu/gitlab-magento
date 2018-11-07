@@ -62,7 +62,20 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
     }
     
     public function createOrderXml(Mage_Sales_Model_Order $order){
+		Mage::log($order->getShippingDescription());
+		Mage::log($order->getShippingMethod());					
+		$storeId = $order->getStoreId();
         $salesSite = $this->_salesSite[Mage::app()->getStore($order->getStoreId())->getWebsite()->getCode()];
+		Mage::log("salesite: ".$storeId);
+			if($storeId == '1'){
+			$bundleItemSku = '09735';
+			}elseif($storeId == '2'){
+			$bundleItemSku = '09736';
+			}elseif($storeId == '3'){
+			$bundleItemSku = '09736';
+			}elseif($storeId == '4'){
+			$bundleItemSku = '09736';
+			}
         $orderType = $this->_orderTypes[Mage::app()->getStore($order->getStoreId())->getWebsite()->getCode()];
         $isTestMode = (boolean)Mage::getStoreConfig('bornintegration/sage_config/is_test');
         $identityPrefix = ($isTestMode) ? (string)Mage::getStoreConfig('bornintegration/sage_config/identity_prefix'): '';
@@ -206,7 +219,10 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
             $xmlString .= '</TAB>';
             $xmlString .= '<TAB DIM="200" ID="SOH4_1" SIZE="'.count($order->getAllItems()).'">';
             $i = 1;
-                foreach($order->getAllItems() as $_item){
+			
+			
+					
+                foreach($order->getAllItems() as $_item){		
                     if($_item->getProductType() ==  Mage_Catalog_Model_Product_Type::TYPE_SIMPLE || $_item->getProductType() ==  Mage_Catalog_Model_Product_Type::TYPE_BUNDLE){
                         if($_item->getParentItemId()){
                         $parentItem = $order->getItemById($_item->getParentItemId());
