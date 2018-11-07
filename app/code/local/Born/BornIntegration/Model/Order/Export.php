@@ -80,11 +80,11 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
         $salesSite = $this->_salesSite[Mage::app()->getStore($order->getStoreId())->getWebsite()->getCode()];
 		Mage::log("salesite: ".$storeId);
 			if($storeId == '1'){
-			    $bundleItemSku = $_bundleSku['pur'];
+			    $bundleItemSku = $this->_bundleSku['pur'];
 			}elseif($storeId == '2'){
-                $bundleItemSku = $_bundleSku['cosb2c'];
+                $bundleItemSku = $this->_bundleSku['cosb2c'];
 			}elseif($storeId == '3'){
-                $bundleItemSku = $_bundleSku['cosb2b'];
+                $bundleItemSku = $this->_bundleSku['cosb2b'];
 			}
         $orderType = $this->_orderTypes[Mage::app()->getStore($order->getStoreId())->getWebsite()->getCode()];
         $isTestMode = (boolean)Mage::getStoreConfig('bornintegration/sage_config/is_test');
