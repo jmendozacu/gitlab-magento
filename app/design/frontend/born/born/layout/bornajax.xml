@@ -107,7 +107,6 @@
                         <action method="addOptionRenderer"><type>date</type><block>born_package/catalog_product_view_options_type_date</block><template>catalog/product/view/options/type/date.phtml</template></action>
                     </block>
                     <block type="core/html_calendar" name="html_calendar" as="html_calendar" template="page/js/calendar.phtml"/>
-                    <block type="aw_sarp2/catalog_product_view_options_type_calendar" name="aw_sarp2.product.view.options.type.calendar" template="page/html/aw_sarp2_calendar.phtml"/>
                 </block>
                 <block type="catalog/product_view" name="product.info.options.wrapper.bottom" as="product_options_wrapper_bottom" template="catalog/product/view/options/wrapper/bottom.phtml" translate="label">
                     <label>Bottom Block Options Wrapper</label>
@@ -116,7 +115,6 @@
                     <block type="catalog/product_view" name="product.clone_prices" as="prices" template="catalog/product/view/price_clone.phtml"/>
                     <action method="append"><block>product.tierprices</block></action>
 
-                    <block type="aw_sarp2/catalog_product_view_prices" name="aw_sarp2.product.view.prices" template="aw_sarp2/catalog/product/view/prices.phtml"/>
                 </block>
 
                 <block type="core/template_facade" name="product.info.container1" as="container1">

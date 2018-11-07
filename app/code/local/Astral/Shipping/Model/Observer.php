@@ -19,9 +19,11 @@ class Astral_Shipping_Model_Observer{
                         $this->hideFreeShipping($observer);
                     }elseif($sfs == 1||$sfs == 2){
                         $this->addFreeShipping($observer);
+                        $address->setShippingMethod('freeshipping_freeshipping');
                     }
                 }
             }
+        return;
     }
 
     public function hideFreeShipping(Varien_Event_Observer $observer){
@@ -35,6 +37,7 @@ class Astral_Shipping_Model_Observer{
                 $store->setConfig("carriers/{$carrierCode}/active", '0');
                 }
             }
+        return;
     }
 
     public function addFreeShipping(Varien_Event_Observer $observer){
@@ -48,5 +51,6 @@ class Astral_Shipping_Model_Observer{
                 $store->setConfig("carriers/{$carrierCode}/active", '1');
 				}
 			}
+		return;
     }
 }
