@@ -7,8 +7,7 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
         'cosb2b' => 'CSB2B',
 	'cosb2bint' => 'CSINT'
     );
-    
-    
+
     protected $_shippingCodes = array(
         'fedex_FEDEX_GROUND' => 'FEDXG',
         'fedex_FEDEX_2_DAY' => '2D',
@@ -41,7 +40,10 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
         'cosb2b' =>'09736',
 	'cosb2bint' =>'09736'
     );
-    
+    /**
+     * @param $items
+     * @return array
+     */
     public function getOrderItems($items) {
         $data = array();
         foreach($items as $item) {
@@ -55,26 +57,34 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
         }
         return $data;
     }
-    
+    /**
+     * @param Mage_Sales_Model_Order $order
+     * @return string
+     * @throws Mage_Core_Exception
+     * @throws Mage_Core_Model_Store_Exception
+     */
     public function exportOrder(Mage_Sales_Model_Order $order){
         $xml = $this->createOrderXml($order);
         return $xml;
     }
-    
+    /**
+     * @param Mage_Sales_Model_Order $order
+     * @return string
+     * @throws Mage_Core_Exception
+     * @throws Mage_Core_Model_Store_Exception
+     */
     public function createOrderXml(Mage_Sales_Model_Order $order){
 		Mage::log($order->getShippingDescription());
-		Mage::log($order->getShippingMethod());					
+		Mage::log($order->getShippingMethod());
 		$storeId = $order->getStoreId();
         $salesSite = $this->_salesSite[Mage::app()->getStore($order->getStoreId())->getWebsite()->getCode()];
 		Mage::log("salesite: ".$storeId);
 			if($storeId == '1'){
-			$bundleItemSku = '09735';
+			    $bundleItemSku = $_bundleSku['pur'];
 			}elseif($storeId == '2'){
-			$bundleItemSku = '09736';
+                $bundleItemSku = $_bundleSku['cosb2c'];
 			}elseif($storeId == '3'){
-			$bundleItemSku = '09736';
-			}elseif($storeId == '4'){
-			$bundleItemSku = '09736';
+                $bundleItemSku = $_bundleSku['cosb2b'];
 			}
         $orderType = $this->_orderTypes[Mage::app()->getStore($order->getStoreId())->getWebsite()->getCode()];
         $isTestMode = (boolean)Mage::getStoreConfig('bornintegration/sage_config/is_test');
@@ -281,8 +291,10 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
         $xmlString .= '</PARAM>';
         return $xmlString;
     }
-    
-    
+    /**
+     * @param Mage_Sales_Model_Order $order
+     * @return string
+     */
     public function processAddress(Mage_Sales_Model_Order $order){
         $resource = Mage::getSingleton('core/resource');
 	$readConnection = $resource->getConnection('core_read');
@@ -321,8 +333,10 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
             $i++;
             }
         return $address1.$address2;
-    }    
-
+    }
+    /**
+     * @throws Mage_Core_Exception
+     */
     public function exportOrders() {
             if($this->helper->isEnabled()) {
             $sageCodes = $this->helper->getSageCodes();
@@ -355,13 +369,21 @@ class Born_BornIntegration_Model_Order_Export extends Born_BornIntegration_Model
             $order->save();
         }
     }
-
+    /**
+     *
+     */
     public function sendOrders() {
         if($this->helper->isEnabled()) {
             
         }
     }
-
+    /**
+     * @param Mage_Sales_Model_Order $order
+     * @param bool $isGuest
+     * @return string
+     * @throws Mage_Core_Exception
+     * @throws Mage_Core_Model_Store_Exception
+     */
     public function exportToErp(Mage_Sales_Model_Order $order, $isGuest = false){
 		Mage::log(__METHOD__, false, 'Born_BornIntegration.log');
                 Mage::log($order->getIncrementId(), false, 'Born_BornIntegration.log');

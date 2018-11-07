@@ -119,12 +119,12 @@ class Astral_Optionswatch_Model_Swatch extends Mage_Core_Model_Abstract
      */
     public function getAttributeOptions($attributeCode)
     {
-        Mage::log(__METHOD__);
-        Mage::log(__METHOD__.' $attributeCode: '.$attributeCode);
-	    $attribute = Mage::getSingleton('eav/config')->getAttribute('catalog_product', $attributeCode);
+        $attribute = Mage::getSingleton('eav/config')->getAttribute('catalog_product', $attributeCode);
 		if ($attribute->usesSource()) {
 		    $options = $attribute->getSource()->getAllOptions(false);
-		}
+		}else{
+            $options = array();
+        }
 		return $options;
     } 
 
@@ -133,8 +133,7 @@ class Astral_Optionswatch_Model_Swatch extends Mage_Core_Model_Abstract
 	 */    
     public function toAllOptionsArray()
     {
-        Mage::log(__METHOD__);
-    	$optionArray = array("" => "");
+        $optionArray = array("" => "");
     	foreach ($this->_attributeCodeArray as $attributeCode){
 	    	if(!!$options = $this->getAttributeOptions($attributeCode)){
 	    		foreach ($options as $option){

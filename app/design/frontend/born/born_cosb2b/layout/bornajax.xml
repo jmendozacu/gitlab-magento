@@ -101,7 +101,6 @@
                         <action method="addOptionRenderer"><type>date</type><block>cborn_package/catalog_product_view_options_type_date</block><template>catalog/product/view/options/type/date.phtml</template></action>
                     </block>
                     <block type="core/html_calendar" name="html_calendar" as="html_calendar" template="page/js/calendar.phtml"/>
-                    <block type="aw_sarp2/catalog_product_view_options_type_calendar" name="aw_sarp2.product.view.options.type.calendar" template="page/html/aw_sarp2_calendar.phtml"/>
                 </block>
                 <block type="catalog/product_view" name="product.info.options.wrapper.bottom" as="product_options_wrapper_bottom" template="catalog/product/view/options/wrapper/bottom.phtml" translate="label">
                     <label>Bottom Block Options Wrapper</label>
