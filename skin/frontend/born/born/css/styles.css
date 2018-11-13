@@ -5599,9 +5599,13 @@ p.product-name a:hover {
   width: 100%;
   margin: 10px 0 0;
   padding: 10px 15px 15px;
-  border: 1px solid #cccccc;
   clear: both;
   position: relative;
+}
+
+div#product-options-wrapper {
+  border-top: 0;
+  border-bottom: 0;
 }
 
 .product-options p.required {

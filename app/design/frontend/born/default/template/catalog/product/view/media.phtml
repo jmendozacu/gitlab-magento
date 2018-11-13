@@ -27,7 +27,7 @@ echo "<script>";
         }
     echo "var product_media_object = {};";
     echo "product_media_object.sku = '".$sku."';";
-    echo "product_media_object.mediaImages = JSON.parse('".json_encode($media_image_array)."');";
+    echo "product_media_object.mediaImages = JSON.parse('".json_encode($media_image_array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE)."');";
     }else{
     echo "var product_media_object = {};";
     echo "product_media_object.sku = '".$sku."';";        
@@ -36,7 +36,7 @@ echo "<script>";
         $media_image_array['product_'.$sku][] = array('file' => $this->getGalleryImageUrl($_image), 'label' => $_product->getName(), 'exclude' => 0, 'position' => $c);
         $c++;
         }        
-    echo "product_media_object.mediaImages = JSON.parse('".json_encode($media_image_array)."');";      
+    echo "product_media_object.mediaImages = JSON.parse('".json_encode($media_image_array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE)."');";      
     }
 echo "</script>";
     foreach ($this->getGalleryImages() as $_image){

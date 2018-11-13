@@ -38,7 +38,7 @@ if ($_customCategory) {
 <!--     </ul>-->
 <?php //endif ?>
 
-<?php if (sizeof($_categories)): ?>
+<?php if (is_iterable($_categories) && sizeof($_categories)): ?>
     <div class="category-select">
         <label class="title"><?php echo $this->__('Categories') ?></label>
         <select  onchange="setLocation(this.value)" id="category-select" data-placeholder="All Products">
