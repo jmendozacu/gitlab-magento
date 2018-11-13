@@ -8,6 +8,14 @@
 class Astral_Integrations_Helper_Data extends Mage_Core_Helper_Abstract {
 
     /**
+     * Returns the Id for Attentive
+     * @return string
+     */
+    public function getAttentiveId() {
+        return Mage::getStoreConfig('astral_integrations_admin/attentive/attentive_id', Mage::app()->getStore());
+    }
+
+    /**
      * Returns the Id for Commission Junction
      * @return string
      */

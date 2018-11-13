@@ -144,7 +144,6 @@ $storeId = Mage::app()->getStore()->getId();
                     </div>
 
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                        <?php echo $this->getChildHtml('addtocart') ?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif;?>
         
