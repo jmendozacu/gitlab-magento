@@ -3007,3 +3007,7 @@ button.button.btn-cart {
 .item > a {
     text-transform: none;
 }
+
+h2.product-name {
+    height: 75px !important;
+}
