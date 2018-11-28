@@ -2967,6 +2967,7 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
     }
 }
 .actions > a.button {
+    border-radius: 0px !important;
     width: 250px;
     margin: auto;
     padding: 5px 60px;
@@ -2978,6 +2979,7 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
     border: 3px solid black !important;
 }
 .actions > a.button:hover {
+    border-radius: 0px !important;
     background-color: black !important;
     color: white !important;
     width: 250px;
@@ -2995,6 +2997,7 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
     display: block !important;
 }
 button.button.btn-cart {
+    border-radius: 0px !important;
     width: 250px;
     padding: 0px 50px;
     height: 50px;
