@@ -1680,26 +1680,18 @@ input#productTagName {
     white-space: nowrap;
 }
 .products-grid .item a {
-    width: 250px;
-    margin: auto;
-    padding: 5px 60px;
-    height: 50px;
+    color: #000;
     font-size: 14px;
-    text-transform: uppercase;
+    line-height: 42px;
     font-weight: 400;
-    line-height: 30px;
-    border: 3px solid black !important;
+    text-transform: none !important;
 }
 .products-grid .item a:hover {
-    width: 250px;
-    margin: auto;
-    padding: 5px 60px;
-    height: 50px;
+    color: #000;
     font-size: 14px;
-    text-transform: uppercase;
+    line-height: 42px;
     font-weight: 400;
-    line-height: 30px;
-    border: 3px solid black !important;
+    text-transform: none !important;
 }
 .products-grid li {
     margin-top: 20px;
