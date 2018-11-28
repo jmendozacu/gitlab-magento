@@ -1680,11 +1680,18 @@ input#productTagName {
     white-space: nowrap;
 }
 .products-grid .item a {
-    display: block
+    color: #000;
+    font-size: 14px;
+    line-height: 42px;
+    font-weight: 400;
+    text-transform: none !important;
 }
 .products-grid .item a:hover {
-    color: #C00;
-    text-decoration: none
+    color: #000;
+    font-size: 14px;
+    line-height: 42px;
+    font-weight: 400;
+    text-transform: none !important;
 }
 .products-grid li {
     margin-top: 20px;
@@ -2975,7 +2982,7 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
 }
 button.button.btn-cart {
     width: 250px;
-    padding: 0px 60px;
+    padding: 0px 50px;
     height: 50px;
     font-size: 14px;
     font-weight: 400;
