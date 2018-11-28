@@ -1624,7 +1624,7 @@ input#productTagName {
 	text-align: center;
     line-height: 1em;
 	font-weight: 800;
-	padding-bottom: 10px;
+	padding-bottom: 25px !important;
 }
 .products-grid .item .price-box .old-price {
     margin-right: 10px;
@@ -2959,4 +2959,30 @@ background: url(../images/check-box-checked.png) no-repeat 0 center;
         text-decoration: none
     }
 }
-/* Mobile Styles end*/
+.actions > a.button {
+    width: 250px;
+    margin: auto;
+    padding: 5px 60px;
+    height: 50px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 30px;
+    border: 3px solid black !important;
+}
+.price-box {
+    display: block !important;
+}
+button.button.btn-cart {
+    width: 250px;
+    padding: 0px 60px;
+    height: 50px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 30px;
+    border: 3px solid black !important;
+}
+.item > a {
+    text-transform: none;
+}
