@@ -415,13 +415,7 @@
             <name>js/jquery.nice-select.js</name>
         </action>
     </reference>
-    <reference name="checkout.cart">
-        <block type="cms/block" name="checkout_cart_empty_widget" as="checkout_cart_empty_widget">
-            <action method="setBlockId">
-                <block_id>weltpixel_empty_cart</block_id>
-            </action>
-        </block>
-    </reference>
+
 </checkout_cart_index>
 <checkout_onepage_index>
     <reference  name="head">
