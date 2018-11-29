@@ -1,9 +1,5 @@
 RedirectMatch 404 /\.git
 FileETag none
-SetEnvIf Host www.purcosmetics.com MAGE_RUN_CODE=pur_store
-SetEnvIf Host purcosmetics.com MAGE_RUN_CODE=pur_store
-SetEnvIf Host www.cosmedix.com MAGE_RUN_CODE=cosb2c_store
-SetEnvIf Host cosmedix.com MAGE_RUN_CODE=cosb2c_store
 DirectoryIndex index.php
 <IfModule mod_php5.c>
     php_value memory_limit 256M
