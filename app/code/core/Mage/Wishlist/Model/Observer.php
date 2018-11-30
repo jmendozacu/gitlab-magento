@@ -102,7 +102,7 @@ class Mage_Wishlist_Model_Observer extends Mage_Core_Model_Abstract
             $wishlistIds = array($singleWishlistId);
         }
 
-        if (isset($wishlistIds) && count($wishlistIds) && $request->getParam('wishlist_next')){
+        if (count($wishlistIds) && $request->getParam('wishlist_next')){
             $wishlistId = array_shift($wishlistIds);
 
             if (Mage::getSingleton('customer/session')->isLoggedIn()) {

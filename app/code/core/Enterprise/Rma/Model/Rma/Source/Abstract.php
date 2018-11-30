@@ -39,7 +39,7 @@ abstract class Enterprise_Rma_Model_Rma_Source_Abstract extends Mage_Eav_Model_E
      * @param bool $withLabels
      * @return array
      */
-    public function getAllOptions($withEmpty = true, $defaultValues = false)
+    public function getAllOptions($withLabels = true)
     {
         $values = $this->_getAvailableValues();
         if ($withLabels) {
