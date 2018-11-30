@@ -131,7 +131,7 @@ class Enterprise_PageCache_Model_Container_Sidebar_Poll extends Enterprise_PageC
             }
 
             $activeIds = array_diff($renderedParams['active_ids'], $renderedParams['voted_ids']);
-            $randomKey = array_rand($activeIds);
+            $randomKey = !empty($activeIds) ? array_rand($activeIds) : null;
             $this->_activePollId = isset($activeIds[$randomKey]) ? $activeIds[$randomKey] : false;
         }
 

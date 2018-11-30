@@ -388,10 +388,10 @@ class Enterprise_Catalog_Model_Index_Action_Catalog_Category_Product_Refresh
 
         $this->_createTmpTable();
 
-        $rootCatIds = array();
+        $storeIds = array();
         foreach ($this->_app->getStores() as $store) {
             /** @var $store Mage_Core_Model_Store */
-            $rootCatIds[] = $store->getRootCategoryId();
+            $storeIds[] = $store->getId();
             if ($this->_getPathFromCategoryId($store->getRootCategoryId())) {
                 $this->_reindexNonAnchorCategories($store);
                 $this->_reindexAnchorCategories($store);
@@ -399,7 +399,7 @@ class Enterprise_Catalog_Model_Index_Action_Catalog_Category_Product_Refresh
             }
         }
         $this->_publishData();
-        $this->_removeUnnecessaryData($rootCatIds);
+        $this->_removeUnnecessaryData($storeIds);
         $this->_clearTmpData();
 
         $this->_afterReindex();
@@ -410,12 +410,12 @@ class Enterprise_Catalog_Model_Index_Action_Catalog_Category_Product_Refresh
     /**
      * Return select for remove unnecessary data
      *
-     * @param array $rootCatIds
+     * @param array $storeIds
      * @return Varien_Db_Select
      */
-    protected function _getSelectUnnecessaryData($rootCatIds)
+    protected function _getSelectUnnecessaryData($storeIds)
     {
-        return $this->_connection->select()
+        $select = $this->_connection->select()
             ->from($this->_getMainTable(), array())
             ->joinLeft(
                 array('t' => $this->_getMainTmpTable()),
@@ -425,17 +425,21 @@ class Enterprise_Catalog_Model_Index_Action_Catalog_Category_Product_Refresh
                 array()
             )
             ->where('t.category_id IS NULL');
+        if (!empty($storeIds)) {
+            $select->where($this->_getMainTable() . '.store_id IN (?)', $storeIds);
+        }
+        return $select;
     }
 
     /**
      * Remove unnecessary data
      *
-     * @param array $rootCatIds
+     * @param array $storeIds
      */
-    protected function _removeUnnecessaryData($rootCatIds)
+    protected function _removeUnnecessaryData($storeIds)
     {
         $this->_connection->query(
-            $this->_connection->deleteFromSelect($this->_getSelectUnnecessaryData($rootCatIds), $this->_getMainTable())
+            $this->_connection->deleteFromSelect($this->_getSelectUnnecessaryData($storeIds), $this->_getMainTable())
         );
     }
 
@@ -625,7 +629,6 @@ class Enterprise_Catalog_Model_Index_Action_Catalog_Category_Product_Refresh
             $eavConfig = $this->_factory->getSingleton('eav/config');
             $isAnchorAttributeId = $eavConfig->getAttribute(Mage_Catalog_Model_Category::ENTITY, 'is_anchor')->getId();
             $entityTypeId = (int)$eavConfig->getEntityType(Mage_Catalog_Model_Category::ENTITY)->getEntityTypeId();
-            
             $rootCatIds = explode('/', $this->_getPathFromCategoryId($store->getRootCategoryId()));
             array_pop($rootCatIds);
 
@@ -654,8 +657,8 @@ class Enterprise_Catalog_Model_Index_Action_Catalog_Category_Product_Refresh
                 )
                 ->joinLeft(
                     array('ccas' => $this->_getTable(array('catalog/category', 'int'))),
-                    'ccas.entity_id = cc.entity_id AND ccas.attribute_id = ccad.attribute_id AND ccas.entity_type_id = ' . $entityTypeId
-                    . ' AND ccas.store_id = ' . $store->getId(),
+                    'ccas.entity_id = cc.entity_id AND ccas.attribute_id = ccad.attribute_id AND ccas.entity_type_id = '
+                    . $entityTypeId . ' AND ccas.store_id = ' . $store->getId(),
                     array()
                 )
                 ->where(

@@ -68,12 +68,12 @@ class Enterprise_Catalog_Model_Index_Action_Catalog_Category_Product_Category_Re
     /**
      * Return select for remove unnecessary data
      *
-     * @param array $rootCatIds
+     * @param array $storeIds
      * @return Varien_Db_Select
      */
-    protected function _getSelectUnnecessaryData($rootCatIds)
+    protected function _getSelectUnnecessaryData($storeIds)
     {
-        $select = parent::_getSelectUnnecessaryData($rootCatIds);
+        $select = parent::_getSelectUnnecessaryData($storeIds);
         return $select->where($this->_getMainTable() . '.category_id IN (?)', $this->_limitationByCategories);
     }
 

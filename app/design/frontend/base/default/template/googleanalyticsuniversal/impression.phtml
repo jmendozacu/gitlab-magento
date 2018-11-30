@@ -29,7 +29,7 @@
 $_productCollection = $this->getLoadedProductCollection();
 ?>
 
-<?php if (count($_productCollection) > 0): ?>
+<?php if (!is_null($_productCollection) && count($_productCollection) > 0): ?>
 <?php
 $listPosition = 0;
 if (is_object($_productCollection) && $_productCollection->getCurPage() > 0) {
