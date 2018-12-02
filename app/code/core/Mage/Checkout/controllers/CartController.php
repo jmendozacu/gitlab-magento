@@ -615,19 +615,12 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
             $base_subtotal = $status->getData('base_subtotal');
             $base_subtotal_with_discount  = $status->getData('base_subtotal_with_discount');
             $base_grand_total  = $status->getData('base_grand_total');
-			Mage::log($base_subtotal);
-			Mage::log($base_subtotal_with_discount);
-			Mage::log($base_grand_total);
             $items = $this->_getCart()->getQuote()->getAllItems();
             $discountTotal = 0;
 				foreach ($items as $item){
                 $discountTotal = $discountTotal + $item->getDiscountAmount();
 				}
             $savecheck = $base_subtotal - $discountTotal;
-			Mage::log($discountTotal);
-			Mage::log($savecheck);
-			Mage::log($isCodeLengthValid);
-			Mage::log($couponCode);
             if ($codeLength) {
                 if ($base_grand_total == $savecheck && $isCodeLengthValid && $couponCode == $this->_getQuote()->getCouponCode()) {
                     $this->_getSession()->addSuccess(
