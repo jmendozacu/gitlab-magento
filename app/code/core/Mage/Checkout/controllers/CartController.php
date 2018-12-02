@@ -580,6 +580,9 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
      */
     public function couponPostAction()
     {
+        /*
+         *  Modified CORE HACK inside
+         */
         /**
          * No reason continue with empty shopping cart
          */
@@ -593,25 +596,42 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
             $couponCode = '';
         }
         $oldCouponCode = $this->_getQuote()->getCouponCode();
-
         if (!strlen($couponCode) && !strlen($oldCouponCode)) {
             $this->_goBack();
             return;
         }
-
+dfghjk
         try {
             $codeLength = strlen($couponCode);
             $isCodeLengthValid = $codeLength && $codeLength <= Mage_Checkout_Helper_Cart::COUPON_CODE_MAX_LENGTH;
-
             $this->_getQuote()->getShippingAddress()->setCollectShippingRates(true);
-            $this->_getQuote()->setCouponCode($isCodeLengthValid ? $couponCode : '')
+            /* Core hack starts here. We are adding validation
+             * to confirm the discount coupon applied
+             * 
+             */
+            $status = $this->_getQuote()->setCouponCode($isCodeLengthValid ? $couponCode : '')
                 ->collectTotals()
                 ->save();
-
+            $base_subtotal = $status->getData('base_subtotal');
+            $base_subtotal_with_discount  = $status->getData('base_subtotal_with_discount');
+            $base_grand_total  = $status->getData('base_grand_total');
+			Mage::log($base_subtotal);
+			Mage::log($base_subtotal_with_discount);
+			Mage::log($base_grand_tota);
+            $items = $this->_getCart()->getQuote()->getAllItems();
+            $discountTotal = 0;
+				foreach ($items as $item){
+                $discountTotal = $discountTotal + $item->getDiscountAmount();
+				}
+            $savecheck = $base_subtotal - $discountTotal;
+			Mage::log($discountTotal);
+			Mage::log($savecheck);
+			Mage::log($isCodeLengthValid);
+			Mage::log($couponCode);
             if ($codeLength) {
-                if ($isCodeLengthValid && $couponCode == $this->_getQuote()->getCouponCode()) {
+                if ($base_grand_total == $savecheck && $isCodeLengthValid && $couponCode == $this->_getQuote()->getCouponCode()) {
                     $this->_getSession()->addSuccess(
-                        $this->__('Coupon code "%s" was applied.', Mage::helper('core')->escapeHtml($couponCode))
+						$this->__('Coupon code "%s" was applied.', Mage::helper('core')->escapeHtml($couponCode))
                     );
                     $this->_getSession()->setCartCouponCode($couponCode);
                 } else {
@@ -622,14 +642,15 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
             } else {
                 $this->_getSession()->addSuccess($this->__('Coupon code was canceled.'));
             }
-
+            /*
+             *  Core hack end
+             */
         } catch (Mage_Core_Exception $e) {
             $this->_getSession()->addError($e->getMessage());
         } catch (Exception $e) {
             $this->_getSession()->addError($this->__('Cannot apply the coupon code.'));
             Mage::logException($e);
         }
-
         $this->_goBack();
     }
 
