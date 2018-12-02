@@ -617,7 +617,7 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
             $base_grand_total  = $status->getData('base_grand_total');
 			Mage::log($base_subtotal);
 			Mage::log($base_subtotal_with_discount);
-			Mage::log($base_grand_tota);
+			Mage::log($base_grand_total);
             $items = $this->_getCart()->getQuote()->getAllItems();
             $discountTotal = 0;
 				foreach ($items as $item){
