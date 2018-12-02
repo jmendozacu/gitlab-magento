@@ -2945,6 +2945,7 @@ ol#checkoutSteps h3 {
     border: 3px solid #000000 !important;
     margin: 6px 0;
     width: 27%;
+	clear: both;
 }
 .checkout-cart-index .cart-forms-wrapper .input-box button span {
     font-size: 13px;
