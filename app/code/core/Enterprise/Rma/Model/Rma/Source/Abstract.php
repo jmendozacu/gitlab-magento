@@ -31,7 +31,7 @@
  * @package    Enterprise_Rma
  * @author     Magento Core Team <core@magentocommerce.com>
  */
-abstract class Enterprise_Rma_Model_Rma_Source_Abstract extends Mage_Eav_Model_Entity_Attribute_Source_Table
+abstract class Enterprise_Rma_Model_Rma_Source_Abstract extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
 {
     /**
      * Getter for all available options
@@ -39,7 +39,7 @@ abstract class Enterprise_Rma_Model_Rma_Source_Abstract extends Mage_Eav_Model_E
      * @param bool $withLabels
      * @return array
      */
-    public function getAllOptions($withEmpty = true, $defaultValues = false)
+    public function getAllOptions($withLabels = true)
     {
         $values = $this->_getAvailableValues();
         if ($withLabels) {

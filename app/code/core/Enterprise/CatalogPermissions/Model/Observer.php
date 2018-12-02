@@ -403,18 +403,27 @@ class Enterprise_CatalogPermissions_Model_Observer
     {
         $productIds = array();
 
+        /** @var $item Mage_Sales_Model_Quote_Item */
         foreach ($quote->getAllItems() as $item) {
-            if (!isset($this->_permissionsQuoteCache[$item->getProductId()]) &&
-                $item->getProductId()) {
-                $productIds[] = $item->getProductId();
+            if (!isset($this->_permissionsQuoteCache[$item->getProductId()])
+                && $item->getProductId()
+            ) {
+                $productTypeCustomOption = $item->getProduct()->getCustomOption('product_type');
+                $productIds[] = (!is_null($productTypeCustomOption)
+                    && $productTypeCustomOption->getValue() == Mage_Catalog_Model_Product_Type_Grouped::TYPE_CODE)
+                        ? $productTypeCustomOption->getProductId()
+                        : $item->getProductId();
             }
         }
+
+        $customerGroupId = $this->_getCustomerGroupId();
+        $quoteStoreId = $quote->getStoreId();
 
         if (!empty($productIds)) {
             $this->_permissionsQuoteCache += $this->_getIndexModel()->getIndexForProduct(
                 $productIds,
-                $this->_getCustomerGroupId(),
-                $quote->getStoreId()
+                $customerGroupId,
+                $quoteStoreId
             );
 
             foreach ($productIds as $productId) {
@@ -425,30 +434,42 @@ class Enterprise_CatalogPermissions_Model_Observer
         }
 
         $defaultGrants = array(
-            'grant_catalog_category_view' => $this->_helper->isAllowedCategoryView(),
-            'grant_catalog_product_price' => $this->_helper->isAllowedProductPrice(),
-            'grant_checkout_items' => $this->_helper->isAllowedCheckoutItems()
+            'grant_catalog_category_view' => $this->_helper->isAllowedCategoryView($quoteStoreId, $customerGroupId),
+            'grant_catalog_product_price' => $this->_helper->isAllowedProductPrice($quoteStoreId, $customerGroupId),
+            'grant_checkout_items' => $this->_helper->isAllowedCheckoutItems($quoteStoreId, $customerGroupId)
         );
 
+        /** @var $item Mage_Sales_Model_Quote_Item */
         foreach ($quote->getAllItems() as $item) {
-            if ($item->getProductId()) {
-                $permission = $this->_permissionsQuoteCache[$item->getProductId()];
-                if (!$permission && in_array(false, $defaultGrants)) {
-                    // If no permission found, and no one of default grant is disallowed
-                    $item->setDisableAddToCart(true);
-                    continue;
-                }
+            if (!$item->getProductId()) {
+                continue;
+            }
+            $permission = $this->_permissionsQuoteCache[$item->getProductId()];
 
-                foreach ($defaultGrants as $grant => $defaultPermission) {
-                    if ($permission[$grant] == -2 ||
-                        ($permission[$grant] != -1 && !$defaultPermission)) {
-                        $item->setDisableAddToCart(true);
-                        break;
+            // If no permission, or at least one of item grant is disallowed,
+            // try to inherit permissions from parent item if it is possible
+            if (!$permission || $this->_isDisabledByGrants($defaultGrants, $permission)) {
+                $parentItem = $item->getParentItem();
+                if ($parentItem && isset($this->_permissionsQuoteCache[$parentItem->getProductId()])) {
+                    $permission = $this->_permissionsQuoteCache[$parentItem->getProductId()];
+                } else {
+                    $productTypeCustomOption = $item->getProduct()->getCustomOption('product_type');
+                    if (!is_null($productTypeCustomOption)
+                        && $productTypeCustomOption->getValue() == Mage_Catalog_Model_Product_Type_Grouped::TYPE_CODE
+                    ) {
+                        $permission = $this->_permissionsQuoteCache[$productTypeCustomOption->getProductId()];
                     }
                 }
             }
-        }
 
+            // If no permission and at least one of default grant is disallowed,
+            // or at least one of item grant is disallowed, then disable add to cart
+            if ((!$permission && in_array(false, $defaultGrants))
+                || $this->_isDisabledByGrants($defaultGrants, $permission)
+            ) {
+                $item->setDisableAddToCart(true);
+            }
+        }
         return $this;
     }
 
@@ -693,4 +714,23 @@ class Enterprise_CatalogPermissions_Model_Observer
         return $result;
     }
 
+    /**
+     * Check whether the product is disabled by grants
+     *
+     * @param array $defaultGrants
+     * @param array $permission
+     * @return bool
+     */
+    protected function _isDisabledByGrants($defaultGrants, $permission)
+    {
+        $isDisabled = false;
+        foreach ($defaultGrants as $grant => $defaultPermission) {
+            if ($permission[$grant] == -2 || ($permission[$grant] != -1 && !$defaultPermission)) {
+                $isDisabled = true;
+                break;
+            }
+        }
+
+        return $isDisabled;
+    }
 }

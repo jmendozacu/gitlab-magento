@@ -38,7 +38,7 @@ class Enterprise_Rma_TrackingController extends Mage_Core_Controller_Front_Actio
             ->loadByHash($this->getRequest()->getParam('hash'));
 
         Mage::register('rma_current_shipping', $shippingInfoModel);
-        if (count($shippingInfoModel->getTrackingInfo()) == 0) {
+        if (empty($shippingInfoModel->getTrackingInfo()) == true) {
             $this->norouteAction();
             return;
         }

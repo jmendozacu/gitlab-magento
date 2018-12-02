@@ -34,6 +34,9 @@
 <?php switch ($accountType): ?>
 <?php case Enterprise_GoogleAnalyticsUniversal_Helper_Data::TYPE_TAG_MANAGER: ?>
     <?php if (!empty($gtmAccountId)): ?>
+        <script type="text/javascript">
+            <?php echo $this->getOrdersData() ?>
+        </script>
         <!-- GOOGLE TAG MANAGER -->
         <noscript>
             <iframe src="//www.googletagmanager.com/ns.html?id=<?php echo $gtmAccountId ?>" height="0" width="0" style="display:none;visibility:hidden"></iframe>
@@ -46,7 +49,6 @@
             })(window,document,'script','dataLayer','<?php echo $gtmAccountId ?>');
 
             var dlCurrencyCode = '<?php echo $this->getStoreCurrencyCode() ?>';
-            <?php echo $this->getOrdersData() ?>
             //]]>
         </script>
         <!-- END GOOGLE TAG MANAGER -->

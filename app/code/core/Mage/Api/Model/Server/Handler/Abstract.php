@@ -235,9 +235,6 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      */
     public function call($sessionId, $apiPath, $args = array())
     {
-        //Mage::log($sessionId, null, 'api.log');
-        //Mage::log($apiPath, null, 'api.log');
-        //Mage::log($args, null, 'api.log');
         $this->_startSession($sessionId);
 
         if (!$this->_getSession()->isLoggedIn($sessionId)) {
@@ -290,7 +287,7 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
                 throw new Mage_Api_Exception('resource_path_not_callable');
             }
 
-            if (method_exists($model, $method)) { 
+            if (method_exists($model, $method)) {
                 $result = array();
                 if (isset($methodInfo->arguments) && ((string)$methodInfo->arguments) == 'array') {
                     $result = $model->$method((is_array($args) ? $args : array($args)));
@@ -299,7 +296,6 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
                 } else {
                     $result = call_user_func_array(array(&$model, $method), $args);
                 }
-				//Mage::log($result, null, 'api.log');
                 return $this->processingMethodResult($result);
             } else {
                 throw new Mage_Api_Exception('resource_path_not_callable');
@@ -322,9 +318,6 @@ abstract class Mage_Api_Model_Server_Handler_Abstract
      */
     public function multiCall($sessionId, array $calls = array(), $options = array())
     {
-        //Mage::log($sessionId, null, 'api.log');
-        //Mage::log($apiPath, null, 'api.log');
-        //Mage::log($args, null, 'api.log');
         $this->_startSession($sessionId);
 
         if (!$this->_getSession()->isLoggedIn($sessionId)) {

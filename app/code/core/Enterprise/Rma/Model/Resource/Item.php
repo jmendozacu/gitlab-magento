@@ -92,7 +92,7 @@ class Enterprise_Rma_Model_Resource_Item extends Mage_Eav_Model_Entity_Abstract
     protected function _isApplicableAttribute($object, $attribute)
     {
         $applyTo = $attribute->getApplyTo();
-        return count($applyTo) == 0 || in_array($object->getTypeId(), $applyTo);
+        return empty($applyTo) == true || in_array($object->getTypeId(), $applyTo);
     }
 
     /**

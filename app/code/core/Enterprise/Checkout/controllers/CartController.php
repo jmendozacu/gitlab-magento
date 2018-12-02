@@ -34,6 +34,18 @@
 class Enterprise_Checkout_CartController extends Mage_Core_Controller_Front_Action
 {
     /**
+     * Disable flat for product collection
+     *
+     * @return Mage_Checkout_CartController
+     */
+    public function preDispatch()
+    {
+        parent::preDispatch();
+        Mage::helper('catalog/product_flat')->disableFlatCollection(true);
+        return $this;
+    }
+
+    /**
      * Get checkout session model instance
      *
      * @return Mage_Checkout_Model_Session

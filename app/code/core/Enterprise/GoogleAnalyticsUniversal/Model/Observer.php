@@ -371,6 +371,12 @@ class Enterprise_GoogleAnalyticsUniversal_Model_Observer
                  $controllerAction->getResponse()->setBody(Mage::helper('core')->jsonEncode($body));
                  break;
             case 'savePayment':
+                $body = $controllerAction->getResponse()->getBody();
+                $body = Mage::helper('core')->jsonDecode($body, true);
+                if (isset($body['redirect'])) {
+                    break;
+                }
+
                 $reviewBlock = $controllerAction->getLayout()
                     ->createBlock('enterprise_googleanalyticsuniversal/list_json')
                     ->setTemplate('googleanalyticsuniversal/checkout/step.phtml')
@@ -385,8 +391,6 @@ class Enterprise_GoogleAnalyticsUniversal_Model_Observer
                     ->setStepName('payment')
                     ->setShippingOption($paymentOption);
 
-                $body = $controllerAction->getResponse()->getBody();
-                $body = Mage::helper('core')->jsonDecode($body, true);
                 if (!empty($body['update_section']['html'])) {
                     $body['update_section']['html'] = $blockPaymentMethod->toHtml()
                         . $body['update_section']['html'] . $reviewBlock->toHtml();
