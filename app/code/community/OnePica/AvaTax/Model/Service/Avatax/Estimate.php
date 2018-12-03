@@ -1006,9 +1006,12 @@ class OnePica_AvaTax_Model_Service_Avatax_Estimate
         $messages = array();
         try {
             /** @var \Message $message */
-            foreach ($result->getMessages() as $message) {
-                if ($message->getRefersTo() === OnePica_AvaTax_Helper_LandedCost::AVATAX_LANDED_COST_TAX_TYPE) {
-                    $messages[] = $message->getSummary();
+            $messages = $result->getMessages();
+            if(isset($messages) && is_object($messages)) {
+                foreach ($messages as $message) {
+                    if ($message->getRefersTo() === OnePica_AvaTax_Helper_LandedCost::AVATAX_LANDED_COST_TAX_TYPE) {
+                        $messages[] = $message->getSummary();
+                    }
                 }
             }
         } catch (Exception $e) {
