@@ -1007,7 +1007,7 @@ class OnePica_AvaTax_Model_Service_Avatax_Estimate
         try {
             /** @var \Message $message */
             $messages = $result->getMessages();
-            if($messages && is_object($messages)) {
+            if(isset($messages) && is_object($messages)) {
                 foreach ($messages as $message) {
                     if ($message->getRefersTo() === OnePica_AvaTax_Helper_LandedCost::AVATAX_LANDED_COST_TAX_TYPE) {
                         $messages[] = $message->getSummary();
