@@ -1013,6 +1013,8 @@ class OnePica_AvaTax_Model_Service_Avatax_Estimate
                         $messages[] = $message->getSummary();
                     }
                 }
+            }else{
+                $messages = array();
             }
         } catch (Exception $e) {
             // Avalara's lib throws exception "Trying to get property of non-object" when "messages" is empty array
