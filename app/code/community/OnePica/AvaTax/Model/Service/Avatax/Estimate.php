@@ -1013,13 +1013,14 @@ class OnePica_AvaTax_Model_Service_Avatax_Estimate
                         $messages[] = $message->getSummary();
                     }
                 }
+                $data = implode('<br/>', $messages);
             }else{
-                $messages = array();
+                $data = array();
             }
         } catch (Exception $e) {
             // Avalara's lib throws exception "Trying to get property of non-object" when "messages" is empty array
         }
 
-        return implode('<br/>', $messages);
+        return $data;
     }
 }
