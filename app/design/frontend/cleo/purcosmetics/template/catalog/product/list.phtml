@@ -151,12 +151,13 @@ $_helper = $this->helper('catalog/output');
                             <div class="actions">
                                 <?php if(!$_product->canConfigure() && $_product->isSaleable()): ?>
                                     <button type="button" title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
-                                        <button href="javascript: void(0);" onclick="weltpixel.quickview.showProductInfoModal('/weltpixel_quickview/ajax_catalog_product/view/id/<?php echo $_product->getId(); ?>');" class="button"><i class="icon-eye-open"></i><?php echo $this->__('Quickview'); ?></button>
                                 <?php elseif($_product->getStockItem() && $_product->getStockItem()->getIsInStock()): ?>
                                     <a title="<?php echo $this->quoteEscape($this->__('Pick your shade')) ?>" class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('Pick your shade') ?></a>
                                 <?php else: ?>
                                     <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                                 <?php endif; ?>
+                                <button href="javascript: void(0);" onclick="weltpixel.quickview.showProductInfoModal('/weltpixel_quickview/ajax_catalog_product/view/id/<?php echo $_product->getId(); ?>');" class="button  btn-cart"><i class="icon-eye-open"></i><?php echo $this->__('Quickview'); ?></button>
+
                                 <ul class="add-to-links">
                                     <?php if ($this->helper('wishlist')->isAllow()) : ?>
                                         <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
