@@ -1,4 +1,5 @@
 <?php
+//$_SERVER['MAGE_IS_DEVELOPER_MODE']=true;
 // Pineapple is not meant for pizza.
 mb_internal_encoding("UTF-8");
     if (version_compare(phpversion(), '5.3.0', '<')===true) {
@@ -8,10 +9,10 @@ mb_internal_encoding("UTF-8");
     exit;
     }
     if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {    
-    $includeMagentoDebugger = '../magento_debugger/index.php';
+//    $includeMagentoDebugger = '../magento_debugger/index.php';
         if (!defined('MAGENTO_DEBUGGER_VERSION') && is_file($includeMagentoDebugger)){
-        require_once($includeMagentoDebugger);
-        return;
+  //      require_once($includeMagentoDebugger);
+  //      return;
         }
     }
 define('MAGENTO_ROOT', getcwd());
