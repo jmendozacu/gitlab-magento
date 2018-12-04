@@ -628,6 +628,9 @@ class Mage_Checkout_CartController extends Mage_Core_Controller_Front_Action
                     );
                     $this->_getSession()->setCartCouponCode($couponCode);
                 } else {
+                    $status = $this->_getQuote()->setCouponCode("")
+                        ->collectTotals()
+                        ->save();                    
                     $this->_getSession()->addError(
                         $this->__('Coupon code "%s" is not valid.', Mage::helper('core')->escapeHtml($couponCode))
                     );
