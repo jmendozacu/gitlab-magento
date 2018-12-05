@@ -35,7 +35,7 @@ class Born_Package_Block_Catalog_Product_View_Tierpricing extends Mage_Catalog_B
 
 		foreach ($_tierPrices as $_price) 
 		{
-			if ($index == 0 && $price['price_qty'] > 1) {
+			if ($index == 0 && $_price['price_qty'] > 1) {
 				$_html .= '<div class="tier-price-inner index-' . $index .'">';
 				$_html .= '<span class="quantity-range">' . $_qtyRanges[$index] .'</span>';
 				$_html .= $this->getPriceHtml($_product);
