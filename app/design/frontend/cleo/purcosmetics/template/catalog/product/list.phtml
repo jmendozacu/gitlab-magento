@@ -150,7 +150,7 @@ $_helper = $this->helper('catalog/output');
                             <?php endif; ?>
                             <div class="actions">
                                 <?php if(!$_product->canConfigure() && $_product->isSaleable()): ?>
-                                    <button type="button" title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><i class="icon icon-line2-handbag"></i><?php echo $this->__('Add to Bag') ?></span></button>
+                                    <button type="button" title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><i class="icon icon-line2-handbag"></i><?php echo $this->__('Add to Cart') ?></span></button>
                                 <?php elseif($_product->getStockItem() && $_product->getStockItem()->getIsInStock()): ?>
                                     <a title="<?php echo $this->quoteEscape($this->__('Pick your shade')) ?>" class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('Pick your shade') ?></a>
                                 <?php else: ?>
