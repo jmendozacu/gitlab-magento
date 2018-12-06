@@ -4260,11 +4260,11 @@ button.buttons:hover span {
     .layout-2columns-left .products-grid > li.item {
         padding-left: 0;
         padding-right: 0;
+        padding-bottom: 0;
+        margin-top: 0;
     }
     .row, .products-grid {
         margin-left: 0;
         margin-right: 0;
-        padding-bottom: 0;
-        margin-top: 0;
     }
 }
