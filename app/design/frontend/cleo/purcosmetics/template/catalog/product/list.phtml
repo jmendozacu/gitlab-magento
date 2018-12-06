@@ -172,33 +172,18 @@ $_helper = $this->helper('catalog/output');
             <?php endif*/ ?>
                 <?php endforeach ?>
             </ul>
-            <style type="text/css">
-                .products-grid .item .actions {
-                    display: inline-block;
-                }
-                .actions:after {
-                    content: "";
-                    clear: both;
-                    display: table;
-                }
-                .product-list-grid-action {
-                    width: 130px;
-                    padding: 5px;
-                    display: block;
-                    border: 1px solid #F0F0F0;
-                    float: left;
-                    color: #000;
-                    height: 95px;
-                }
-                .products-grid .item a.product-list-grid-action:hover {
-                    background: #000;
-                    color: #fff;
-                }
-                .product-list-grid-action i {
-                    display: block;
-                }
-            </style>
             <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+            <script type="text/javascript">
+                function(productId, e) {
+                    e.preventDefault();
+                    if (typeof Minicart !== 'undefined' && Minicart !== null) {
+                        Minicart.wpAddToCart(productId, qty, null, e.target);
+                    } else {
+                        e.target.click();                        
+                    }
+                }
+                var Minicart = new Skulookup() || null;
+            </script>
         <?php endif; ?>
 
         <div class="toolbar-bottom">

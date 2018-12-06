@@ -4204,6 +4204,35 @@ button.buttons:hover span {
     text-align: center;
 }
 
+
+/****************************/
+/****** Product Lists *******/
+/****************************/
+.products-grid .item .actions {
+    display: inline-block;
+}
+.actions:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.product-list-grid-action {
+    width: 130px;
+    padding: 5px;
+    display: block;
+    border: 1px solid #F0F0F0;
+    float: left;
+    color: #000;
+    height: 95px;
+}
+.products-grid .item a.product-list-grid-action:hover {
+    background: #000;
+    color: #fff;
+}
+.product-list-grid-action i {
+    display: block;
+}
+
 /****************************/
 /****** Product Pages *******/
 /****************************/
