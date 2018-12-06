@@ -156,7 +156,7 @@ $_helper = $this->helper('catalog/output');
                                 <?php else: ?>
                                     <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                                 <?php endif; ?>
-                                <button href="javascript: void(0);" onclick="weltpixel.quickview.showProductInfoModal('/weltpixel_quickview/ajax_catalog_product/view/id/<?php echo $_product->getId(); ?>');" class="button  btn-cart"><i class="icon-eye-open"></i><?php echo $this->__('Quickview'); ?></button>
+                                <button href="javascript: void(0);" onclick="weltpixel.quickview.showProductInfoModal('<?php echo Mage::helper('weltpixel_quickview')->getProductUrl($_product); ?>');" class="button  btn-cart"><i class="icon-eye-open"></i><?php echo $this->__('Quickview'); ?></button>
 
                                 <ul class="add-to-links">
                                     <?php if ($this->helper('wishlist')->isAllow()) : ?>
