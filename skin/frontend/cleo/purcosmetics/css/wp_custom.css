@@ -3512,6 +3512,11 @@ body.not-logged-in.checkout-onepage-index:not(.opc-has-progressed-from-login) .c
         text-align: right;
     }
 }
+
+button:nth-of-type(odd), .btn:nth-of-type(odd) {
+    border-bottom-left-radius: 1px !important;
+}
+
 @media screen and (max-width: 1000px) {
     .page #page-header #page-header-section-01 .header-container #quick-access {
         right: 35px;
