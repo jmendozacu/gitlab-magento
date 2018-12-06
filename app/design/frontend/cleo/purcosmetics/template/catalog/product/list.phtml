@@ -177,7 +177,7 @@ $_helper = $this->helper('catalog/output');
                 var addToCart = function(e, productId) {
                     e.preventDefault();
                     if (typeof Minicart !== 'undefined' && Minicart !== null) {
-                        Minicart.wpAddToCart(productId, qty, null, e.target);
+                        Minicart.wpAddToCart(productId, 1, null, e.target);
                     } else {
                         setLocation(e.taget.href);
                     }
