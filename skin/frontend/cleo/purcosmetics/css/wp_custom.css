@@ -4244,6 +4244,14 @@ button.buttons:hover span {
 /****** Media Queries *******/
 /****************************/
 
+@media screen and (min-width: 768px) {
+    .products-grid li.item {
+        display: inline-block;
+        float: none;
+        width: 32.999999%
+    }
+}
+
 @media screen and (max-width: 524px) {
     #ampromo-carousel-content {
         justify-content: center;
