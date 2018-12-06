@@ -4257,13 +4257,6 @@ button.buttons:hover span {
     #ampromo-overlay.mode-inline .ampromo-slide {
         flex-grow: 1;
     }
-}
-
-@media screen and (max-width: 360px) {
-    .row, .products-grid {
-        margin-left: 0;
-        margin-right: 0;
-    }
     .layout-2columns-left .products-grid > li.item {
         padding-left: 0;
         padding-right: 0;
