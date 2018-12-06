@@ -150,13 +150,13 @@ $_helper = $this->helper('catalog/output');
                             <?php endif; ?>
                             <div class="actions">
                                 <?php if(!$_product->canConfigure() && $_product->isSaleable()): ?>
-                                    <a title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="product-list-grid-action" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><i class="icon icon-line2-handbag"></i><?php echo $this->__('Add to Cart') ?></span></a>
+                                    <a title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="product-list-grid-action" href="<?php echo $this->getAddToCartUrl($_product) ?>" onclick="addToCart(<?php echo $_product->getId() ?>)"><span><i class="icon icon-line2-handbag"></i><?php echo $this->__('Add to Cart') ?></span></a>
                                 <?php elseif($_product->getStockItem() && $_product->getStockItem()->getIsInStock()): ?>
                                     <a title="<?php echo $this->quoteEscape($this->__('Pick your shade')) ?>" class="product-list-grid-action" href="<?php echo $_product->getProductUrl() ?>"><span><i class="icon-line2-drop"></i><?php echo $this->__('Pick your shade') ?></span></a>
                                 <?php else: ?>
                                     <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                                 <?php endif; ?>
-                                <a href="javascript: void(0);" onclick="weltpixel.quickview.showProductInfoModal('<?php echo Mage::helper('weltpixel_quickview')->getProductUrl($_product, array()); ?>');" class="product-list-grid-action"><span><i class="icon-eye-open"></i><?php echo $this->__('Quickview'); ?></span></a>
+                                <a href="javascript: void(0);" href="#" onclick="weltpixel.quickview.showProductInfoModal('<?php echo Mage::helper('weltpixel_quickview')->getProductUrl($_product, array()); ?>');" class="product-list-grid-action"><span><i class="icon-eye-open"></i><?php echo $this->__('Quickview'); ?></span></a>
                                 <ul class="add-to-links">
                                     <?php if ($this->helper('wishlist')->isAllow()) : ?>
                                         <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
@@ -174,12 +174,12 @@ $_helper = $this->helper('catalog/output');
             </ul>
             <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
             <script type="text/javascript">
-                function(productId, e) {
+                var addToCart = function(productId, e) {
                     e.preventDefault();
                     if (typeof Minicart !== 'undefined' && Minicart !== null) {
                         Minicart.wpAddToCart(productId, qty, null, e.target);
                     } else {
-                        e.target.click();                        
+                        setLocation(e.taget.href);
                     }
                 }
                 var Minicart = new Skulookup() || null;
