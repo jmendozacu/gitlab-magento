@@ -4264,5 +4264,7 @@ button.buttons:hover span {
     .row, .products-grid {
         margin-left: 0;
         margin-right: 0;
+        padding-bottom: 0;
+        margin-top: 0;
     }
 }
