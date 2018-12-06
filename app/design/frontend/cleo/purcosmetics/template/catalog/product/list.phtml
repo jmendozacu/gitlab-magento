@@ -150,13 +150,13 @@ $_helper = $this->helper('catalog/output');
                             <?php endif; ?>
                             <div class="actions">
                                 <?php if(!$_product->canConfigure() && $_product->isSaleable()): ?>
-                                    <button type="button" title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><i class="icon icon-line2-handbag"></i><?php echo $this->__('Add to Cart') ?></span></button>
+                                    <a title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="product-list-action" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><i class="icon icon-line2-handbag"></i><?php echo $this->__('Add to Cart') ?></span></a>
                                 <?php elseif($_product->getStockItem() && $_product->getStockItem()->getIsInStock()): ?>
                                     <a title="<?php echo $this->quoteEscape($this->__('Pick your shade')) ?>" class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('Pick your shade') ?></a>
                                 <?php else: ?>
                                     <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                                 <?php endif; ?>
-                                <button href="javascript: void(0);" onclick="weltpixel.quickview.showProductInfoModal('<?php echo Mage::helper('weltpixel_quickview')->getProductUrl($_product, array()); ?>');" class="button  btn-cart"><span><i class="icon-eye-open"></i><?php echo $this->__('Quickview'); ?></span></button>
+                                <a href="javascript: void(0);" onclick="weltpixel.quickview.showProductInfoModal('<?php echo Mage::helper('weltpixel_quickview')->getProductUrl($_product, array()); ?>');" class="product-list-action"><span><i class="icon-eye-open"></i><?php echo $this->__('Quickview'); ?></span></a>
 
                                 <ul class="add-to-links">
                                     <?php if ($this->helper('wishlist')->isAllow()) : ?>
