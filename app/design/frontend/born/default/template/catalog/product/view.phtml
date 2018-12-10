@@ -319,13 +319,7 @@ var productCategory = '<?php echo str_replace('/',' > ',$cat_string); ?>';
 var productPrice = '<?php echo $_product->getPrice(); ?>';
 var productObject = {id:'<?php echo $_product->getSku(); ?>',item_price:'<?php echo $_product->getPrice(); ?>',quantity:1};
 var fobj =  {value:'<?php echo $_product->getPrice(); ?>',currency:'USD',content_name:'<?php echo $_product->getName(); ?>',content_type:'product',content_ids:'<?php echo $_product->getSku(); ?>',contents:productObject};   
-fbq('track', 'ViewContent', fobj);    
-window.criteo_q = window.criteo_q || []; 
-window.criteo_q.push(
-    { event: "setAccount", account: criteoAccountId },
-    { event: "setSiteType", type: "d" },      
-    { event: "viewItem", item: <?php echo $_product->getId(); ?> } 
-); 
+fbq('track', 'ViewContent', fobj);
 
 if(productId == '8770240' || productId == '8770150' || productId == '8770320' || productId == '8770190' || productId == '8770180' || productId == '8770250' || productId == '8770100' || productId == '8770030' || productId == '8770520'){ 
 jQuery('.regular-price').remove();

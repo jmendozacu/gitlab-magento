@@ -200,16 +200,6 @@ if (Mage::getStoreConfig('born_affiliate/cj_tracking/enable', $storeId)):
 
 
     <!-- /Mavrck Conversion trigger -->
-    <!-- Criteo Conversion trigger -->
-    <script type="text/javascript"> 
-    var items = JSON.parse('<?php echo $itemsListEnc; ?>');
-    window.criteo_q = window.criteo_q || []; 
-    window.criteo_q.push(         
-    { event: "setAccount", account: criteoAccountId },         
-    { event: "setSiteType", type: "d" },             
-    { event: "trackTransaction", id: "<?php echo $this->escapeHtml($this->getOrderId()); ?>", item: items});
-    </script>
-    <!-- /Criteo Conversion trigger -->
     <!-- /Facebook Conversion trigger -->
     <script>
     fbq('track', 'Purchase', {value: <?php echo $applied_total; ?>, currency:'USD'});

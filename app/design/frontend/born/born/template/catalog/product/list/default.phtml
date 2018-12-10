@@ -133,7 +133,6 @@ echo $this->getToolbarHtml();
             <?php endif ?>
 
             <?php 
-            $criteoIdArray = array();
             $productArray = array();
             $pc = 1;
                 foreach ($_productCollection as $_product):
@@ -143,7 +142,6 @@ echo $this->getToolbarHtml();
                 $product_item['brand'] = $affiliation;
                 $product_item['position'] = $pc;
                 $pc++;
-                $criteoIdArray[] = $_product->getId();
                 $_filterColor = null; 
                 ?>
                 <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
@@ -280,9 +278,6 @@ if ($this->getChild('after')) {
 }
 $productArray = json_encode($productArray);
 ?>
-<?php echo "<script>"; ?>
-<?php echo "var productArray = JSON.parse('".json_encode($criteoIdArray)."');"; ?>
-<?php echo "</script>"; ?>
 <script type="text/javascript">
     var fbo = {};
     fbo.content_name = '<?php echo $catData['name']; ?>';
@@ -302,10 +297,4 @@ $productArray = json_encode($productArray);
         fbo.content_ids.push(item.sku);
     }); 
     fbq('track', 'ViewContent', fbo);
-window.criteo_q = window.criteo_q || [];
-window.criteo_q.push(
- { event: "setAccount", account: criteoAccountId },
- { event: "setSiteType", type: "d" },
- { event: "viewList", item: productArray }
-);
 </script>
