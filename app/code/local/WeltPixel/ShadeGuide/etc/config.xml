@@ -39,13 +39,6 @@
                 </shadeguide>
             </updates>
         </layout>
-        <product>
-            <collection>
-                <attributes>
-                      <alt_image/>
-                </attributes>
-            </collection>
-        </product>
     </frontend>
     <adminhtml>
         <layout>
