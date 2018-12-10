@@ -5,15 +5,6 @@
 ?>
 
 <?php if ($this->getCollection()->getSize()): ?>
-
-    <div class="filter-overlay"></div>
-    <div class="first-toolbar">
-    <div class="filter">
-        <div class="action">
-            <button class="button toggle-filters"><span><?php echo $this->__('Open Filters') ?></span></button>
-        </div>
-    </div>
-
     <div class="toolbar <?php echo Mage::registry('tbp'); ?>">
         <?php if ($this->isExpanded()): ?>
         <div class="sorter">
