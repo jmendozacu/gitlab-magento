@@ -26,7 +26,6 @@ class WeltPixel_QuickView_Block_Catalog_Product_List extends Mage_Catalog_Block_
             $origCategory = null;
             if ($this->getCategoryId()) {
                 $category = Mage::getModel('catalog/category')
-                    ->addAttributeToSelect('alt_image')
                     ->load($this->getCategoryId());
                 if ($category->getId()) {
                     $origCategory = $layer->getCurrentCategory();
