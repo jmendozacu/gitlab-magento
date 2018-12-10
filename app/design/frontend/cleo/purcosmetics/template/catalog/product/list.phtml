@@ -35,6 +35,8 @@
 <?php
 $_productCollection=$this->getLoadedProductCollection();
 $_helper = $this->helper('catalog/output');
+Mage::log('MAGE DEBUG::CATEGORY_LIST::_productCollection', null, 'categories.log');
+Mage::log($_productCollection, 1, 'categories.log');
 ?> 
 <?php if(!$_productCollection->count()): ?>
     <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
