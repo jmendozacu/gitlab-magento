@@ -9,15 +9,13 @@ class Astral_Integrations_Helper_ProductCollectionDecorator extends Mage_Core_He
 
     /**
      * Returns the array used for the Criteo View List Event
-     * @param  [type] $productCollection [description]
-     * @return [type]                    [description]
+     * @param  [Obj] $productCollection [description]
+     * @return [array]
      */
     public function getCriteoViewListEventArray($productCollection) {
         $criteoViewList = array();
-        if(isset($productCollection) && $productCollection) {
-
+        if(isset($productCollection) && !empty($productCollection)) {
             $criteoViewList['event'] = 'viewList';
-
             if(isset($productCollection) && !empty($productCollection)) {
                 foreach($productCollection as $product) {
                     $criteoViewList['item'][] = $product->getSku();
