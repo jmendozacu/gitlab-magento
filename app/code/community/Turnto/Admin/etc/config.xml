@@ -24,11 +24,11 @@
             </adminhelper1>
         </helpers>
         <models>
-            <catalog>
+            <!--<catalog>
                 <rewrite>
                     <product>Turnto_Admin_Model_Catalog_Product</product>
                 </rewrite>
-            </catalog>
+            </catalog>-->
             <turnto_admin>
                 <class>Turnto_Admin_Model</class>
                 <resourceModel>turnto_admin_resource</resourceModel>
