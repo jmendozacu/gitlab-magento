@@ -4238,7 +4238,7 @@ button.buttons:hover span {
     display: block;
 }
 
-.products-grid .item .product-image img {
+.products-grid .item .product-image {
     position: relative;
     width: 300px;
     height: 300px;
@@ -4247,14 +4247,20 @@ button.buttons:hover span {
 }
 
 .products-grid .item .product-image img {
-    -webkit-transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -o-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 200ms ease-in-out;
+    -moz-transition: opacity 200ms ease-in-out;
+    -o-transition: opacity 200ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
+    position: absolute;
+    left: 0;
 }
 
 .products-grid .item .product-image img.hover_image:hover {
-  opacity:0;
+    -webkit-transition: opacity 250ms ease-in-out;
+    -moz-transition: opacity 250ms ease-in-out;
+    -o-transition: opacity 250ms ease-in-out;
+    transition: opacity 250ms ease-in-out;
+    opacity:0;
 }
 
 /****************************/
