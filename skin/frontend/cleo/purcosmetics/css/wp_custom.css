@@ -4238,7 +4238,7 @@ button.buttons:hover span {
     display: block;
 }
 
-.product-grid .item .product-image {
+.products-grid .item .product-image img {
     position: relative;
     width: 300px;
     height: 300px;
@@ -4246,14 +4246,14 @@ button.buttons:hover span {
     margin: 0 auto;
 }
 
-.product-grid .item .product-image img {
+.products-grid .item .product-image img {
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
     -o-transition: opacity 1s ease-in-out;
     transition: opacity 1s ease-in-out;
 }
 
-.product-grid .item img.hover_imag:hover {
+.products-grid .item .product-image img.hover_image:hover {
   opacity:0;
 }
 
