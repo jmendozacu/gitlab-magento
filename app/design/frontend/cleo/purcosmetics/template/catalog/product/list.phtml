@@ -65,7 +65,7 @@ $_helper = $this->helper('catalog/output');
                             <?php $_imgSize = 300; ?>
                             <img id="product-collection-image-<?php echo $_product->getId(); ?>"
                                  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize($_imgSize); ?>"
-                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
                         </a>
                         <?php // Product description ?>
                         <div class="product-shop">
@@ -133,10 +133,12 @@ $_helper = $this->helper('catalog/output');
                             <?php $_imgSize = 300; ?>
                             <img id="product-collection-image-<?php echo $_product->getId(); ?>"
                                  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>"
-                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" width="300" height="300"/>
+                        </a>
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'alt_image'), null, true) ?>" class="product-image">
                             <img id="product-collection-image-<?php echo $_product->getId(); ?>"
                                  src="<?php echo $this->helper('catalog/image')->init($_product, 'alt_image')->resize($_imgSize); ?>"
-                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'alt_image'), null, true) ?>" />
+                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'alt_image'), null, true) ?>" width="300" height="300"/>
                         </a>
                         <span class="TurnToReviewsTeaser"></span>
                         <div class="product-info">
