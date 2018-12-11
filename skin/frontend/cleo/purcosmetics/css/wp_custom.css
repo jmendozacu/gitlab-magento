@@ -4238,6 +4238,25 @@ button.buttons:hover span {
     display: block;
 }
 
+.product-grid .item .product-image {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: block
+    margin: 0 auto;
+}
+
+.product-grid .item .product-image img {
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.product-grid .item img.hover_imag:hover {
+  opacity:0;
+}
+
 /****************************/
 /****** Product Pages *******/
 /****************************/
