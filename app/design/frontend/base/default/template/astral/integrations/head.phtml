@@ -60,8 +60,6 @@ if(isset($pixelId) && !empty($pixelId)): ?>
             <?php
             $productsAdded = $this->getAddToCartIds() ?: array();
             //Iterate over each item that was added and fire a add to cart event
-            Mage::log('Astral_Integrations::Add To Cart Fired', null, 'astral.log');
-            Mage::log($productsAdded, 1, 'astral.log');
             foreach ($productsAdded as $productRow => $productArray):
                 $product_id = $productArray['product_id'];
                 $quantity = $productArray['quantity'];

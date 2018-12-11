@@ -7,7 +7,6 @@
 class Astral_Integrations_Model_Observer {
 
     public function addToCart($observer) {
-        Mage::log('Astral_Integrations::EVENT OBSERVED::astral_integrations_add_to_cart', null, 'astral.log');
         //Pixel
         $pixelId = Mage::helper('astral_integrations_helper')->getFacebookPixelId();
         if(isset($pixelId) && !empty($pixelId)) {
@@ -25,7 +24,6 @@ class Astral_Integrations_Model_Observer {
             $addToCart = $session->getData("astral_add_to_cart") ?: array();
 
             //Iterate over array to see if product has already been added before.
-            Mage::log('', 1, 'astral.log');
             $hasBeenAdded = false;
             foreach($addToCart as $productRow => $attributes) {
                 if ($attributes['product_id'] == $productId) {
