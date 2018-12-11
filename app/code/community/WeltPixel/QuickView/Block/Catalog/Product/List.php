@@ -16,7 +16,6 @@ class WeltPixel_QuickView_Block_Catalog_Product_List extends Mage_Catalog_Block_
                 /** @var Mage_Catalog_Model_Resource_Category_Collection $categories */
                 $categories = Mage::registry('product')->getCategoryCollection()
                     ->setPage(1, 1)
-                    ->addAttributeToSelect('alt_image',true)
                     ->load();
                 if ($categories->count()) {
                     $this->setCategoryId($categories->getFirstItem()->getId());
@@ -26,6 +25,8 @@ class WeltPixel_QuickView_Block_Catalog_Product_List extends Mage_Catalog_Block_
             $origCategory = null;
             if ($this->getCategoryId()) {
                 $category = Mage::getModel('catalog/category')
+                    ->addAttributeToSelect('alt_image',true)
+                    ->addAttributeToFilter('alt_image',true)
                     ->load($this->getCategoryId());
                 if ($category->getId()) {
                     $origCategory = $layer->getCurrentCategory();
