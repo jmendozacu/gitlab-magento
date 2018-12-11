@@ -128,6 +128,12 @@ $_helper = $this->helper('catalog/output');
         <?php $_columnCount = $this->getColumnCount(); ?>
             <ul class="products-grid products-grid--max-<?php echo $_columnCount; ?>-col">
                 <?php $i=1; foreach ($_productCollection as $_product): ?>
+                <?php
+                    $attributeCode = 'alt_image';
+                    $attribute = $product->getResource()->getAttribute($attributeCode);
+                    $backend = $attribute->getBackend();
+                    $backend->afterLoad($product);
+                ?>
                     <li class="item<?php if($i==1||($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
                         <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
                             <?php $_imgSize = 300; ?>
@@ -135,7 +141,7 @@ $_helper = $this->helper('catalog/output');
                                  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>"
                                  alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
                             <img id="product-collection-image-<?php echo $_product->getId(); ?>"
-                                 src="<?php echo $_product->getMediaGalleryImages()->getItemByColumnValue('alt_image', 'alt_image')->getUrl(); ?>"
+                                 src="<?php echo $this->helper('catalog/image')->init($_product, 'alt_image')->resize($_imgSize); ?>"
                                  alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'alt_image'), null, true) ?>" />
                         </a>
                         <span class="TurnToReviewsTeaser"></span>
