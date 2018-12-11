@@ -129,7 +129,7 @@ $_helper = $this->helper('catalog/output');
             <ul class="products-grid products-grid--max-<?php echo $_columnCount; ?>-col">
                 <?php $i=1; foreach ($_productCollection as $_product): ?>
                 <?php
-                    $attributeCode = 'alt_image';
+                    $attributeCode = 'media_gallery';
                     $attribute = $_product->getResource()->getAttribute($attributeCode);
                     $backend = $attribute->getBackend();
                     $backend->afterLoad($_product);
