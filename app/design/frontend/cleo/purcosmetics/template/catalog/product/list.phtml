@@ -135,7 +135,7 @@ $_helper = $this->helper('catalog/output');
                                  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>"
                                  alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
                             <img id="product-collection-image-<?php echo $_product->getId(); ?>"
-                                 src="<?php echo $_product->getData('alt_image'); ?>"
+                                 src="<?php echo $_product->getMediaGalleryImages()->getItemByColumnValue('alt_image', 'alt_image')->getUrl(); ?>"
                                  alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'alt_image'), null, true) ?>" />
                         </a>
                         <span class="TurnToReviewsTeaser"></span>
