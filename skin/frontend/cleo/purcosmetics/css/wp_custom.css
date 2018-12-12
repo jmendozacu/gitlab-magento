@@ -3512,6 +3512,11 @@ body.not-logged-in.checkout-onepage-index:not(.opc-has-progressed-from-login) .c
         text-align: right;
     }
 }
+
+button:nth-of-type(odd), .btn:nth-of-type(odd) {
+    border-bottom-right-radius: 1px !important;
+}
+
 @media screen and (max-width: 1000px) {
     .page #page-header #page-header-section-01 .header-container #quick-access {
         right: 35px;
@@ -4204,6 +4209,60 @@ button.buttons:hover span {
     text-align: center;
 }
 
+
+/****************************/
+/****** Product Lists *******/
+/****************************/
+.products-grid .item .actions {
+    display: inline-block;
+}
+.actions:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.product-list-grid-action {
+    width: 130px;
+    padding: 5px;
+    display: block;
+    border: 1px solid #F0F0F0;
+    float: left;
+    color: #000;
+    height: 95px;
+}
+.products-grid .item a.product-list-grid-action:hover {
+    background: #000;
+    color: #fff;
+}
+.product-list-grid-action i {
+    display: block;
+}
+
+.products-grid .item .product-image {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.products-grid .item .product-image img {
+    -webkit-transition: opacity 200ms ease-in-out;
+    -moz-transition: opacity 200ms ease-in-out;
+    -o-transition: opacity 200ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
+    position: absolute;
+    left: 0;
+}
+
+.products-grid .item .product-image img.hover_image:hover {
+    -webkit-transition: opacity 250ms ease-in-out;
+    -moz-transition: opacity 250ms ease-in-out;
+    -o-transition: opacity 250ms ease-in-out;
+    transition: opacity 250ms ease-in-out;
+    opacity:0;
+}
+
 /****************************/
 /****** Product Pages *******/
 /****************************/
@@ -4214,6 +4273,15 @@ button.buttons:hover span {
 /****************************/
 /****** Media Queries *******/
 /****************************/
+
+@media screen and (min-width: 768px) {
+    .products-grid li.item {
+        display: inline-block;
+        float: none;
+        width: 32.999999%;
+        vertical-align: top;
+    }
+}
 
 @media screen and (max-width: 524px) {
     #ampromo-carousel-content {
@@ -4228,5 +4296,14 @@ button.buttons:hover span {
     #ampromo-overlay.mode-inline .ampromo-slide {
         flex-grow: 1;
     }
-
+    .layout-2columns-left .products-grid > li.item {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+    }
+    .row, .products-grid {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }

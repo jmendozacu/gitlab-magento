@@ -1061,7 +1061,7 @@ $j(document).ready(function () {
 
     // Since the number of columns per grid will vary based on the viewport size, the only way to align the action
     // buttons/links is via JS
-
+/*
     if ($j('.products-grid').length) {
 
         var alignProductGridActions = function () {
@@ -1130,7 +1130,7 @@ $j(document).ready(function () {
         $j(window).on('delayed-resize', function (e, resizeEvent) {
             alignProductGridActions();
         });
-    }
+    }*/
 
     // ==============================================
     // Generic, efficient window resize handler

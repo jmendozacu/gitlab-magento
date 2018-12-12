@@ -45,5 +45,12 @@
                 </observers>
             </controller_action_predispatch>
         </events>
+        <product>
+            <collection>
+                <attributes>
+                      <alt_image/>
+                </attributes>
+            </collection>
+        </product>
     </frontend>
 </config>

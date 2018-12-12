@@ -53,7 +53,7 @@ Category default layout
         </reference>
         <reference name="content">
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
-                <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+                <block type="weltpixel_quickview/catalog_product_list" name="product_list" template="catalog/product/list.phtml">
                     <block type="core/text_list" name="product_list.name.after" as="name.after" />
                     <block type="core/text_list" name="product_list.after" as="after" />
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
@@ -95,7 +95,7 @@ Category layered navigation layout
         </reference>
         <reference name="content">
             <block type="catalog/category_view" name="category.products" template="catalog/category/view.phtml">
-                <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+                <block type="weltpixel_quickview/catalog_product_list" name="product_list" template="catalog/product/list.phtml">
                     <block type="core/text_list" name="product_list.name.after" as="name.after" />
                     <block type="core/text_list" name="product_list.after" as="after" />
                     <!-- <action method="addReviewSummaryTemplate"><type>default</type><template>review/helper/su.phtml</template></action> -->
