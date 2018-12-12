@@ -119,12 +119,4 @@ $_priceDisplay = ($this->helper('tax')->displayCartBothPrices()) ? 'display-both
     <?php endif ?>
     <?php echo $this->getChildHtml('crosssell') ?>
 </div>
-<script type="text/javascript">
-var items = JSON.parse('<?php echo json_encode($itemsList); ?>');
- window.criteo_q = window.criteo_q || [];
- window.criteo_q.push(
- { event: "setAccount", account: criteoAccountId },
- { event: "setSiteType", type: "d" },
- { event: "viewBasket", item: items});
- console.log(criteoAccountId);
- </script>
+<script type="text/javascript">var items = JSON.parse('<?php echo json_encode($itemsList); ?>');</script>

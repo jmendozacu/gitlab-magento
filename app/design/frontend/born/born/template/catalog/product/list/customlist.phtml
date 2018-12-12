@@ -70,7 +70,6 @@ $i = 1;
                     <?php $categoryImage = null; ?>
                 <?php endif ?>
             <?php 
-            $criteoIdArray = array();
             $productArray = array();
             $pc = 1;
             foreach($_groupedProduct as $_product) : 
@@ -81,7 +80,6 @@ $i = 1;
             $product_item['position'] = $pc;
             $pc++;
             $productArray[]=$product_item;        
-            $criteoIdArray[] = $_product->getSku();
             ?>
                 <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
                     <div class="item-outer">
@@ -198,9 +196,6 @@ if ($this->getChild('after')) {
 }
 $productArray = json_encode($productArray);
 ?>
-<?php echo "<script>"; ?>
-<?php echo "var productArray = JSON.parse('".json_encode($criteoIdArray)."');"; ?>
-<?php echo "</script>"; ?>
 <?php
 $catData = $_category->getData();
 
@@ -230,12 +225,5 @@ $catData = $_category->getData();
     
     console.log(fbo);
    fbq('track', 'ViewContent', fbo);
-window.criteo_q = window.criteo_q || [];
-window.criteo_q.push(
- { event: "setAccount", account: criteoAccountId },
- { event: "setSiteType", type: "d" },
- { event: "viewList", item: productArray }
-);
-
 
 </script>
