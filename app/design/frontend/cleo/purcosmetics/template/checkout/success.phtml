@@ -6,7 +6,11 @@
  * @package     cleo_purcosmetics
  */
 ?>
-<?php $_order = Mage::getModel('sales/order')->load($this->getOrderId()); ?>
+<?php $_order = Mage::getModel('sales/order')->load($this->getOrderId()); 
+Mage::log("ORDER DEBUG::_Order");
+Mage::log($_order, 1);
+
+echo $_order->getGrandTotal(); ?>
 <!-- Event snippet for Pur Minerals Purchase conversion page -->
 <script>
   gtag('event', 'conversion', {
