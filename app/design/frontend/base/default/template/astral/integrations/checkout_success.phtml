@@ -108,7 +108,7 @@ if(isset($pixelId) && !empty($pixelId)): ?>
     if (isset($pixelOrderEvent) && !empty($pixelOrderEvent)): ?>
         <script type="text/javascript">
             var pixelEvent = <?php echo json_encode($pixelOrderEvent) ?>;
-            fbq('track', 'purchase', pixelEvent);
+            fbq('track', 'Purchase', pixelEvent);
         </script>
     <?php endif; ?>
 

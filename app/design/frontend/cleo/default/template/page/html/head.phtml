@@ -18,7 +18,15 @@
 <?php if (Mage::getStoreConfig('weltpixel_selector/customization_settings/customcss')) : ?>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/wp_custom.css') ?>" media="all" />
 <?php endif; ?>
+<!-- Global site tag (gtag.js) - Google Ads: 1059501670 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1059501670"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'AW-1059501670');
+</script>
 <!-- Includes -->
 <?php echo $this->getChildHtml() ?>
 <?php echo $this->helper('core/js')->getTranslatorScript() ?>

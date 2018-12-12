@@ -6,6 +6,16 @@
  * @package     cleo_purcosmetics
  */
 ?>
+<?php $_order = Mage::getModel('sales/order')->loadByIncrementId($this->getOrderId()); ?>
+<!-- Event snippet for Pur Minerals Purchase conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-1059501670/WGZdCLKeRhDm7Jr5Aw',
+      'value': '<?php echo number_format($_order->getGrandTotal(), 2); ?>',
+      'currency': 'USD',
+      'transaction_id': '<?php echo $this->getOrderId(); ?>'
+  });
+</script>
 <div class="checkout-success-wrapper">
     <div class="page-title">
         <h1><?php echo $this->__('Your order has been received.') ?></h1>

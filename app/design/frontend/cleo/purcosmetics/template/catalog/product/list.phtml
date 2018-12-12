@@ -1,45 +1,33 @@
 <?php
 /**
- * Magento Enterprise Edition
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Magento Enterprise Edition End User License Agreement
- * that is bundled with this package in the file LICENSE_EE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://www.magento.com/license/enterprise-edition
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magento.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magento.com for more information.
- *
+ * @author  Josh Adams webdeveloper@astralbrands.com
  * @category    design
- * @package     rwd_default
- * @copyright Copyright (c) 2006-2018 Magento, Inc. (http://www.magento.com)
- * @license http://www.magento.com/license/enterprise-edition
+ * @package     cleo_purcosmetics
  */
 ?>
 <?php
 /**
  * Product list template
  *
- * @see Mage_Catalog_Block_Product_List
+ * @see Welt_Pixel_Quickview_Block_Product_List
  */
 /* @var $this Mage_Catalog_Block_Product_List */
 ?>
 <?php
 $_productCollection=$this->getLoadedProductCollection();
 $_helper = $this->helper('catalog/output');
-?>
+?> 
 <?php if(!$_productCollection->count()): ?>
     <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
-    <div class="category-products">
+    <div class="category-products category-list">
+        <div class="filter-overlay"></div>
+        <div class="first-toolbar">
+        <div class="filter">
+            <div class="action">
+                <button class="button toggle-filters"><span><?php echo $this->__('Open Filters') ?></span></button>
+            </div>
+        </div>
         <?php echo $this->getToolbarHtml() ?>
         <?php // List mode ?>
         <?php if($this->getMode()!='grid'): ?>
@@ -58,7 +46,7 @@ $_helper = $this->helper('catalog/output');
                             <?php $_imgSize = 300; ?>
                             <img id="product-collection-image-<?php echo $_product->getId(); ?>"
                                  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize($_imgSize); ?>"
-                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
                         </a>
                         <?php // Product description ?>
                         <div class="product-shop">
@@ -119,16 +107,18 @@ $_helper = $this->helper('catalog/output');
 
         <?php $_collectionSize = $_productCollection->count() ?>
         <?php $_columnCount = $this->getColumnCount(); ?>
+        <?php $_imgSize = 300; ?>
             <ul class="products-grid products-grid--max-<?php echo $_columnCount; ?>-col">
-                <?php $i=0; foreach ($_productCollection as $_product): ?>
-                    <?php /*if ($i++%$_columnCount==0): ?>
-            <?php endif*/ ?>
-                    <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+                <?php $i=1; foreach ($_productCollection as $_product): ?>
+                    <li class="item<?php if($i==1||($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
                         <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-                            <?php $_imgSize = 210; ?>
                             <img id="product-collection-image-<?php echo $_product->getId(); ?>"
+                                 src="<?php echo $this->helper('catalog/image')->init($_product, 'alt_image')->resize($_imgSize); ?>"
+                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'alt_image'), null, true) ?>" width="300" height="300"/>
+                            <img id="product-collection-alt-image-<?php echo $_product->getId(); ?>"
+                                 class="hover_image"
                                  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>"
-                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" width="300" height="300"/>
                         </a>
                         <div class="product-info">
                             <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
@@ -150,9 +140,11 @@ $_helper = $this->helper('catalog/output');
                             <?php endif; ?>
                             <div class="actions">
                                 <?php if(!$_product->canConfigure() && $_product->isSaleable()): ?>
-                                    <button type="button" title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                                    <a href="javascript: void(0);" href="#" onclick="weltpixel.quickview.showProductInfoModal('<?php echo $this->getQuickViewUrl($_product); ?>');" class="product-list-grid-action"><span><i class="icon-eye-open"></i><?php echo $this->__('Quickview'); ?></span></a>
+                                    <a title="<?php echo $this->quoteEscape($this->__('Add to Cart')) ?>" class="product-list-grid-action" href="<?php echo $this->getAddToCartUrl($_product) ?>" onclick="addToCart(event, <?php echo $_product->getId() ?>)"><span><i class="icon icon-line2-handbag"></i><?php echo $this->__('Add to Cart') ?></span></a>
                                 <?php elseif($_product->getStockItem() && $_product->getStockItem()->getIsInStock()): ?>
-                                    <a title="<?php echo $this->quoteEscape($this->__('Pick your shade')) ?>" class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('Pick your shade') ?></a>
+                                    <a href="javascript: void(0);" href="#" onclick="weltpixel.quickview.showProductInfoModal('<?php echo $this->getQuickViewUrl($_product); ?>');" class="product-list-grid-action"><span><i class="icon-eye-open"></i><?php echo $this->__('Quickview'); ?></span></a>
+                                    <a title="<?php echo $this->quoteEscape($this->__('Pick Your Shade')) ?>" class="product-list-grid-action" href="<?php echo $_product->getProductUrl() ?>"><span><i class="icon-line2-drop"></i><?php echo $this->__('Pick Your Shade') ?></span></a>
                                 <?php else: ?>
                                     <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                                 <?php endif; ?>
@@ -167,11 +159,21 @@ $_helper = $this->helper('catalog/output');
                             </div>
                         </div>
                     </li>
-                    <?php /*if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+                    <?php $i++;/*if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
             <?php endif*/ ?>
                 <?php endforeach ?>
             </ul>
-            <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+            <script type="text/javascript">
+                var addToCart = function(e, productId) {
+                    e.preventDefault();
+                    if (typeof Minicart !== 'undefined' && Minicart !== null) {
+                        Minicart.wpAddToCart(productId, 1, null, e.target);
+                    } else {
+                        setLocation(e.taget.href);
+                    }
+                }
+                var Minicart = new SkuLookup() || null;
+            </script>
         <?php endif; ?>
 
         <div class="toolbar-bottom">
