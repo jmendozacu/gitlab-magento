@@ -11,7 +11,7 @@
 <script>
   gtag('event', 'conversion', {
       'send_to': 'AW-1059501670/WGZdCLKeRhDm7Jr5Aw',
-      'value': '<?php echo number_format($_order->getGrandTotal(), ); ?>',
+      'value': '<?php echo number_format($_order->getGrandTotal(), 2); ?>',
       'currency': 'USD',
       'transaction_id': '<?php echo $this->getOrderId(); ?>'
   });
