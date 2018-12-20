@@ -57,7 +57,7 @@ class WeltPixel_ShadeGuide_FoundationfinderController extends Mage_Core_Controll
         }
 
         $response['results'] = $this->getLayout()
-            ->createBlock('catalog/product_list')
+            ->createBlock('weltpixel_quickview/catalog_product_list')
             ->setCollection($collection)
             ->setTemplate('catalog/product/list.phtml')
             ->toHtml();
