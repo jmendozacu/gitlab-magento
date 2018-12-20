@@ -68,7 +68,10 @@ class WeltPixel_ShadeGuide_FoundationfinderController extends Mage_Core_Controll
             $response['container'] = 'product-results';
         }
 
-        return $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($response));
+        return $this->getResponse()
+            ->setHeader('Content-type', 'application/json')
+            ->setHeader('HTTP/1.0', 400, true)
+            ->setBody(Mage::helper('core')->jsonEncode($response));
     }
 
     public function disableUnavailableOptionsAction()
