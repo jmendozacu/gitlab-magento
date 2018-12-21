@@ -39,14 +39,16 @@ class WeltPixel_ShadeGuide_FoundationfinderController extends Mage_Core_Controll
 
         // apply filters
         $attribute = array();
-        if (count($params['filter'])) {
-            foreach ($params['filter'] as $attrCode => $attrValue) {
-                if ($attrCode == 'isAjax') continue;
+        if (isset($params['filter']) && !empty($params['filter'])) {
+            if (count($params['filter'])) {
+                foreach ($params['filter'] as $attrCode => $attrValue) {
+                    if ($attrCode == 'isAjax') continue;
 
-                $attribute[$attrCode] = $attrValue;
-                $collection = $this->filterThisCollection($collection, $attribute);
-                // reset $attribute
-                $attribute = array();
+                    $attribute[$attrCode] = $attrValue;
+                    $collection = $this->filterThisCollection($collection, $attribute);
+                    // reset $attribute
+                    $attribute = array();
+                }
             }
         }
 

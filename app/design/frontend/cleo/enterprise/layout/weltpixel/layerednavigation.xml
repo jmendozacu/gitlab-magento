@@ -151,7 +151,7 @@
                 <action method="setId">
                     <id>weltpixel-ajax-list-container</id>
                 </action>
-                <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+                <block type="weltpixel_quickview/catalog_product_list" name="product_list" template="catalog/product/list.phtml">
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
                         <block type="page/html_pager" name="product_list_toolbar_pager"/>
                     </block>
@@ -199,7 +199,7 @@
                 <action method="setId">
                     <id>weltpixel-ajax-list-container</id>
                 </action>
-                <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+                <block type="weltpixel_quickview/catalog_product_list" name="product_list" template="catalog/product/list.phtml">
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
                         <block type="page/html_pager" name="product_list_toolbar_pager"/>
                     </block>
@@ -248,7 +248,7 @@
                     <id>weltpixel-ajax-list-container</id>
                 </action>
                 <block type="catalogsearch/result" name="search.result" template="weltpixel/layerednavigation/catalogsearch/result.phtml"> <!-- To not show title twice, and to not add extra logic to the js -->
-                    <block type="catalog/product_list" name="search_result_list" template="catalog/product/list.phtml">
+                    <block type="weltpixel_quickview/catalog_product_list" name="search_result_list" template="catalog/product/list.phtml">
                         <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
                             <block type="page/html_pager" name="product_list_toolbar_pager"/>
                         </block>
