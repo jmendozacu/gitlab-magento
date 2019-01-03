@@ -167,13 +167,13 @@ $_helper = $this->helper('catalog/output');
             <script type="text/javascript">
                 var addToCart = function(e, productId) {
                     e.preventDefault();
-                    if (typeof Minicart !== 'undefined' && Minicart !== null) {
-                        Minicart.wpAddToCart(productId, 1, null, e.target);
+                    if (typeof CleoCart !== 'undefined' && CleoCart !== null) {
+                        CleoCart.wpAddToCart(productId, 1, null, e.target);
                     } else {
                         setLocation(e.taget.href);
                     }
                 }
-                var Minicart = new SkuLookup() || null;
+                var CleoCart = new SkuLookup() || null;
             </script>
         <?php endif; ?>
 
