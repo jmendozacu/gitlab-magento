@@ -48,17 +48,17 @@ class Astral_Integrations_Helper_ProductDecorator extends Mage_Core_Helper_Abstr
                         ->addIdFilter ($childIds)
                         ->addAttributeToSelect('price');
 
-                    Mage::log($childProductCollection, 1, 'astral_integrations.log');
-
                     foreach($childProductCollection as $childProduct) {
+                        Mage::log($childProduct, 1, 'astral_integrations.log');
+
                         $simplePrice = number_format($childProduct->getData('price'), 2);
                         if ($simplePrice < $value) {
                             $value = $simplePrice;
                         }
-                        $id[] = $childProduct->getData('sku');
+                        $id[] = $childProduct->getSku();
                         //Get each child product
                         $content[] = [
-                            'id' => $childProduct->getData('sku'),
+                            'id' => $childProduct->getSku('sku'),
                             'item_price' => $simplePrice,
                             'quantity' => $quantity
                         ];
