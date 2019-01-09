@@ -40,8 +40,13 @@ class Astral_Integrations_Helper_CartDecorator extends Mage_Core_Helper_Abstract
 
             foreach($cart->getAllVisibleItems() as $item) {
                 //Get Contents
+                $isBundled = $item->getTypeId() == 
+                Mage_Catalog_Model_Product_Type::TYPE_BUNDLE;
+
+                Mage::log($isBundled, null,'astral_integrations.log');
+
                 $row = array();
-                $row['id'] = $item->getData('sku');
+                $row['id'] = $item->getSku();
                 $row['price'] = number_format($item->getPrice(), 2);
                 $row['quantity'] = $item->getQty();
                 $pixelCart['contents'][] = $row;
