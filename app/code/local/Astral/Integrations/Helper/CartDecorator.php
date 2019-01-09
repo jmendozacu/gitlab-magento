@@ -41,11 +41,11 @@ class Astral_Integrations_Helper_CartDecorator extends Mage_Core_Helper_Abstract
             foreach($cart->getAllVisibleItems() as $item) {
                 //Get Contents
                 $row = array();
-                $row['id'] = $item->getProduct()->getData('sku');
+                $row['id'] = $item->getData('sku');
                 $row['price'] = number_format($item->getPrice(), 2);
                 $row['quantity'] = $item->getQty();
                 $pixelCart['contents'][] = $row;
-                $pixelCart['content_ids'][] = $item->getProduct()->getData('sku');
+                $pixelCart['content_ids'][] = $item->getSku();
                 $pixelCart['num_items'] += $item->getQty();
             }
         }
