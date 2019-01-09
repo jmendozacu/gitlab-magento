@@ -70,7 +70,7 @@ class Astral_Integrations_Helper_ProductDecorator extends Mage_Core_Helper_Abstr
                 //NOTE THIS NEEDS A BUNDLED PRODUCT FOR TESTING
                 $childProductCollection = $product->getTypeInstance(true)
                     ->getSelectionsCollection($product->getTypeInstance(true)
-                                                ->getOptionsIds($product), $product);
+                    ->getOptionsIds($product), $product);
                 //Get each child product
                 foreach($childProductCollection as $childProduct) {
                     $id[] = $childProduct->getData('sku');
@@ -85,7 +85,7 @@ class Astral_Integrations_Helper_ProductDecorator extends Mage_Core_Helper_Abstr
             $pixelViewContentEvent['content_name'] = $product->getName();
             $pixelViewContentEvent['content_type'] = 'product';
             $pixelViewContentEvent['content_ids'] = $id;
-            $pixelViewContentEvent['content'] = $content;
+            $pixelViewContentEvent['contents'] = $content;
             $pixelViewContentEvent['value'] = $value;
             $pixelViewContentEvent['currency'] = Mage::app()->getStore()->getCurrentCurrencyCode();
 
