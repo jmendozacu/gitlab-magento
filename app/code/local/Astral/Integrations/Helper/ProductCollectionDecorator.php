@@ -17,8 +17,14 @@ class Astral_Integrations_Helper_ProductCollectionDecorator extends Mage_Core_He
         if(isset($productCollection) && !empty($productCollection)) {
             $criteoViewList['event'] = 'viewList';
             if(isset($productCollection) && !empty($productCollection)) {
+                $i = 0;
                 foreach($productCollection as $product) {
                     $criteoViewList['item'][] = $product->getSku();
+                    //Stop Reporting at 5 items
+                    if ($i > 4) {
+                        break;
+                    }
+                    $i++;
                 }
             }
 
