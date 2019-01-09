@@ -42,8 +42,5 @@ if(isset($pixelId) && !empty($pixelId)):
         var pixelCartObj = <?php echo json_encode($pixelCartEvent); ?>;
         fbq('track', 'InitiateCheckout', pixelCartObj);
     </script>
-?>
-
-
 <?php endif; ?>
 
