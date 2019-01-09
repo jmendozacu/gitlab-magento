@@ -46,8 +46,14 @@ class Astral_Integrations_Helper_CartDecorator extends Mage_Core_Helper_Abstract
                 $product = $item->getProduct();
                 if( $product->getTypeId() == 
                 Mage_Catalog_Model_Product_Type::TYPE_BUNDLE ) {
-                    $row['id'] = $product->getSku();
-                    $pixelCart['content_ids'][] = $product->getSku();
+                    $skuArray = explode('-', $product->getSku());
+                    if (count($skuArray) > 0) {
+                        $pixelCart['content_ids'][] = $skuArray[0];
+                        $row['id'] = $skuArray[0];
+                    } else {
+                        $row['id'] = $item->getSku();
+                        $pixelCart['content_ids'][] = $item->getSku();
+                    }
                 } else {
                     $row['id'] = $item->getSku();
                     $pixelCart['content_ids'][] = $item->getSku();
