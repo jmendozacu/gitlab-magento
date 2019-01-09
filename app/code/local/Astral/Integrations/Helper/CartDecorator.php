@@ -40,6 +40,7 @@ class Astral_Integrations_Helper_CartDecorator extends Mage_Core_Helper_Abstract
 
             foreach($cart->getAllVisibleItems() as $item) {
                 //Get Contents
+                Mage::log($item->getTypeId(), 1, 'astral_integrations.log');
                 if( $item->getTypeId() == 
                 Mage_Catalog_Model_Product_Type::TYPE_BUNDLE ) {
                     Mage::log('bundled', null,'astral_integrations.log');
