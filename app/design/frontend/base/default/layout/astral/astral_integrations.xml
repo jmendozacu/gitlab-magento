@@ -95,7 +95,7 @@
         <reference name="head">
             <block type="astral_integrations_block/common"
                 name="Astral_Integrations.Criteo.ViewCartEvent"
-                template="astral/integrations/Criteo/cart.phtml" />
+                template="astral/integrations/cart.phtml" />
         </reference>
     </checkout_cart_index>
 </layout>    

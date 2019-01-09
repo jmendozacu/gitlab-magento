@@ -110,7 +110,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
             $pixelOrderEvent['currency'] = $order->getOrderCurrencyCode();
             $pixelOrderEvent['value'] = number_format($this->getRevenue($order), 2); 
             $pixelOrderEvent['content_type'] = 'product';
-            $pixelOrderEvent['content'] = array();
+            $pixelOrderEvent['contents'] = array();
             $orderItems = $order->getAllVisibleItems();
             
             foreach ($order->getAllVisibleItems() as $item) {
@@ -119,7 +119,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
                 $row['item_price'] = number_format($item->getPrice(), 2);
                 $row['quantity'] = number_format($item->getData('qty_ordered'), 0);
 
-                $pixelOrderEvent['content'][] = $row;
+                $pixelOrderEvent['contents'][] = $row;
             }
         }
 

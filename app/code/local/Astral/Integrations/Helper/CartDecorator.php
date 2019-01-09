@@ -25,5 +25,32 @@ class Astral_Integrations_Helper_CartDecorator extends Mage_Core_Helper_Abstract
         
         return $criteoCart;
     }
-    
+ 
+    public function getPixelInitiatCheckoutArray($cart) {
+
+        $pixelCart = array();
+
+        if(isset($cart) && !empty($cart)) {
+
+            $pixelCart['currency'] = 'USD';
+            $pixelCart['value'] = $cart->getGrandTotal();
+            $pixelCart['num_items'] = 0;
+            $pixelCart['content_ids'] = array();
+            $pixelCart['contents'] = array();
+
+            foreach($cart->getAllVisibleItems() as $item) {
+                //Get Contents
+                $row = array();
+                $row['id'] = $item->getProduct()->getData('sku');
+                $row['price'] = number_format($item->getPrice(), 2);
+                $row['quantity'] = $item->getQty();
+                $pixelCart['contents'][] = $row;
+                $pixelCart['content_ids'][] = $item->getProduct()->getData('sku');
+                $pixelCart['num_items'] += $item->getQty();
+
+            }
+
+        }
+    }
+
 }
