@@ -46,7 +46,8 @@ class Astral_Integrations_Helper_ProductDecorator extends Mage_Core_Helper_Abstr
                     $childProductCollection = Mage::getModel('catalog/product')
                         ->getCollection()
                         ->addIdFilter ($childIds)
-                        ->addAttributeToSelect('price');
+                        ->addAttributeToSelect('price')
+                        ->addAttributeToSelect('sku');
 
                     foreach($childProductCollection as $childProduct) {
                         Mage::log($childProduct, 1, 'astral_integrations.log');
