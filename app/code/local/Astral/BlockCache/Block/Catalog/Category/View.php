@@ -36,7 +36,7 @@ class Astral_BlockCache_Block_Catalog_Category_View extends Mage_Catalog_Block_C
      */
     public function getCacheLifetime()
     {	  //to prevent sub-blocks caching
-    	  //if($this->getNameInLayout()!='category.info') return null;
+    	  if($this->getNameInLayout()!='category.info') return null;
     	  //return false; //false creates default lifetime (7200)
     	  return 9999999999;
     }
