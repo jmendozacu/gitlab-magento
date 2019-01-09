@@ -12,7 +12,7 @@ class Astral_BlockCache_Block_Catalog_Category_View extends Mage_Catalog_Block_P
         $this->addData(array(
         	//'cache_key' 		=>	
             //'cache_lifetime'  => 
-            'cache_tags'        => array(Mage_Catalog_Model_Product::CACHE_TAG . "_" . $this->getProduct()->getId()),
+            'cache_tags'        => array(Mage_Catalog_Model_Category::CACHE_TAG . "_" . $this->getCurrentCategory()->getId()),
         ));
     }
     /**
@@ -24,6 +24,7 @@ class Astral_BlockCache_Block_Catalog_Category_View extends Mage_Catalog_Block_P
         if (!$this->hasData('cache_key')) {
             $category = Mage::registry('current_category');
             var_dump($category->getId());
+            exit;
        		$cacheKey = $this->getNameInLayout().'_STORE'.Mage::app()->getStore()->getId().'_CATEGORY'.$this->getProduct()->getId();
         	//.'_'.Mage::getDesign()->getPackageName().'_'.Mage::getDesign()->getTheme('template'). //_PACKAGE_THEME ?
         	$this->setCacheKey($cacheKey);
