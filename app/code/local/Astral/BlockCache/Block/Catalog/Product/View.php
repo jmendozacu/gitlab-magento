@@ -2,7 +2,7 @@
 /**
  * Class Astral_BlockCache_Catalog_Product_View
  */
-class Astral_BlockCache_Catalog_Product_View extends Mage_Catalog_Block_Product_View
+class Astral_BlockCache_Block_Catalog_Product_View extends Mage_Catalog_Block_Product_View
 {
     /**
      *
@@ -22,8 +22,7 @@ class Astral_BlockCache_Catalog_Product_View extends Mage_Catalog_Block_Product_
     public function getCacheKey()
     {
         if (!$this->hasData('cache_key')) {
-       		//$cacheKey = LAYOUTNAME_STORE+ID_PRODUCT+ID
-        	$cacheKey = $this->getNameInLayout().'_STORE'.Mage::app()->getStore()->getId().'_PRODUCT'.$this->getProduct()->getId();
+       		$cacheKey = $this->getNameInLayout().'_STORE'.Mage::app()->getStore()->getId().'_PRODUCT'.$this->getProduct()->getId();
         	//.'_'.Mage::getDesign()->getPackageName().'_'.Mage::getDesign()->getTheme('template'). //_PACKAGE_THEME ?
         	$this->setCacheKey($cacheKey);
         }
