@@ -540,7 +540,6 @@ One page checkout order review block
         </reference>
         <reference name="head">
             <action method="setTitle" translate="title"><title>Order Confirmation</title></action>
-            <block type="born_sidecar/index" name="sidecar.index" template="sidecar/order_confirm_script.phtml" />
         </reference>
         <reference name="content">
             <block type="checkout/onepage_success" name="checkout.success" template="checkout/success.phtml" />
