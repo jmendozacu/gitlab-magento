@@ -23,8 +23,6 @@ class Astral_BlockCache_Block_Catalog_Category_View extends Mage_Catalog_Block_C
     {
         if (!$this->hasData('cache_key')) {
             $category = Mage::registry('current_category');
-            var_dump($category->getId());
-            exit;
        		$cacheKey = $this->getNameInLayout().'_STORE'.Mage::app()->getStore()->getId().'_CATEGORY'.$this->getCurrentCategory()->getId();
         	//.'_'.Mage::getDesign()->getPackageName().'_'.Mage::getDesign()->getTheme('template'). //_PACKAGE_THEME ?
         	$this->setCacheKey($cacheKey);
