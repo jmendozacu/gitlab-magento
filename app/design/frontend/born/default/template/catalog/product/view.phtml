@@ -198,16 +198,7 @@ $storeId = Mage::app()->getStore()->getId();
                 });
             ga('ec:setAction', 'add');
             ga('send', 'event', 'UX', 'click', 'add to cart');
-            var productObject = {id:'<?php echo $_product->getSku(); ?>',item_price:'<?php echo $_product->getPrice(); ?>',quantity:qty};
-            var fpobj =  {
-                    content: [productObject],
-                    content_ids: ['<?php echo $_product->getSku(); ?>'],
-                    content_name: '<?php echo $_product->getName(); ?>',
-                    content_type:'product',
-                    currency:'USD',
-                    value: '<?php echo number_format($_product->getPrice(), 2); ?>',
-                };
-            fbq('track', 'AddToCart', fpobj);             
+            var productObject = {id:'<?php echo $_product->getSku(); ?>',item_price:'<?php echo $_product->getPrice(); ?>',quantity:qty};          
         }             
             var productAddToCartForm = new VarienForm('<?php echo $varienFormId ?>');
             productAddToCartForm.submit = function(button, url) {
@@ -323,16 +314,6 @@ var productName = '<?php echo $_product->getName(); ?>';
 var productCategory = '<?php echo str_replace('/',' > ',$cat_string); ?>';
 var productPrice = '<?php echo $_product->getPrice(); ?>';
 var productObject = {id:'<?php echo $_product->getSku(); ?>',item_price:'<?php echo $_product->getPrice(); ?>',quantity:1};
-var fobj = {
-        content: [productObject],
-        content_ids: ['<?php echo $_product->getSku(); ?>'],
-        content_name: '<?php echo $_product->getName(); ?>',
-        content_type:'product',
-        currency:'USD',
-        value: '<?php echo number_format($_product->getPrice(), 2); ?>',
-    };
-fbq('track', 'ViewContent', fobj);
-
 if(productId == '8770240' || productId == '8770150' || productId == '8770320' || productId == '8770190' || productId == '8770180' || productId == '8770250' || productId == '8770100' || productId == '8770030' || productId == '8770520'){ 
 jQuery('.regular-price').remove();
 jQuery('.add-to-cart-wrapper').remove();

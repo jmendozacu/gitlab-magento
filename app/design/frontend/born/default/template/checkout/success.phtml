@@ -160,14 +160,10 @@ jQuery( document ).ready(function() {
 <!-- /iDev trigger -->
 <?php
         }
-
     // Prodloop }
-    
     }elseif($url === 'www.purcosmetics.com' || $url === 'purcosmetics.com'|| $url === 'development.purcosmetics.com'|| $url === 'uat.purcosmetics.com'|| $url === 'staging.purcosmetics.com'){
     $mavId = '48AC2B392DC345288E4BCBE478FF95BC';
     }
-
-
 ?>
 
 
@@ -194,11 +190,6 @@ $couponCodes = json_encode($appliedRules);
 </script>
 
 <!-- /Mavrck Conversion trigger -->
-<!-- /Facebook Conversion trigger -->
-<script>
-fbq('track', 'Purchase', {value: <?php echo $applied_total; ?>, currency:'USD'});
-</script>
-<!-- /Facebook Conversion trigger -->
 <!-- GA EC Conversion trigger -->
 <?php
     if($storeId == 1){
