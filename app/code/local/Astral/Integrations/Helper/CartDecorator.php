@@ -38,11 +38,14 @@ class Astral_Integrations_Helper_CartDecorator extends Mage_Core_Helper_Abstract
             $pixelCart['content_ids'] = array();
             $pixelCart['contents'] = array();
 
+
             foreach($cart->getAllVisibleItems() as $item) {
                 //Get Contents
+                Mage::log('ASTRAL_INTEGRATIONS::DEBUG::ITEM TYPE', 1, 'astral_integrations.log');
                 Mage::log($item->getTypeId(), 1, 'astral_integrations.log');
                 if( $item->getTypeId() == 
                 Mage_Catalog_Model_Product_Type::TYPE_BUNDLE ) {
+                    Mage::log('ASTRAL_INTEGRATIONS::DEBUG::isBundled', 1, 'astral_integrations.log');
                     Mage::log('bundled', null,'astral_integrations.log');
                 }
                 $row = array();
