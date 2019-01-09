@@ -2,7 +2,7 @@
 /**
  * Class Astral_BlockCache_Catalog_Product_View
  */
-class Astral_BlockCache_Block_Catalog_Category_View extends Mage_Catalog_Block_Product_View
+class Astral_BlockCache_Block_Catalog_Category_View extends Mage_Catalog_Block_Category_View
 {
     /**
      *
