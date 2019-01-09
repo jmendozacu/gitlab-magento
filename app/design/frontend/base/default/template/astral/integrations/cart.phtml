@@ -40,7 +40,7 @@ if(isset($pixelId) && !empty($pixelId)):
     $pixelCartEvent = Mage::helper('astral_integrations_helper/cartDecorator')->getPixelInitiatCheckoutArray($cart); ?>
     <script type="text/javascript">
         var pixelCartObj = <?php echo json_encode($pixelCartEvent); ?>;
-        fbq('track', 'InitiateCheckout', addToCart);
+        fbq('track', 'InitiateCheckout', pixelCartObj);
     </script>
 ?>
 
