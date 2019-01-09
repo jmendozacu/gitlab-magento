@@ -11,7 +11,7 @@ class Astral_Integrations_Model_Observer {
         $pixelId = Mage::helper('astral_integrations_helper')->getFacebookPixelId();
         if(isset($pixelId) && !empty($pixelId)) {
             $_product = $observer->getEvent()->getProduct();
-            $productId = $_product->getIdBySku($_product->getSku());
+            $productId = $_product->getId();
             $quantity = $_product->getQty() ?: 1;
 
             //Check if product added to cart is invisible
