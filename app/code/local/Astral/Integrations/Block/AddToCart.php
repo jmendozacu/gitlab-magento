@@ -25,7 +25,6 @@ class Astral_Integrations_Block_AddToCart extends Astral_Integrations_Block_Comm
      */
     public function shouldAddToCartEventFire() {
         $addToCart = $this->getSessionAddToCart();
-        Mage::log($addToCart, 1, 'astral_integrations.log');
         return !empty($addToCart) && count($addToCart) > 0;
     }
 

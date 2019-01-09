@@ -48,6 +48,8 @@ class Astral_Integrations_Helper_ProductDecorator extends Mage_Core_Helper_Abstr
                         ->addIdFilter ($childIds)
                         ->addAttributeToSelect('price');
 
+                    Mage::log($childProductCollection, 1, 'astral_integrations.log');
+
                     foreach($childProductCollection as $childProduct) {
                         $simplePrice = number_format($childProduct->getData('price'), 2);
                         if ($simplePrice < $value) {
