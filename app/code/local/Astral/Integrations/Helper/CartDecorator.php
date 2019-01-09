@@ -47,10 +47,9 @@ class Astral_Integrations_Helper_CartDecorator extends Mage_Core_Helper_Abstract
                 $pixelCart['contents'][] = $row;
                 $pixelCart['content_ids'][] = $item->getProduct()->getData('sku');
                 $pixelCart['num_items'] += $item->getQty();
-
             }
-
         }
+        return $pixelCart;
     }
 
 }
