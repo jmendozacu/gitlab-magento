@@ -40,20 +40,22 @@ class Astral_Integrations_Helper_CartDecorator extends Mage_Core_Helper_Abstract
 
 
             foreach($cart->getAllVisibleItems() as $item) {
-                //Get Contents
-                Mage::log('ASTRAL_INTEGRATIONS::DEBUG::ITEM TYPE', 1, 'astral_integrations.log');
-                Mage::log($item->getProduct()->getTypeId(), 1, 'astral_integrations.log');
-                if( $item->getProduct()->getTypeId() == 
-                Mage_Catalog_Model_Product_Type::TYPE_BUNDLE ) {
-                    Mage::log('ASTRAL_INTEGRATIONS::DEBUG::isBundled', 1, 'astral_integrations.log');
-                    Mage::log('bundled', null,'astral_integrations.log');
-                }
                 $row = array();
-                $row['id'] = $item->getSku();
+                //Load full product obj, (no way around this)
+                //TODO: see if better way to do this
+                $product = $item->getProduct();
+                if( $product->getTypeId() == 
+                Mage_Catalog_Model_Product_Type::TYPE_BUNDLE ) {
+                    $row['id'] = $product->getSku();
+                    $pixelCart['content_ids'][] = $product->getSku();
+                } else {
+                    $row['id'] = $item->getSku();
+                    $pixelCart['content_ids'][] = $item->getSku();
+                }
+                //Get Contents
                 $row['price'] = number_format($item->getPrice(), 2);
                 $row['quantity'] = $item->getQty();
                 $pixelCart['contents'][] = $row;
-                $pixelCart['content_ids'][] = $item->getSku();
                 $pixelCart['num_items'] += $item->getQty();
             }
         }
