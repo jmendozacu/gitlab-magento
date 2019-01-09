@@ -27,7 +27,7 @@ class Astral_CMSCache_Model_Observer
                 intval(Mage::app()->getStore()->isCurrentlySecure()),
                 Mage::getDesign()->getPackageName(),
                 Mage::getDesign()->getTheme('template')
-                //Mage::helper('rkt_sbcache')->randomString() // UNCOMMENT IF IT IS NECESSARY
+                //Mage::helper('astral_cmscache')->randomString() // UNCOMMENT IF IT IS NECESSARY
             );
             $block->setCacheKey(implode('_', $cacheKeyData));
             //set cache tags. This will help us to clear the cache related to
@@ -48,6 +48,6 @@ class Astral_CMSCache_Model_Observer
      */
     protected function _getHelper()
     {
-        return Mage::helper('rkt_sbcache');
+        return Mage::helper('astral_cmscache');
     }
 }
