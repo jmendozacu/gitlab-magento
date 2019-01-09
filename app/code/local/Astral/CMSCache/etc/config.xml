@@ -8,12 +8,12 @@
     <global>
         <models>
             <astral_cmscache>
-                <class>Rkt_SbCache_Model</class>
+                <class>Astral_CMSCache_Model</class>
             </astral_cmscache>
         </models>
         <helpers>
             <astral_cmscache>
-                <class>Rkt_SbCache_Helper</class>
+                <class>Astral_CMSCache_Helper</class>
             </astral_cmscache>
         </helpers>
         <events>

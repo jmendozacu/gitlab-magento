@@ -41,7 +41,6 @@ class Astral_CMSCache_Model_Observer
 		    //an integer value in seconds. eg : 86400 for one day cache
             $block->setCacheLifetime($this->_getHelper()->getCacheTimeout());
         }
-
 	}
     /**
      * @return Mage_Core_Helper_Abstract
