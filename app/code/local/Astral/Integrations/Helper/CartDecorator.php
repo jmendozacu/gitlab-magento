@@ -16,7 +16,7 @@ class Astral_Integrations_Helper_CartDecorator extends Mage_Core_Helper_Abstract
             $criteoCart['item'] = array();
             foreach($cart->getAllVisibleItems() as $item) {
                 $row = array();
-                $row['id'] = $item->getProduct()->getData('sku');
+                $row['id'] = $item->getSku();
                 $row['price'] = number_format($item->getPrice(), 2);
                 $row['quantity'] = $item->getQty();
                 $criteoCart['item'][] = $row;
@@ -41,7 +41,7 @@ class Astral_Integrations_Helper_CartDecorator extends Mage_Core_Helper_Abstract
             foreach($cart->getAllVisibleItems() as $item) {
                 //Get Contents
                 $row = array();
-                $row['id'] = $item->getData('sku');
+                $row['id'] = $item->getSku();
                 $row['price'] = number_format($item->getPrice(), 2);
                 $row['quantity'] = $item->getQty();
                 $pixelCart['contents'][] = $row;
