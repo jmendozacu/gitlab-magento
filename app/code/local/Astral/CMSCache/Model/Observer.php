@@ -1,14 +1,19 @@
 <?php
+/**
+ * Class Astral_CMSCache_Model_Observer
+ */
 class Astral_CMSCache_Model_Observer
 {
-	public function enableCmsBlockCaching(Varien_Event_Observer $observer)
+    /**
+     * @param Varien_Event_Observer $observer
+     * @throws Mage_Core_Model_Store_Exception
+     */
+    public function enableCmsBlockCaching(Varien_Event_Observer $observer)
 	{
         if (!$this->_getHelper()->isEnabled()){
             return;
         }
-
 		$block = $observer->getBlock();
-
 		//make sure cache is going to apply for a cms block.
         if ($block instanceof Mage_Cms_Block_Widget_Block
             || $block instanceof Mage_Cms_Block_Block
@@ -39,7 +44,7 @@ class Astral_CMSCache_Model_Observer
 
 	}
     /**
-     * @return Rkt_SbCache_Helper_Data
+     * @return Mage_Core_Helper_Abstract
      */
     protected function _getHelper()
     {
