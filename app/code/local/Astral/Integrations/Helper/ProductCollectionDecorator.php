@@ -21,7 +21,7 @@ class Astral_Integrations_Helper_ProductCollectionDecorator extends Mage_Core_He
                 foreach($productCollection as $product) {
                     $criteoViewList['item'][] = $product->getSku();
                     //Stop Reporting at 5 items
-                    if ($i > 4) {
+                    if ($i > 3) {
                         break;
                     }
                     $i++;
