@@ -1,4 +1,5 @@
     jQuery(document).ready(function(){
+            //TODO Remove this hardcoding
             var currencyCode = 'USD'
 
             jQuery('.add-to-cart-buttons').click(function(e){
