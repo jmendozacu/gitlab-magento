@@ -201,13 +201,6 @@ $catData = $_category->getData();
 
 ?>
 <script type="text/javascript">
-    
-    
-    var fbo = {};
-    fbo.content_name = '<?php echo $catData['name']; ?>';
-    fbo.content_category = '<?php echo str_replace('/',' > ',$catData['request_path']); ?>';
-    fbo.content_ids = [];
-    fbo.content_type = 'proguct_group';
     var productArrayString = '<?php echo $productArray; ?>';
     var productArrayObject = JSON.parse(productArrayString);
     productArrayObject.forEach(function(item){
@@ -218,12 +211,5 @@ $catData = $_category->getData();
             'list': 'Category Results',
             'position': item.position
         });   
-        
-        fbo.content_ids.push(item.sku);
-
     });    
-    
-    console.log(fbo);
-   fbq('track', 'ViewContent', fbo);
-
 </script>

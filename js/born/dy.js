@@ -1,4 +1,7 @@
     jQuery(document).ready(function(){
+            //TODO Remove this hardcoding
+            var currencyCode = 'USD'
+
             jQuery('.add-to-cart-buttons').click(function(e){
             var sku;
                 if (product_type == 'configurable'){
@@ -7,7 +10,7 @@
                 if (product_type == 'simple'){
                 sku = productObject.id;
                 }
-            dyTriggerAddToCartEvent(sku, productObject.item_price, fobj.currency);                
+            dyTriggerAddToCartEvent(sku, productObject.item_price, currencyCode);                
             });
             
         /**
