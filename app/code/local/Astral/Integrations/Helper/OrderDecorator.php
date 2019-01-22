@@ -32,7 +32,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
 
             foreach($orderItems as $item) {
                 $row = array();
-                $row['id'] = $item->getProduct()->getData('sku');
+                $row['id'] = $item->getSku();
                 $row['price'] = number_format($item->getPrice(), 2);
                 $row['quantity'] = number_format($item->getData('qty_ordered'),0);
                 $criteoOrder['item'][] = $row;
@@ -91,7 +91,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
                 $itemKey = 'ITEM' . $i;
                 $qtyKey = 'QTY' . $i;
 
-                $event[$itemKey] = $item->getProduct()->getData('sku');
+                $event[$itemKey] = $item->getSku();
                 $event[$amtKey] = number_format($item->getPrice(), 2);
                 $event[$qtyKey] = number_format($item->getData('qty_ordered'), 0);
 
@@ -110,16 +110,18 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
             $pixelOrderEvent['currency'] = $order->getOrderCurrencyCode();
             $pixelOrderEvent['value'] = number_format($this->getRevenue($order), 2); 
             $pixelOrderEvent['content_type'] = 'product';
-            $pixelOrderEvent['content'] = array();
+            $pixelOrderEvent['contents'] = array();
+            $pixelOrderEvent['content_ids'] = array();
             $orderItems = $order->getAllVisibleItems();
             
             foreach ($order->getAllVisibleItems() as $item) {
                 $row = array();
-                $row['id'] = $item->getProduct()->getData('sku');
+                $row['id'] = $item->getSku();
                 $row['item_price'] = number_format($item->getPrice(), 2);
                 $row['quantity'] = number_format($item->getData('qty_ordered'), 0);
 
-                $pixelOrderEvent['content'][] = $row;
+                $pixelOrderEvent['content_ids'][] = $item->getSku();
+                $pixelOrderEvent['contents'][] = $row;
             }
         }
 

@@ -1,4 +1,5 @@
 <?php 
+//Criteo
 $criteoId = Mage::helper('astral_integrations_helper')->getCriteoId();
 if(isset($criteoId) && !empty($criteoId)): 
     if(!isset($cart) || empty($cart)) {
@@ -27,3 +28,19 @@ if(isset($criteoId) && !empty($criteoId)):
             criteoCartObj);
     </script>
 <?php endif; ?>
+<?php 
+//Pixel
+$pixelId = Mage::helper('astral_integrations_helper')->getFacebookPixelId();
+if(isset($pixelId) && !empty($pixelId)): 
+
+    if(!isset($cart) || empty($cart)) {
+        $cart = Mage::helper('checkout/cart')->getCart()->getQuote();
+    }
+
+    $pixelCartEvent = Mage::helper('astral_integrations_helper/cartDecorator')->getPixelInitiatCheckoutArray($cart); ?>
+    <script type="text/javascript">
+        var pixelCartObj = <?php echo json_encode($pixelCartEvent); ?>;
+        fbq('track', 'InitiateCheckout', pixelCartObj);
+    </script>
+<?php endif; ?>
+

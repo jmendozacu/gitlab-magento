@@ -46,43 +46,29 @@ class Astral_Integrations_Helper_ProductDecorator extends Mage_Core_Helper_Abstr
                     $childProductCollection = Mage::getModel('catalog/product')
                         ->getCollection()
                         ->addIdFilter ($childIds)
-                        ->addAttributeToSelect('price');
+                        ->addAttributeToSelect('price')
+                        ->addAttributeToSelect('sku');
 
                     foreach($childProductCollection as $childProduct) {
                         $simplePrice = number_format($childProduct->getData('price'), 2);
                         if ($simplePrice < $value) {
                             $value = $simplePrice;
                         }
-                        $id[] = $childProduct->getData('sku');
+                        $id[] = $childProduct->getSku();
                         //Get each child product
                         $content[] = [
-                            'id' => $childProduct->getData('sku'),
+                            'id' => $childProduct->getSku('sku'),
                             'item_price' => $simplePrice,
                             'quantity' => $quantity
                         ];
                     }
-                }
-            } else if($product->getTypeId() == 
-                Mage_Catalog_Model_Product_Type::TYPE_BUNDLE) {
-                //NOTE THIS NEEDS A BUNDLED PRODUCT FOR TESTING
-                $childProductCollection = $product->getTypeInstance(true)
-                    ->getSelectionsCollection($product->getTypeInstance(true)
-                                                ->getOptionsIds($product), $product);
-                //Get each child product
-                foreach($childProductCollection as $childProduct) {
-                    $id[] = $childProduct->getData('sku');
-                    $content[] = [
-                        'id' => $childProduct->getData('sku'),
-                        'item_price' => number_format($childProduct->getPrice(), 2),
-                        'quantity' => $childProduct->selection_qty
-                    ];
                 }
             }
 
             $pixelViewContentEvent['content_name'] = $product->getName();
             $pixelViewContentEvent['content_type'] = 'product';
             $pixelViewContentEvent['content_ids'] = $id;
-            $pixelViewContentEvent['content'] = $content;
+            $pixelViewContentEvent['contents'] = $content;
             $pixelViewContentEvent['value'] = $value;
             $pixelViewContentEvent['currency'] = Mage::app()->getStore()->getCurrentCurrencyCode();
 
