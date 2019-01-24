@@ -1,6 +1,6 @@
 require.config({
   waitSeconds: 0,
-  baseUrl: 'https://cfskin.purcosmetics.com/skin/frontend/born/born/js/app',
+  baseUrl: 'https://cf.astralbrandsmedia.com/skin/frontend/born/born/js/app',
   paths: {
     'lodash': '../lib/lodash.min',
     'backbone': '../lib/backbone',
