@@ -290,7 +290,7 @@ a.TTloginLink,a.TTshowMatchesLink {
 }
 
 .TTdialog {
-    list-style: url(https://cfskin.cosmedix.com/media/turnto/ttmatchdetail-bullet.png);
+    list-style: url(https://cf.astralbrandsmedia.com/media/turnto/ttmatchdetail-bullet.png);
     margin-left: 20px;
     font-size: 11px
 }
@@ -335,11 +335,11 @@ div.TT2sectionHeader {
     text-align: right;
     height: 40px;
     padding: .5em 10px .3em 1em;
-    background: url("https://cfskin.cosmedix.com/media/turnto/mainbot1.png") no-repeat
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/mainbot1.png") no-repeat
 }
 
 #TTmainContent {
-    background: url("https://cfskin.cosmedix.com/media/turnto/mainstretch1.png") repeat-y left top;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/mainstretch1.png") repeat-y left top;
     border: 0;
     padding: 13px 20px 0 20px;
     margin: 0;
@@ -357,7 +357,7 @@ div.TT2sectionHeader {
 }
 
 .TTui-widget-overlay {
-    background: #fff url(https://cfskin.cosmedix.com/media/turnto/overlay.png) 50% 50% repeat;
+    background: #fff url(https://cf.astralbrandsmedia.com/media/turnto/overlay.png) 50% 50% repeat;
     opacity: .33;
     filter: Alpha(Opacity = 33)
 }
@@ -371,7 +371,7 @@ div.TT2sectionHeader {
 }
 
 .TTsub-ui-widget-overlay {
-    background: #aaa url(https://cfskin.cosmedix.com/media/turnto/overlay.png) 50% 50% repeat-x;
+    background: #aaa url(https://cf.astralbrandsmedia.com/media/turnto/overlay.png) 50% 50% repeat-x;
     opacity: .40;
     filter: Alpha(Opacity = 40)
 }
@@ -387,7 +387,7 @@ div.TT2sectionHeader {
     position: relative;
     color: #000;
     height: 21px;
-    background: url(https://cfskin.purcosmetics.com/media/turnto/maintop1.png) no-repeat top;
+    background: url(https://cf.astralbrandsmedia.com/media/turnto/maintop1.png) no-repeat top;
     box-sizing: content-box;
     display: block !important;
     -moz-user-select: none;
@@ -397,7 +397,7 @@ div.TT2sectionHeader {
     position: relative;
     color: #25272b;
     height: 47px;
-    background: url(https://cfskin.cosmedix.com/media/turnto/maintop1.png) no-repeat
+    background: url(https://cf.astralbrandsmedia.com/media/turnto/maintop1.png) no-repeat
 }
 
 #TTtraDialogTitleBar a {
@@ -430,21 +430,21 @@ div.TT2sectionHeader {
 }
 
 #TTtrasubtop {
-    background: transparent url(https://cfskin.cosmedix.com/media/turnto/subbaktop.png) no-repeat;
+    background: transparent url(https://cf.astralbrandsmedia.com/media/turnto/subbaktop.png) no-repeat;
     width: 100%;
     height: 38px;
     float: left
 }
 
 #TTtrasubmid {
-    background: transparent url(https://cfskin.cosmedix.com/media/turnto/subbakmid.png);
+    background: transparent url(https://cf.astralbrandsmedia.com/media/turnto/subbakmid.png);
     margin: 0;
     float: left;
     width: 575px
 }
 
 #TTtrasubbot {
-    background: transparent url(https://cfskin.cosmedix.com/media/turnto/subbakbot.png);
+    background: transparent url(https://cf.astralbrandsmedia.com/media/turnto/subbakbot.png);
     margin: 0;
     width: 100%;
     height: 27px;
@@ -588,13 +588,13 @@ div.TTtipCopy {
 }
 
 #TT-spinner {
-    background: #fff center url(https://cfskin.cosmedix.com/media/turnto/traspin.gif) no-repeat scroll;
+    background: #fff center url(https://cf.astralbrandsmedia.com/media/turnto/traspin.gif) no-repeat scroll;
     width: 620px;
     height: 32px
 }
 
 .TTspinner {
-    background: url(https://cfskin.cosmedix.com/media/turnto/traspin.gif) no-repeat scroll;
+    background: url(https://cf.astralbrandsmedia.com/media/turnto/traspin.gif) no-repeat scroll;
     width: 32px;
     height: 32px
 }
@@ -604,7 +604,7 @@ div.TTtipCopy {
 }
 
 .TTtransSpinner {
-    background: url(https://cfskin.cosmedix.com/media/turnto/traspin.gif) no-repeat scroll;
+    background: url(https://cf.astralbrandsmedia.com/media/turnto/traspin.gif) no-repeat scroll;
     width: 25px;
     height: 25px
 }
@@ -614,7 +614,7 @@ a#TTaddFriendsHdrLink {
 }
 
 #TT2loginicon1 {
-    background: url("https://cfskin.cosmedix.com/media/turnto/loginicon1.png") no-repeat;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/loginicon1.png") no-repeat;
     width: 42px;
     height: 42px;
     display: inline;
@@ -625,7 +625,7 @@ a#TTaddFriendsHdrLink {
 }
 
 #TTfbConnect2 {
-    background: url("https://cfskin.cosmedix.com/media/turnto/importlogos.png") no-repeat;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/importlogos.png") no-repeat;
     width: 120px;
     height: 40px;
     display: block;
@@ -634,7 +634,7 @@ a#TTaddFriendsHdrLink {
 }
 
 #TT2importSrcLink1 {
-    background: url("https://cfskin.cosmedix.com/media/turnto/importlogos.png") no-repeat;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/importlogos.png") no-repeat;
     width: 120px;
     height: 40px;
     display: block;
@@ -643,7 +643,7 @@ a#TTaddFriendsHdrLink {
 }
 
 #TT2importSrcLink5 {
-    background: url("https://cfskin.cosmedix.com/media/turnto/importlogos.png") no-repeat;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/importlogos.png") no-repeat;
     width: 120px;
     height: 40px;
     display: block;
@@ -652,7 +652,7 @@ a#TTaddFriendsHdrLink {
 }
 
 #TT2importSrcLink6 {
-    background: url("https://cfskin.cosmedix.com/media/turnto/importlogos.png") no-repeat;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/importlogos.png") no-repeat;
     width: 120px;
     height: 40px;
     display: block;
@@ -661,7 +661,7 @@ a#TTaddFriendsHdrLink {
 }
 
 #TT2importSrcLink14 {
-    background: url("https://cfskin.cosmedix.com/media/turnto/importlogos.png") no-repeat;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/importlogos.png") no-repeat;
     width: 120px;
     height: 40px;
     display: block;
@@ -670,7 +670,7 @@ a#TTaddFriendsHdrLink {
 }
 
 #TT2importSrcLink7 {
-    background: url("https://cfskin.cosmedix.com/media/turnto/importlogos.png") no-repeat;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/importlogos.png") no-repeat;
     width: 120px;
     height: 40px;
     display: block;
@@ -679,7 +679,7 @@ a#TTaddFriendsHdrLink {
 }
 
 #TT2importSrcLink2 {
-    background: url("https://cfskin.cosmedix.com/media/turnto/importlogos.png") no-repeat;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/importlogos.png") no-repeat;
     width: 120px;
     height: 40px;
     display: block;
@@ -688,7 +688,7 @@ a#TTaddFriendsHdrLink {
 }
 
 #TT2importSrcLink9 {
-    background: url("https://cfskin.cosmedix.com/media/turnto/importlogos.png") no-repeat;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/importlogos.png") no-repeat;
     width: 120px;
     height: 40px;
     display: block;
@@ -697,7 +697,7 @@ a#TTaddFriendsHdrLink {
 }
 
 #TT2importSrcLink11 {
-    background: url("https://cfskin.cosmedix.com/media/turnto/importlogos.png") no-repeat;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/importlogos.png") no-repeat;
     width: 120px;
     height: 40px;
     display: block;
@@ -1130,7 +1130,7 @@ input.TT2button {
 }
 
 input.TT2doneSub {
-    background: url("https://cfskin.cosmedix.com/media/turnto/donebttn.png") no-repeat scroll left center #fff;
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/donebttn.png") no-repeat scroll left center #fff;
     cursor: pointer;
     width: 77px;
     height: 25px
@@ -1611,7 +1611,7 @@ ul.TT3linkLine li:last-child:after,ul.TT3linkLine li.TTnoMiddot:after {
 }
 
 .TT3tabClose {
-    background-image: url("https://cfskin.cosmedix.com/media/turnto/tabClose.gif");
+    background-image: url("https://cf.astralbrandsmedia.com/media/turnto/tabClose.gif");
     background-size: 12px 12px;
     background-repeat: no-repeat;
     display: block;
@@ -2080,19 +2080,19 @@ ul.TT3linkLine li:last-child:after,ul.TT3linkLine li.TTnoMiddot:after {
 }
 
 #TT3nextBtn img {
-    background: url("https://cfskin.cosmedix.com/media/turnto/arrows.png") no-repeat -78px
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/arrows.png") no-repeat -78px
 }
 
 #TT3nextBtn:hover img {
-    background: url("https://cfskin.cosmedix.com/media/turnto/arrows.png") no-repeat -117px
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/arrows.png") no-repeat -117px
 }
 
 #TT3prevBtn img {
-    background: url("https://cfskin.cosmedix.com/media/turnto/arrows.png") no-repeat -39px
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/arrows.png") no-repeat -39px
 }
 
 #TT3prevBtn:hover img {
-    background: url("https://cfskin.cosmedix.com/media/turnto/arrows.png") no-repeat
+    background: url("https://cf.astralbrandsmedia.com/media/turnto/arrows.png") no-repeat
 }
 
 .TT3ccTimeStamp {
@@ -5803,7 +5803,7 @@ img.TTorientation-8 {
     }
 
     #TT-spinner {
-        background: #fff center url(https://cfskin.cosmedix.com/media/turnto/traspin.gif) no-repeat scroll;
+        background: #fff center url(https://cf.astralbrandsmedia.com/media/turnto/traspin.gif) no-repeat scroll;
         width: 100%;
         height: 32px
     }
@@ -5980,13 +5980,13 @@ img.TTorientation-8 {
 
 @media only screen and (min--moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-device-pixel-ratio:2) {
     .TTtransSpinner {
-        background:url(https://cfskin.cosmedix.com/media/turnto/trans_spinner_lg.gif) no-repeat scroll;
+        background:url(https://cf.astralbrandsmedia.com/media/turnto/trans_spinner_lg.gif) no-repeat scroll;
         background-size: 25px 25px
     }
 }
 
 .TT4chatIcon,.TT4thumb,.TT4pen,.TT4expand,.TT4collapse,.TT3carouselLeft,.TT3carouselRight,.TT3clearSearchMiqa,.TT4miqaScrollL,.TT4miqaScrollR,.TT4answVoteCallArrow,.TT4showMoreSmallImg,.TT4closeIcon,.TT3removeAttachedItem,.TTclearRevSearch,.TT4searchIcon,.TTinputTeaserBubble1,input[type=checkbox].TTcheckbox+label.TTlabel,.TT3addedText,.TT4miqAdd,.TT4showMoreImg,.TTsmallSubmitBtn,.TTdoneBtn,.TTupdateBtn,.TT4writeReviewBtn,.TTcancelBtn,.TTconfirmDupBtn,.TTsqvBack,.TTsqvForward,.TTcancelDupBtn,.TTblankBtn,.TTcloseBtn,.TTsaveBtn,.TTsearchBtn,.TTbigSubmitBtn,.TT4instAnswNext,.TT3yesVote,.TTrating-0-0,.TTrating-0-5,.TTrating-1-0,.TTrating-1-5,.TTrating-2-0,.TTrating-2-5,.TTrating-3-0,.TTrating-3-5,.TTrating-4-0,.TTrating-4-5,.TTrating-5-0,.TTcustom-0-0,.TTcustom-0-5,.TTcustom-1-0,.TTcustom-1-5,.TTcustom-2-0,.TTcustom-2-5,.TTcustom-3-0,.TTcustom-3-5,.TTcustom-4-0,.TTcustom-4-5,.TTcustom-5-0,.TT4breakdown,.TT4breakdownPercent,.TT4reviewRange,.TT4reviewRangeSmall,.TT4reviewRangeDot,.TTcustomSmall-0-0,.TTcustomSmall-0-5,.TTcustomSmall-1-0,.TTcustomSmall-1-5,.TTcustomSmall-2-0,.TTcustomSmall-2-5,.TTcustomSmall-3-0,.TTcustomSmall-3-5,.TTcustomSmall-4-0,.TTcustomSmall-4-5,.TTcustomSmall-5-0,.TTfacebookDelAuth,.TTtwitterDelAuth,.TTgmailDelAuth,.TTfacebookShare,.TTfacebookNoShare,.TTtwitterShare,.TTtwitterNoShare,.TTvc-question,.TTvc-settings,.TTvc-next,.TTvc-next-disabled,.TTvc-back,.TTvc-back-disabled,.TTvc-clear,.TTvc-delete,.TTvc-like,.TTvc-like-on,.TTvc-flag,.TTvc-flag-on,.TTvc-share,.TTvc-share-on,.TTvc-facebook,.TTvc-pinterest,.TTvc-twitter,.TTvc-link,.TTvc-like-md,.TTvc-flag-md,.TTvc-phone-md,.TTvc-star-md-empty,.TTvc-star-md-half,.TTvc-star-md-filled,.TTvc-radio-off,.TTvc-radio-on,.TTvc-star-lg-empty,.TTvc-star-lg-half,.TTvc-star-lg-filled,.TTvc-icon-lg-video,.TTvc-btn-fab-top,.TTvc-bar-media-md-video,.TTvc-bar-media-md-photo,.TTvc-bar-media-lg-photo,.TTvc-bar-media-lg-video,.TTvc-bar-media-lg-photo-on,.TTvc-bar-media-lg-video-on,.TTvc-slider-bg,.TTvc-slider-dot,.TTvc-btn-submit-new-question,.TTvc-btn-submit-question,.TTvc-share-a-photo,.TTvc-edit-profile,.TTvc-submit,.TTvc-add-take-photo,.TTvc-submit-disabled,.TTvc-slider-dot-off,.TTvc-checkbox-off,.TTvc-checkbox-on,.TTvc-x-media,.TTvc-tag-media,.TTvc-share-photo-alt,.TTvc-add-new-photo,.TTvc-add-new-video,.TTvc-add-video-disabled,.TTvc-add-video,.TTvc-share-media,.TTvc-x-media-sm,.TTvc-icon-md-video,.TTvc-continue,.TTvc-add-your-photo,.TTvc-add-your-video {
-    background-image: url("https://cfskin.cosmedix.com/media/turnto/sprites/cos/en_US_1x.png");
+    background-image: url("https://cf.astralbrandsmedia.com/media/turnto/sprites/cos/en_US_1x.png");
     background-repeat: no-repeat
 }
 
@@ -7071,7 +7071,7 @@ input[type=checkbox].TTcheckbox:checked+label.TTlabel {
 
 @media only screen and (min--moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-device-pixel-ratio:2) {
     .TT4chatIcon,.TT4thumb,.TT4pen,.TT4expand,.TT4collapse,.TT3carouselLeft,.TT3carouselRight,.TT3clearSearchMiqa,.TT4miqaScrollL,.TT4miqaScrollR,.TT4answVoteCallArrow,.TT4showMoreSmallImg,.TT4closeIcon,.TT3removeAttachedItem,.TTclearRevSearch,.TT4searchIcon,.TTinputTeaserBubble1,input[type=checkbox].TTcheckbox+label.TTlabel,.TT3addedText,.TT4miqAdd,.TT4showMoreImg,.TTsmallSubmitBtn,.TTdoneBtn,.TTupdateBtn,.TT4writeReviewBtn,.TTcancelBtn,.TTsqvBack,.TTsqvForward,.TTconfirmDupBtn,.TTcancelDupBtn,.TTblankBtn,.TTcloseBtn,.TTsaveBtn,.TTsearchBtn,.TTbigSubmitBtn,.TT4instAnswNext,.TT3yesVote,.TTrating-0-0,.TTrating-0-5,.TTrating-1-0,.TTrating-1-5,.TTrating-2-0,.TTrating-2-5,.TTrating-3-0,.TTrating-3-5,.TTrating-4-0,.TTrating-4-5,.TTrating-5-0,.TTcustom-0-0,.TTcustom-0-5,.TTcustom-1-0,.TTcustom-1-5,.TTcustom-2-0,.TTcustom-2-5,.TTcustom-3-0,.TTcustom-3-5,.TTcustom-4-0,.TTcustom-4-5,.TTcustom-5-0,.TT4breakdown,.TT4breakdownPercent,.TT4reviewRange,.TT4reviewRangeSmall,.TT4reviewRangeDot,.TTcustomSmall-0-0,.TTcustomSmall-0-5,.TTcustomSmall-1-0,.TTcustomSmall-1-5,.TTcustomSmall-2-0,.TTcustomSmall-2-5,.TTcustomSmall-3-0,.TTcustomSmall-3-5,.TTcustomSmall-4-0,.TTcustomSmall-4-5,.TTcustomSmall-5-0,.TTfacebookDelAuth,.TTtwitterDelAuth,.TTgmailDelAuth,.TTfacebookShare,.TTfacebookNoShare,.TTtwitterShare,.TTtwitterNoShare,.TTvc-question,.TTvc-settings,.TTvc-next,.TTvc-next-disabled,.TTvc-back,.TTvc-back-disabled,.TTvc-clear,.TTvc-delete,.TTvc-like,.TTvc-like-on,.TTvc-flag,.TTvc-flag-on,.TTvc-share,.TTvc-share-on,.TTvc-facebook,.TTvc-pinterest,.TTvc-twitter,.TTvc-link,.TTvc-like-md,.TTvc-flag-md,.TTvc-phone-md,.TTvc-star-md-empty,.TTvc-star-md-half,.TTvc-star-md-filled,.TTvc-radio-off,.TTvc-radio-on,.TTvc-star-lg-empty,.TTvc-star-lg-half,.TTvc-star-lg-filled,.TTvc-icon-lg-video,.TTvc-btn-fab-top,.TTvc-bar-media-md-video,.TTvc-bar-media-md-photo,.TTvc-bar-media-lg-photo,.TTvc-bar-media-lg-video,.TTvc-bar-media-lg-photo-on,.TTvc-bar-media-lg-video-on,.TTvc-slider-bg,.TTvc-slider-dot,.TTvc-btn-submit-new-question,.TTvc-btn-submit-question,.TTvc-share-a-photo,.TTvc-edit-profile,.TTvc-submit,.TTvc-add-take-photo,.TTvc-submit-disabled,.TTvc-slider-dot-off,.TTvc-checkbox-off,.TTvc-checkbox-on,.TTvc-x-media,.TTvc-tag-media,.TTvc-share-photo-alt,.TTvc-add-new-photo,.TTvc-add-new-video,.TTvc-add-video-disabled,.TTvc-add-video,.TTvc-share-media,.TTvc-x-media-sm,.TTvc-icon-md-video,.TTvc-continue,.TTvc-add-your-photo,.TTvc-add-your-video {
-        background-image:url("https://cfskin.cosmedix.com/media/turnto/sprites/cos/en_US_2x.png");
+        background-image:url("https://cf.astralbrandsmedia.com/media/turnto/sprites/cos/en_US_2x.png");
         background-repeat: no-repeat;
         background-size: 298px 4152px
     }
@@ -7079,13 +7079,13 @@ input[type=checkbox].TTcheckbox:checked+label.TTlabel {
 
 @media only screen and (min-width : 320px) and (max-width :480px) and (min--moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2/1),only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-device-pixel-ratio:2) {
     .TTsqvBack {
-        background-image:url("https://cfskin.cosmedix.com/media/turnto/sprites/cos/en_US_2x.png");
+        background-image:url("https://cf.astralbrandsmedia.com/media/turnto/sprites/cos/en_US_2x.png");
         background-position: 0 -673px;
         background-size: 298px 4152px
     }
 
     .TTsqvBack:hover {
-        background-image: url("https://cfskin.cosmedix.com/media/turnto/sprites/cos/en_US_2x.png");
+        background-image: url("https://cf.astralbrandsmedia.com/media/turnto/sprites/cos/en_US_2x.png");
         background-position: 0 -705px;
         background-size: 298px 4152px
     }
@@ -7489,7 +7489,7 @@ input[type=checkbox].TTcheckbox:checked+label.TTlabel {
 }
 
 .TT-close-icon,.TT-icon-thumbs-up,.TT-icon-flag,.TT-icon-pinterest,.TT-icon-facebook,.TT-icon-twitter,.TT-submit-btn,.TT-shop-now-button,.TT-vc-carousel__back,.TT-vc-carousel__next,.TT-vc-carousel__back--small,.TT-vc-carousel__next--small {
-    background-image: url("https://cfskin.cosmedix.com/media/turnto/sprites/cos/en_US_1x.png");
+    background-image: url("https://cf.astralbrandsmedia.com/media/turnto/sprites/cos/en_US_1x.png");
     background-repeat: no-repeat
 }
 
@@ -7588,7 +7588,7 @@ input[type=checkbox].TTcheckbox:checked+label.TTlabel {
 
 @media only screen and (min--moz-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-device-pixel-ratio:2) {
     .TT-close-icon,.TT-icon-thumbs-up,.TT-icon-flag,.TT-icon-pinterest,.TT-icon-facebook,.TT-icon-twitter,.TT-submit-btn,.TT-shop-now-button,.TT-vc-carousel__back,.TT-vc-carousel__next,.TT-vc-carousel__back--small,.TT-vc-carousel__next--small {
-        background-image:url("https://cfskin.cosmedix.com/media/turnto/sprites/cos/en_US_2x.png");
+        background-image:url("https://cf.astralbrandsmedia.com/media/turnto/sprites/cos/en_US_2x.png");
         background-size: 298px 4152px
     }
 }

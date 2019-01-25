@@ -3,11 +3,11 @@ var isPur = false;
 var isCos = false;
 if(hostname.indexOf('purcosmetics') !== -1){
 	isPur = true;
-	var cdn = 'https://cfskin.purcosmetics.com';
+	var cdn = 'https://cf.astralbrandsmedia.com';
 }
 if(hostname.indexOf('cosmedix') !== -1){
 	isCos = true;
-	var cdn = 'https://cfskin.cosmedix.com';
+	var cdn = 'https://cf.astralbrandsmedia.com';
 }
 
 require.config({
