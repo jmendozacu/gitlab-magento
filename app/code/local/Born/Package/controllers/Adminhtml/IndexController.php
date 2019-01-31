@@ -60,7 +60,8 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
 		$this->_redirectReferer();				
 	}
 	public function bypassOrderAction(){
-		$data = $this->getRequest()->getParams();
+        Mage::log(__METHOD__, false, 'Order_Process.log');
+        $data = $this->getRequest()->getParams();
 			if(isset($data['order_id'])){
 			$order_id = $data['order_id'];
 			}else{
@@ -68,7 +69,17 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
 			}
 			try {
 			$order = Mage::getModel('sales/order')->load($data['order_id']);
-				if($order->getId()) {
+			$increment_id = $order->getIncrement_id();
+                $bypassFlag = Mage::getModel('statuscheck/scc')->load($increment_id);
+                $bpf = $bypassFlag->getBypass_score();
+                if(isset($bpf)&&!empty($bpf)){
+                    $bp_state = true;
+                }else{
+                    $bp_state = false;
+                }
+                Mage::log(__METHOD__.' increment_id '.$increment_id, false, 'Order_Process.log');
+                Mage::log(__METHOD__.' bp_state '.$bp_state, false, 'Order_Process.log');
+                if($order->getId()) {
 				$comments = $order->getStatusHistoryCollection(true)->getLastItem();
 				$state='';
 				$status = 'bypassscore';

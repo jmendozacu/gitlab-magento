@@ -12,31 +12,24 @@ class Astral_Statuscheck_Model_Observer {
         $resource = Mage::getSingleton('core/resource');
         $readConnection = $resource->getConnection('core_read'); 		
         $collection = $readConnection->fetchall($query);
-        if(is_array($collection) || is_object($collection)){
-			if(isset($collection) && !empty($collection)) {
-                Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
+            if(is_array($collection) || is_object($collection)){
+			    if(isset($collection) && !empty($collection)) {
                 $collection_count = count($collection);
-                if ($collection_count > 0) {
-                    Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
-                    foreach ($collection as $order) {
-                    $bpf = $this->checkForBypassFlag($order);
-                    Mage::log(__METHOD__ . ' ' . __LINE__ . ' bpf: ' . $bpf, false, 'Order_Process.log');
-                    $bypassFlag = $this->checkForBypassFlag($order);
-                    Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
-                        if (isset($order['score']) && !empty($order['score'])) {
-                            Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
-                            if (!$order['bypass_score']) {
-                                Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
-                                if (!$bpf && $order['score'] < 700) {
-                                    Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
-                                    Mage::log(__METHOD__ . ' setToHold', false, 'Order_Process.log');
+                    if ($collection_count > 0) {
+                        foreach ($collection as $order) {
+                        $bpf = $this->checkForBypassFlag($order);
+                        $bypassFlag = $this->checkForBypassFlag($order);
+                            if (isset($order['score']) && !empty($order['score'])) {
+                                if (!$order['bypass_score']) {
+                                    if (!$bpf && $order['score'] < 700) {
+                                    Mage::log(__METHOD__ . ' Order set to hold. IncrementID: '.$order['increment_id'].' Score: '.$order['score'], false, 'Order_Process.log');
                                     //$this->setToHold($order);
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
 			}
 	}				
 
@@ -52,7 +45,6 @@ class Astral_Statuscheck_Model_Observer {
     }
 
 	public function setToHold($order){
-		Mage::log(__METHOD__, false, 'Order_Process.log'); 
 		$orderObject = Mage::getModel('sales/order')->loadByIncrementId($order['increment_id']);
 		$orderObject->hold();
 		$orderObject->setState(Mage_Sales_Model_Order::STATE_HOLDED);
@@ -62,7 +54,6 @@ class Astral_Statuscheck_Model_Observer {
 	}
 		
 	public function setToProcessing($order){
-		Mage::log(__METHOD__, false, 'Order_Process.log'); 
 		$orderObject = Mage::getModel('sales/order')->loadByIncrementId($order['increment_id']);
 		$orderObject->hold();
 		$orderObject->setState(Mage_Sales_Model_Order::STATE_PROCESSING);
