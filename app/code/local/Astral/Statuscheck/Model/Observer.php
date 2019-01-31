@@ -27,7 +27,7 @@ class Astral_Statuscheck_Model_Observer {
                             Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
                             if (!$order['bypass_score']) {
                                 Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
-                                if ($order['score'] < 700) {
+                                if (!$bpf && $order['score'] < 700) {
                                     Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
                                     Mage::log(__METHOD__ . ' setToHold', false, 'Order_Process.log');
                                     //$this->setToHold($order);
