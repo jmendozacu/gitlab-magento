@@ -18,12 +18,12 @@ class Astral_Statuscheck_Model_Observer {
 			$collection_count = count($collection);
 				if (count($collection_count) > 0) {
 					foreach ($collection as $order) {	
-					Mage::log('Order : '.$order['increment_id'].' Score: '.$order['score'], false, 'Order_Process.log');  
+					Mage::log('Order : '.$order['increment_id'].' Score: '.$order['score'].' Check Count: '.$order['check_count'].' Bypass Score: '.$order['bypass_score'], false, 'Order_Process.log');  
 						if(isset($order['score'])&&!empty($order['score']){
 							if(!$order['bypass_score']){
 								if($order['score'] < 700){
 								Mage::log(__METHOD__.' setToHold', false, 'Order_Process.log'); 	
-								$this->setToHold($order);
+								//$this->setToHold($order);
 								}	
 							}		
 						}else{
