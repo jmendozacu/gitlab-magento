@@ -15,6 +15,18 @@
 		<statuscheck>
 			<class>Astral_Statuscheck_Model</class>
 		</statuscheck>
+            <astral_statuscheck>
+                <class>Astral_Statuscheck_Model</class>
+				<resourceModel>statuscheck_mysql4</resourceModel>
+            </astral_statuscheck>  
+			<statuscheck_mysql4>
+                <class>Astral_Statuscheck_Model_Mysql4</class>
+                <entities>
+                    <statuscheck>
+                        <table>astral_statuscheck_scc</table>
+                    </statuscheck>
+                </entities>
+            </statuscheck_mysql4>		
 	</models>
         <resources>
             <statuscheck_setup>
