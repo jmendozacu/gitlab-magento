@@ -42,7 +42,13 @@ class Astral_Statuscheck_Model_Observer {
 
 	public function checkForBypassFlag($order){
 	    $bypassFlag = Mage::getModel('statuscheck/scc')->load($order['increment_id']);
-	    return $bypassFlag->getBypass_score();
+        $bpf = $bypassFlag->getBypass_score();
+	        if(isset($bpf)&&!empty($bpf)){
+	            $bp_state = true;
+            }else{
+                $bp_state = false;
+            }
+	    return $bp_state;
     }
 
 	public function setToHold($order){
