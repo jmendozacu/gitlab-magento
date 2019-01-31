@@ -3,6 +3,6 @@ class Astral_Statuscheck_Model_Resource_Scc_Collection extends Mage_Core_Model_M
 {
     public function _construct()
     {  
-        $this->_init('astral_statuscheck/scc');
+        $this->_init('statuscheck/scc');
     }
 }

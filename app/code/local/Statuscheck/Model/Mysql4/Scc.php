@@ -3,6 +3,6 @@ class Astral_Statuscheck_Model_Mysql4_Scc extends Mage_Core_Model_Mysql4_Abstrac
 {
     protected function _construct()
     {
-        $this->_init("astral_statuscheck/scc", "scc_id");
+        $this->_init("statuscheck/scc", "scc_id");
     }
 }

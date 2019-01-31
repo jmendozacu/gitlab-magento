@@ -27,7 +27,7 @@ class Astral_Statuscheck_Model_Observer {
 								}	
 							}		
 						}else{
-						$orderFlag = Mage::getModel('astral_statuscheck/scc')->load($order['sc_id']);
+						$orderFlag = Mage::getModel('statuscheck/scc')->load($order['sc_id']);
 						$orderFlagData = $orderFlag->getData();
 						Mage::log($orderFlagData, false, 'Order_Process.log');
 						// Increment check count for this case
