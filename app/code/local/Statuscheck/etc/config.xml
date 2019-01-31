@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Astral_Statuscheck>
+      <version>0.1.0</version>
+    </Astral_Statuscheck>
+  </modules>
+  <global>
+    <helpers>
+      <statuscheck>
+        <class>Astral_Statuscheck_Helper</class>
+      </statuscheck>
+    </helpers>
+	<models>
+		<statuscheck>
+			<class>Astral_Statuscheck_Model</class>
+		</statuscheck>
+	</models>	
+  </global>
+    <crontab>
+        <jobs>
+            <astral_statuscheck_check_status>
+                <schedule>
+                    <cron_expr>* * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>statuscheck/observer::checkStatus</model>
+                </run>
+            </astral_statuscheck_check_status>
+        </jobs>			
+    </crontab>   
+</config> 
