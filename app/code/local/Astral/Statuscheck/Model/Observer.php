@@ -23,7 +23,6 @@ class Astral_Statuscheck_Model_Observer {
                     foreach ($collection as $order) {
                         $bypassFlag = $this->checkForBypassFlag($order);
                         Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
-                        Mage::log('Order : ' . $order['increment_id'] . ' Score: ' . $order['score'] . ' Check Count: ' . $order['check_count'] . ' Bypass Score: ' . $order['bypass_score'], false, 'Order_Process.log');
                         if (isset($order['score']) && !empty($order['score'])) {
                             Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
                             if (!$order['bypass_score']) {
