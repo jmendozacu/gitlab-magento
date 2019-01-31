@@ -9,5 +9,6 @@ CREATE TABLE IF NOT EXISTS `{$this->getTable('astral_statuscheck_scc')}` (
 	`bypass_score` int(1) unsigned NOT NULL,
 	PRIMARY KEY (`sc_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `{$this->getTable('astral_statuscheck_scc')}` ADD INDEX `CaseId` (`case_id`);
 ");
 $this->endSetup();
