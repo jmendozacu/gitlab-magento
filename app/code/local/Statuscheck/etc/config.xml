@@ -19,9 +19,9 @@
 		<astral_statuscheck_resource>
 			<class>Astral_Statuscheck_Model_Resource</class>
 			<entities>
-				<statuscheck>
+				<scc>
 					<table>astral_statuscheck</table>
-				</statuscheck>
+				</scc>
 			</entities>
 		</astral_statuscheck_resource>		
 	</models>
