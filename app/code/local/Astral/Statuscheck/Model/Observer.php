@@ -15,18 +15,25 @@ class Astral_Statuscheck_Model_Observer {
         $readConnection = $resource->getConnection('core_read'); 		
         $collection = $readConnection->fetchall($query);
 			if(isset($collection) && !empty($collection)){
-			$collection_count = count($collection);
+            Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
+                $collection_count = count($collection);
 				if (count($collection_count) > 0) {
-					foreach ($collection as $order) {	
+                Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
+                    foreach ($collection as $order) {
+                    Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
 					Mage::log('Order : '.$order['increment_id'].' Score: '.$order['score'].' Check Count: '.$order['check_count'].' Bypass Score: '.$order['bypass_score'], false, 'Order_Process.log');  
 						if(isset($order['score'])&&!empty($order['score'])){
+                        Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
 							if(!$order['bypass_score']){
+                            Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
 								if($order['score'] < 700){
+                                Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
 								Mage::log(__METHOD__.' setToHold', false, 'Order_Process.log'); 	
 								//$this->setToHold($order);
 								}	
 							}		
 						}else{
+                        Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
 						$orderFlag = Mage::getModel('statuscheck/scc')->load($order['sc_id']);
 						$orderFlagData = $orderFlag->getData();
 						Mage::log($orderFlagData, false, 'Order_Process.log');
