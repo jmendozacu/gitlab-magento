@@ -70,13 +70,23 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
 			try {
 			$order = Mage::getModel('sales/order')->load($data['order_id']);
 			$increment_id = $order->getIncrement_id();
+			    if(isset($increment_id)&&!empty($increment_id)) {
                 $bypassFlag = Mage::getModel('statuscheck/scc')->load($increment_id);
                 $bpf = $bypassFlag->getBypass_score();
-                if(isset($bpf)&&!empty($bpf)){
+                $cc = $bypassFlag->getCheck_count();
+                    if (isset($bpf) && !empty($bpf)&&$bpf==1) {
                     $bp_state = true;
-                }else{
-                    $bp_state = false;
+                    } else {
+                    $cc++;
+                    $bypassFlag->setBypass_score(1);
+                    $bypassFlag->setIncrement_id($increment_id);
+                    $bypassFlag->setCheck_count($cc);
+                    $bypassFlag->save();
+                    $bp_state = true;
+                    }
                 }
+			    return $bp_state;
+
                 Mage::log(__METHOD__.' increment_id '.$increment_id, false, 'Order_Process.log');
                 Mage::log(__METHOD__.' bp_state '.$bp_state, false, 'Order_Process.log');
                 if($order->getId()) {
