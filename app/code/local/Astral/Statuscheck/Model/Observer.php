@@ -7,8 +7,6 @@ class Astral_Statuscheck_Model_Observer {
         $query .= "FROM `sales_flat_order` as t1 ";
         $query .= "JOIN `signifyd_connect_case` as t2 ";
         $query .= "ON t1.increment_id = t2.order_increment ";
-        //$query .= "JOIN `astral_statuscheck_scc` as t3 ";
-        //$query .= "ON t1.increment_id = t3.increment_id ";
         $query .= "WHERE t1.status = 'processing' ";
 		$query .= "OR t1.status = 'pending' ";
         $resource = Mage::getSingleton('core/resource');
@@ -19,7 +17,10 @@ class Astral_Statuscheck_Model_Observer {
                 $collection_count = count($collection);
 				if (count($collection_count) > 0) {
                 Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
+                    $bpf = checkForBypassFlag($order);
+                    Mage::log(__METHOD__.' '.__LINE__.' bpf: '.$bpf, false, 'Order_Process.log');
                     foreach ($collection as $order) {
+                    $bypassFlag = $this->checkForBypassFlag($order);
                     Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
 					Mage::log('Order : '.$order['increment_id'].' Score: '.$order['score'].' Check Count: '.$order['check_count'].' Bypass Score: '.$order['bypass_score'], false, 'Order_Process.log');  
 						if(isset($order['score'])&&!empty($order['score'])){
@@ -32,18 +33,17 @@ class Astral_Statuscheck_Model_Observer {
 								//$this->setToHold($order);
 								}	
 							}		
-						}else{
-                        Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
-						$orderFlag = Mage::getModel('statuscheck/scc')->load($order['sc_id']);
-						$orderFlagData = $orderFlag->getData();
-						Mage::log($orderFlagData, false, 'Order_Process.log');
-						// Increment check count for this case
 						}
 					}
 				}			
 			}
 	}				
-	
+
+	public function checkForBypassFlag($order){
+	    $bypassFlag = Mage::getModel('statuscheck/scc')->load($order['increment_id']);
+	    return $bypassFlag->getBypass_score();
+    }
+
 	public function setToHold($order){
 		Mage::log(__METHOD__, false, 'Order_Process.log'); 
 		$orderObject = Mage::getModel('sales/order')->loadByIncrementId($order['increment_id']);
