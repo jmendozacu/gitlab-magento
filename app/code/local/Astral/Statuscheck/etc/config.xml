@@ -26,7 +26,7 @@
 		</astral_statuscheck_resource>
 	</models>
         <resources>
-            <statuscheck_setup>
+            <astral_statuscheck_setup>
                 <setup>
                     <module>Astral_Statuscheck</module>
                     <class>Mage_Core_Model_Resource_Setup</class>
@@ -34,17 +34,17 @@
                 <connection>
                     <use>core_setup</use>
                 </connection>
-            </statuscheck_setup>
-            <statuscheck_write>
+            </astral_statuscheck_setup>
+            <astral_statuscheck_write>
                 <connection>
                     <use>core_write</use>
                 </connection>
-            </statuscheck_write>
-            <statuscheck_read>
+            </astral_statuscheck_write>
+            <astral_statuscheck_read>
                 <connection>
                     <use>core_read</use>
                 </connection>
-            </statuscheck_read>
+            </astral_statuscheck_read>
         </resources>	
   </global>
     <crontab>
