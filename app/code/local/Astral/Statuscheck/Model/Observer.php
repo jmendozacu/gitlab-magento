@@ -18,7 +18,7 @@ class Astral_Statuscheck_Model_Observer {
                 $collection_count = count($collection);
                 if ($collection_count > 0) {
                     Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
-                    $bpf = checkForBypassFlag($order);
+                    $bpf = $this->checkForBypassFlag($order);
                     Mage::log(__METHOD__ . ' ' . __LINE__ . ' bpf: ' . $bpf, false, 'Order_Process.log');
                     foreach ($collection as $order) {
                         $bypassFlag = $this->checkForBypassFlag($order);
