@@ -71,22 +71,31 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
 			$order = Mage::getModel('sales/order')->load($data['order_id']);
 			$increment_id = $order->getIncrement_id();
 			    if(isset($increment_id)&&!empty($increment_id)) {
-                $bypassFlag = Mage::getModel('statuscheck/scc')->load($increment_id);
-                $bpf = $bypassFlag->getBypass_score();
-                $cc = $bypassFlag->getCheck_count();
-                var_dump($bypassFlag->getData());
-                    if (isset($bpf) && !empty($bpf)&&$bpf==1) {
+                $BypassObject = Mage::getModel('statuscheck/scc')->load($increment_id);
+                $bpd = $BypassObject->getData();
+                    if(!isset($bpd)||empty($bpd)){
+                        $NewBypassObject = Mage::getModel('statuscheck/scc');
+                        $NewBypassObject->setBypass_score(1);
+                        $NewBypassObject->setIncrement_id($increment_id);
+                        $NewBypassObject->setCheck_count(1);
+                        $NewBypassObject->save();
+                    }elseif(isset($bpd)&&!empty($bpd)){
+                        $bps = $BypassObject->getBypass_score();
+                        $cc = $BypassObject->getCheck_count();
+                    }
+                    if (isset($bps) && !empty($bps)&&$bps==1) {
                     $bp_state = true;
                     } else {
                     $cc++;
-                    $bypassFlag->setBypass_score(1);
-                    $bypassFlag->setIncrement_id($increment_id);
-                    $bypassFlag->setCheck_count($cc);
-                    $bypassFlag->save();
+                    $BypassObject->setCheck_count($cc);
+                    $BypassObject->setBypass_score(1);
+                    $BypassObject->save();
                     $bp_state = true;
                     }
                 }
-
+            } catch(Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e);
+            }
 			    exit;
 			    return $bp_state;
 
@@ -105,9 +114,7 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
 				$order->save();
 				Mage::getSingleton('adminhtml/session')->addSuccess('Order status changed to '.$label);					
 				}				
-			} catch(Exception $e) {
-			Mage::getSingleton('adminhtml/session')->addError($e);
-			}
+
 		$this->_redirectReferer();                        
         }	
 }
