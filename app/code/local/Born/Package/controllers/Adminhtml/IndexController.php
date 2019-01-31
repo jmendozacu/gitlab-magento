@@ -74,6 +74,7 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
                 $bypassFlag = Mage::getModel('statuscheck/scc')->load($increment_id);
                 $bpf = $bypassFlag->getBypass_score();
                 $cc = $bypassFlag->getCheck_count();
+                var_dump($bypassFlag);
                     if (isset($bpf) && !empty($bpf)&&$bpf==1) {
                     $bp_state = true;
                     } else {
@@ -85,6 +86,8 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
                     $bp_state = true;
                     }
                 }
+
+			    exit;
 			    return $bp_state;
 
                 Mage::log(__METHOD__.' increment_id '.$increment_id, false, 'Order_Process.log');
