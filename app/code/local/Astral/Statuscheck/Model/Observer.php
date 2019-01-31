@@ -7,8 +7,8 @@ class Astral_Statuscheck_Model_Observer {
         $query .= "FROM `sales_flat_order` as t1 ";
         $query .= "JOIN `signifyd_connect_case` as t2 ";
         $query .= "ON t1.increment_id = t2.order_increment ";
-        $query .= "JOIN `astral_statuscheck_scc` as t3 ";
-        $query .= "ON t1.increment_id = t3.increment_id ";
+        //$query .= "JOIN `astral_statuscheck_scc` as t3 ";
+        //$query .= "ON t1.increment_id = t3.increment_id ";
         $query .= "WHERE t1.status = 'processing' ";
 		$query .= "OR t1.status = 'pending' ";
         $resource = Mage::getSingleton('core/resource');
