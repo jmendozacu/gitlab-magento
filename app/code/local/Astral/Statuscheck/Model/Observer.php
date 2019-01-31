@@ -12,30 +12,32 @@ class Astral_Statuscheck_Model_Observer {
         $resource = Mage::getSingleton('core/resource');
         $readConnection = $resource->getConnection('core_read'); 		
         $collection = $readConnection->fetchall($query);
-			if(isset($collection) && !empty($collection)){
-            Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
+        if(is_array($collection) || is_object($collection)){
+			if(isset($collection) && !empty($collection)) {
+                Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
                 $collection_count = count($collection);
-				if (count($collection_count) > 0) {
-                Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
+                if (count($collection_count) > 0) {
+                    Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
                     $bpf = checkForBypassFlag($order);
-                    Mage::log(__METHOD__.' '.__LINE__.' bpf: '.$bpf, false, 'Order_Process.log');
+                    Mage::log(__METHOD__ . ' ' . __LINE__ . ' bpf: ' . $bpf, false, 'Order_Process.log');
                     foreach ($collection as $order) {
-                    $bypassFlag = $this->checkForBypassFlag($order);
-                    Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
-					Mage::log('Order : '.$order['increment_id'].' Score: '.$order['score'].' Check Count: '.$order['check_count'].' Bypass Score: '.$order['bypass_score'], false, 'Order_Process.log');  
-						if(isset($order['score'])&&!empty($order['score'])){
-                        Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
-							if(!$order['bypass_score']){
-                            Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
-								if($order['score'] < 700){
-                                Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
-								Mage::log(__METHOD__.' setToHold', false, 'Order_Process.log'); 	
-								//$this->setToHold($order);
-								}	
-							}		
-						}
-					}
-				}			
+                        $bypassFlag = $this->checkForBypassFlag($order);
+                        Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
+                        Mage::log('Order : ' . $order['increment_id'] . ' Score: ' . $order['score'] . ' Check Count: ' . $order['check_count'] . ' Bypass Score: ' . $order['bypass_score'], false, 'Order_Process.log');
+                        if (isset($order['score']) && !empty($order['score'])) {
+                            Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
+                            if (!$order['bypass_score']) {
+                                Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
+                                if ($order['score'] < 700) {
+                                    Mage::log(__METHOD__ . ' ' . __LINE__, false, 'Order_Process.log');
+                                    Mage::log(__METHOD__ . ' setToHold', false, 'Order_Process.log');
+                                    //$this->setToHold($order);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 			}
 	}				
 
