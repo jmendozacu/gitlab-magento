@@ -20,7 +20,7 @@
 			<class>Astral_Statuscheck_Model_Resource</class>
 			<entities>
 				<scc>
-					<table>astral_statuscheck</table>
+					<table>astral_statuscheck_scc</table>
 				</scc>
 			</entities>
 		</astral_statuscheck_resource>		
