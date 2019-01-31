@@ -16,14 +16,14 @@
 			<class>Astral_Statuscheck_Model</class>
 			<resourceModel>astral_statuscheck_resource</resourceModel>
 		</statuscheck>
-		<statuscheck_resource>
+		<astral_statuscheck_resource>
 			<class>Astral_Statuscheck_Model_Resource</class>
 			<entities>
 				<scc>
 					<table>astral_statuscheck_scc</table>
 				</scc>
 			</entities>
-		</statuscheck_resource>
+		</astral_statuscheck_resource>
 	</models>
         <resources>
             <statuscheck_setup>
