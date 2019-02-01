@@ -1,7 +1,13 @@
 <?php
+/**
+ * Class Astral_Statuscheck_Model_Observer
+ */
 class Astral_Statuscheck_Model_Observer {
-	
-	public function checkStatus(){
+
+    /**
+     *
+     */
+    public function checkStatus(){
 		Mage::log(__METHOD__, false, 'Order_Process.log'); 
         $query  = "SELECT * ";
         $query .= "FROM `sales_flat_order` as t1 ";
@@ -31,9 +37,13 @@ class Astral_Statuscheck_Model_Observer {
                     }
                 }
 			}
-	}				
+	}
 
-	public function checkForBypassFlag($order){
+    /**
+     * @param $order
+     * @return bool
+     */
+    public function checkForBypassFlag($order){
 	    $bypassFlag = Mage::getModel('statuscheck/scc')->load($order['increment_id']);
         $bpf = $bypassFlag->getBypass_score();
 	        if(isset($bpf)&&!empty($bpf)){
@@ -44,7 +54,10 @@ class Astral_Statuscheck_Model_Observer {
 	    return $bp_state;
     }
 
-	public function setToHold($order){
+    /**
+     * @param $order
+     */
+    public function setToHold($order){
 		$orderObject = Mage::getModel('sales/order')->loadByIncrementId($order['increment_id']);
 		$orderObject->hold();
 		$orderObject->setState(Mage_Sales_Model_Order::STATE_HOLDED);
@@ -52,8 +65,11 @@ class Astral_Statuscheck_Model_Observer {
 		$orderObject->addStatusHistoryComment("Signifyd: order held because of low score. ".$order['score']);
 		$orderObject->save();  
 	}
-		
-	public function setToProcessing($order){
+
+    /**
+     * @param $order
+     */
+    public function setToProcessing($order){
 		$orderObject = Mage::getModel('sales/order')->loadByIncrementId($order['increment_id']);
 		$orderObject->hold();
 		$orderObject->setState(Mage_Sales_Model_Order::STATE_PROCESSING);

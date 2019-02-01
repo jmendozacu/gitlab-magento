@@ -1,8 +1,14 @@
 <?php
 
+/**
+ * Class Born_Package_Adminhtml_IndexController
+ */
 class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_Action
 {
-	public function changeStatusAction(){
+    /**
+     * @throws Exception
+     */
+    public function changeStatusAction(){
 		$data = $this->getRequest()->getParams();
 			if(isset($data['order_id'])){
 			$order_id = $data['order_id'];
@@ -30,8 +36,11 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
 			}
 		$this->_redirectReferer();
     }
-	
-	public function cancelOrderAction(){
+
+    /**
+     * @throws Exception
+     */
+    public function cancelOrderAction(){
 		$data = $this->getRequest()->getParams();
 			if(isset($data['order_id'])){
 			$order_id = $data['order_id'];
@@ -59,7 +68,12 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
 			}
 		$this->_redirectReferer();				
 	}
-	public function bypassOrderAction(){
+
+    /**
+     * @return bool
+     * @throws Exception
+     */
+    public function bypassOrderAction(){
         Mage::log(__METHOD__, false, 'Order_Process.log');
         $data = $this->getRequest()->getParams();
 			if(isset($data['order_id'])){
