@@ -87,7 +87,7 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
 			    if(isset($increment_id)&&!empty($increment_id)) {
                 $BypassObject = Mage::getModel('statuscheck/scc')->load($increment_id);
                 $bpd = $BypassObject->getData();
-                $bpd_iid = $bpd->getIncrement_id();
+                $bpd_iid = $BypassObject->getIncrement_id();
 
                     Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
                     Mage::log($bpd, false, 'Order_Process.log');
