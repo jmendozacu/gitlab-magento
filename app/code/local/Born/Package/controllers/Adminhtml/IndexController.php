@@ -92,7 +92,7 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
                     Mage::log(__METHOD__.' '.__LINE__, false, 'Order_Process.log');
                     Mage::log($bpd, false, 'Order_Process.log');
                     Mage::log($bpd_iid, false, 'Order_Process.log');
-                    if(!isset($bpd)||empty($bpd)){
+                    if(!isset($bpd_iid)||empty($bpd_iid)){
                         Mage::log(__METHOD__.' '.__LINE__.' Save new bypass flag. IncrementId: '.$increment_id, false, 'Order_Process.log');
                         $NewBypassObject = Mage::getModel('statuscheck/scc');
                         $NewBypassObject->setBypass_score(1);
@@ -100,7 +100,7 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
                         $NewBypassObject->setCheck_count(1);
                         $NewBypassObject->save();
                         Mage::log($NewBypassObject, false, 'Order_Process.log');
-                    }elseif(isset($bpd)&&!empty($bpd)){
+                    }elseif(isset($bpd_iid)&&!empty($bpd_iid)){
                         Mage::log(__METHOD__.' '.__LINE__.' Save bypass flag. IncrementId: '.$increment_id, false, 'Order_Process.log');
                         $bps = $BypassObject->getBypass_score();
                         $cc = $BypassObject->getCheck_count();
