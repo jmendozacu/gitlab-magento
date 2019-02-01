@@ -80,6 +80,7 @@ class Born_Package_Adminhtml_IndexController extends Mage_Adminhtml_Controller_A
                         $NewBypassObject->setIncrement_id($increment_id);
                         $NewBypassObject->setCheck_count(1);
                         $NewBypassObject->save();
+                        Mage::log($NewBypassObject, false, 'Order_Process.log');
                     }elseif(isset($bpd)&&!empty($bpd)){
                         Mage::log(__METHOD__.' '.__LINE__.' Save bypass flag. IncrementId: '.$increment_id, false, 'Order_Process.log');
                         $bps = $BypassObject->getBypass_score();
