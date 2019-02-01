@@ -4,6 +4,5 @@ class Astral_Statuscheck_Model_Mysql4_Scc_Collection extends Mage_Core_Model_Mys
     public function _construct()
     {
         $this->_init("statuscheck/scc");
-        $this->_isPkAutoIncrement = false;
     }
 } 
