@@ -42,7 +42,6 @@ class DynamicYield_Integration_Model_Queue
         if (!$this->session->getData(static::COLLECTION_ID)) {
             $this->session->setData(static::COLLECTION_ID, Mage::getModel('dynamicyield_integration/queue_collection'));
         }
-
         return $this->session->getData(static::COLLECTION_ID);
     }
 
@@ -52,8 +51,6 @@ class DynamicYield_Integration_Model_Queue
     public function addToQueue($event) {
         $items = $this->getCollection();
         $items->addItem($event);
-
-        Mage::log('Added to queue: ' . $event['name']);
     }
 
     /**
@@ -62,7 +59,6 @@ class DynamicYield_Integration_Model_Queue
     public function clearQueue() {
         $queue = $this->getCollection();
         $queue->clear();
-
         return $this;
     }
 }
