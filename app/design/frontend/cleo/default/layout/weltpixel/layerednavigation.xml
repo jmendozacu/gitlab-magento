@@ -145,8 +145,9 @@
                 <action method="setId">
                     <id>weltpixel-ajax-filters-container</id>
                 </action>
-                <block type="catalog/layer_view" name="catalog.leftnav" after="currency" template="weltpixel/layerednavigation/catalog/layer/view.phtml"/> <!-- For top the new template should be added ;) -->
+                <block type="catalog/layer_view" name="catalog.leftnav" after="currency" template="weltpixel/layerednavigation/catalog/layer/view.phtml"> <!-- For top the new template should be added ;) -->
 				<action method="unsCacheLifetime"></action>
+				</block>
             </block>
             <block type="core/template" name="weltpixel-ajax-list-container" template="page/html/wrapper.phtml">
                 <action method="setId">
