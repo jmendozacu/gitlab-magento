@@ -54,6 +54,7 @@
             </weltpixel_layerednavigation>
             <catalog>
                 <rewrite>
+					<layer_view>WeltPixel_LayeredNavigation_Block_Catalog_Layer_View</layer_view>
                     <layer_filter_attribute>WeltPixel_LayeredNavigation_Block_Catalog_Layer_Filter_Attribute</layer_filter_attribute>
                     <layer_filter_category>WeltPixel_LayeredNavigation_Block_Catalog_Layer_Filter_Category</layer_filter_category>
                     <layer_filter_decimal>WeltPixel_LayeredNavigation_Block_Catalog_Layer_Filter_Decimal</layer_filter_decimal>
