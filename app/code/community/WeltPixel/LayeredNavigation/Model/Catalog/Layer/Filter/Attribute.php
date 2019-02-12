@@ -181,7 +181,7 @@ class WeltPixel_LayeredNavigation_Model_Catalog_Layer_Filter_Attribute
             );
 
             $tags = $this->getLayer()->getStateTags($tags);
-            //$this->getLayer()->getAggregator()->saveCacheData($data, $key, $tags);
+            $this->getLayer()->getAggregator()->saveCacheData($data, $key, $tags);
         }
         return $data;
     }
