@@ -62,7 +62,7 @@ class WeltPixel_LayeredNavigation_Model_Catalog_Layer_Filter_Category extends Ma
             $this->getLayer()->setCurrentCategory($this->_currentCategory);
 
             $tags = $this->getLayer()->getStateTags();
-            $this->getLayer()->getAggregator()->saveCacheData($data, $key, $tags);
+            //$this->getLayer()->getAggregator()->saveCacheData($data, $key, $tags);
         }
         return $data;
     }
