@@ -9,6 +9,7 @@ class Astral_BlockCache_Block_Catalog_Layer_View extends Mage_Catalog_Block_Laye
      */
     protected function _construct()
     {
+		parent::_construct();
         $this->addData(array(
         	'cache_tags' => array('layerednav'.'_'.$this->getLayer()->getId()),
         ));
