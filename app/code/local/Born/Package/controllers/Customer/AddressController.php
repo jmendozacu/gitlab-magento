@@ -47,12 +47,6 @@ class Born_Package_Customer_AddressController extends Mage_Customer_AddressContr
 
 				if (count($errors) === 0) {
 					$address->save();
-                                        if($customer->getSageExported()){
-                                            Mage::getModel('bornintegration/observer')->updateExportedCustomers($customer->getIncrementId());
-                                        }else{
-                                            Mage::getModel('bornintegration/observer')->exportNewCustomer($customer->getIncrementId());
-                                            Mage::getModel('bornintegration/observer')->updateExportedCustomers($customer->getIncrementId());
-                                        }
 					$this->_getSession()->addSuccess($this->__('The address has been saved.'));
 					$this->_redirectSuccess(Mage::getUrl('*/account/index', array('_secure'=>true)));
 					return;
