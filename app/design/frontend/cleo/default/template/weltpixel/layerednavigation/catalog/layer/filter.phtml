@@ -41,11 +41,9 @@ $showMoreLess = false;
                     <?php endif; ?>
                 </li>
             <?php endforeach ?>
-            <?php if(!$_helper->isMobileOrTablet()):?>
-                <?php if ($showMoreLess) : ?>
-                    <li class="show_more"><span> <?php echo $this->__('More'); ?> &nbsp; <i class="icon-chevron-down"></i></span></li>
-                    <li class="show_less"><span> <?php echo $this->__('Less'); ?> &nbsp; <i class="icon-chevron-up"></i></span></li>
-                <?php endif; ?>
+            <?php if ($showMoreLess) : ?>
+                <li class="show_more"><span> <?php echo $this->__('More'); ?> &nbsp; <i class="icon-chevron-down"></i></span></li>
+                <li class="show_less"><span> <?php echo $this->__('Less'); ?> &nbsp; <i class="icon-chevron-up"></i></span></li>
             <?php endif; ?>
         <?php break; ?>
 
@@ -75,7 +73,6 @@ $showMoreLess = false;
             <?php break; ?>
 
         <?php default: ?>
-
                 <?php foreach ($this->getItems() as $_item): ?>
                     <?php $index += 1; ?>
                 <li class=" <?php if ($itemsDisplay && $itemLimit && ($index > $itemLimit)) : $showMoreLess = true;
@@ -94,19 +91,12 @@ $showMoreLess = false;
                 <?php endif; ?>
                 </li>
             <?php endforeach ?>
-            <?php if(!$_helper->isMobileOrTablet()):?>
             <?php if ($showMoreLess) : ?>
                 <li class="show_more"><span> <?php echo $this->__('More'); ?> &nbsp; <i class="icon-chevron-down"></i></span></li>
                 <li class="show_less"><span> <?php echo $this->__('Less'); ?> &nbsp; <i class="icon-chevron-up"></i></span></li>
             <?php endif; ?>
-            <?php endif; ?>
-
         <?php
         break;
 }
 ?>
-
-
-
-
 </ol>

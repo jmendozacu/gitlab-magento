@@ -325,7 +325,7 @@
     </reference>
 
     <reference name="quick_access">
-        <block type="core/template" name="top.search" as="search" template="weltpixel/ajaxsearch/form.mini.phtml" />
+        <block type="core/template" name="top.search" as="search" template="weltpixel/ajaxsearch/form.mini-v1.phtml" />
         <block type="catalog/product_compare_sidebar" name="product_compare_block" as="product_compare_block" template="page/html/links/compare.phtml" />
     </reference>
 

@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <!--
-/*
- * Pur Cosmetics
- * www.purcosmetics.com
- *
- * @description  catalog.xml file for cleo pur cosmetics
- * @author       Josh Adams
- * @package      cleo_default
- *
+/**
+ * Astral Brands Page XML Revision
+ * 
+ * @category    design
+ * @package     cleo_default
+ * @author      Josh Adams <webdeveloper@astralbrands.com>
+ * @copyright Copyright (c) 2018-2019 Astral Brands, Inc. (https://www.astralbrands.com)
  */
 -->
 <layout version="0.1.0">

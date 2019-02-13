@@ -56,7 +56,7 @@
             <!-- remove unnecesary js, css files -->
             <action method="removeItem"><type>skin_js</type><name>js/weltpixel/ajaxsearch.js</name></action>
             <action method="removeItem"><type>skin_js</type><name>js/weltpixel/megamenu.js</name></action>
-            <action method="removeItem"><type>skin_js</type><name>js/weltpixel/sticky-header.js</name></action>
+            <action method="removeItem"><type>skin_js</type><name>js/weltpixel/sticky-header.min.js</name></action>
             <action method="removeItem"><type>skin_js</type><name>js/doubletaptogo.js</name></action>
             <action method="removeItem"><type>skin_js</type><name>js/weltpixel/newsletterpopup.js</name></action>
             <action method="removeItem"><type>skin_js</type><name>js/weltpixel/cookiemanager.js</name></action>

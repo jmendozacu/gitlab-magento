@@ -1,17 +1,18 @@
 <header id="page-header" class="v2">
-    <?php echo $this->getChildHtml('global_promo_message_container'); ?>
+    <div id="page-header-section-01">
+        <?php echo $this->getChildHtml('global_promo_message_container'); ?>
+    </div>
     <div id="page-header-section-02">
 		<div class="w header-container">
 			<?php echo $this->getChildHtml('logo'); ?>
-			<?php echo $this->getChildHtml('topMenu'); ?>
             <div class="header-right">
-                <span  class="header-settings">
+                <span class="header-settings">
                     <i class="icon-user"></i>
                 </span>
                 <?php $loggedIn = Mage::getSingleton('customer/session')->isLoggedIn(); ?>
                 <div class="header-account-links <?php echo $loggedIn ? 'logged-in' : 'logged-out'; ?>">
                     <?php if (!$loggedIn): ?>
-                        <a class="header-link" href="<?php echo Mage::getUrl('customer/account/'); ?>" title="<?php echo $this->__('Sign In') ?>">
+                        <a class="header-link" id="sign-in" href="<?php echo Mage::getUrl('customer/account/'); ?>" title="<?php echo $this->__('Sign In') ?>">
                             <?php echo $this->__('Sign In') ?>
                         </a>
                     <?php else: ?>
@@ -55,7 +56,14 @@
                 </div>
                 <?php echo $this->getChildHtml('quickAccess'); ?>
             </div>
+            <?php echo $this->getChildHtml('topMenu'); ?>
 		</div>
+        <div class="clearfix"></div>
+        <div class="header-options">
+            <?php echo $this->getChildHtml('topLinks'); ?>
+            <?php echo $this->getChildHtml('store_language_flag') ?>
+            <?php echo $this->getChildHtml('custom_currency_selector') ?>
+        </div>
     </div>
 </header>
 <div id="endHeader" class="v2"></div>
