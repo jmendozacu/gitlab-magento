@@ -4,9 +4,6 @@
         <WeltPixel_Newsletter>
             <active>true</active>
             <codePool>community</codePool>
-            <depends>
-                <WeltPixel_Mobiledetect />
-            </depends>
         </WeltPixel_Newsletter>
     </modules>
 </config>
