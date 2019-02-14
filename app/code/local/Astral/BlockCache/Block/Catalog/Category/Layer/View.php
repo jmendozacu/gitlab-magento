@@ -2,15 +2,16 @@
 /**
  * Class Astral_BlockCache_Catalog_Product_View
  */
-class Astral_BlockCache_Block_Catalog_Product_View extends Mage_Catalog_Block_Product_View
+class Astral_BlockCache_Block_Catalog_Layer_View extends Mage_Catalog_Block_Layer_View
 {
     /**
      *
      */
     protected function _construct()
     {
+		parent::_construct();
         $this->addData(array(
-        	'cache_tags'        => array(Mage_Catalog_Model_Product::CACHE_TAG . "_" . $this->getProduct()->getId()),
+        	'cache_tags' => array('layerednav'.'_'.$this->getLayer()->getId()),
         ));
     }
     /**
@@ -20,7 +21,7 @@ class Astral_BlockCache_Block_Catalog_Product_View extends Mage_Catalog_Block_Pr
     public function getCacheKey()
     {
         if (!$this->hasData('cache_key')) {
-       		$cacheKey = $this->getNameInLayout().'_STORE'.Mage::app()->getStore()->getId().'_PRODUCT'.$this->getProduct()->getId();
+            $cacheKey = $this->getNameInLayout().'_STORE'.Mage::app()->getStore()->getId().'_LAYER'.$this->getLayer()->getId();
         	$this->setCacheKey($cacheKey);
         }
         return $this->getData('cache_key');
@@ -30,7 +31,7 @@ class Astral_BlockCache_Block_Catalog_Product_View extends Mage_Catalog_Block_Pr
      */
     public function getCacheLifetime()
     {	  
-    	  if($this->getNameInLayout()!='product.info') return null;
+    	  if($this->getNameInLayout()!='layer.info') return null;
     	  return 9999999999;
     }
 }
