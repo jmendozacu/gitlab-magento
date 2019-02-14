@@ -195,19 +195,6 @@ class WeltPixel_Selector_Helper_Data
         return Mage::getStoreConfig('weltpixel_selector/productpageoptions/ajax_add_to_compare');
     }
 
-    public function applyStickyHeader()
-    {
-        $stickyHeader = Mage::getStoreConfig('weltpixel_selector/headeroptions/sticky_header');
-        $stickyHeaderOnMobile = Mage::getStoreConfig('weltpixel_selector/headeroptions/sticky_header_mobile');
-        $_helper = Mage::helper('weltpixel_mobiledetect');
-        $mobileDeviceWasDetected = $_helper->isMobile() || $_helper->isTablet();
-        if ($stickyHeader && !$stickyHeaderOnMobile && $mobileDeviceWasDetected) :
-            return false;
-        endif;
-
-        return $stickyHeader;
-    }
-
     public function getLoginBgImage()
     {
         $uploadedFile = Mage::getStoreConfig('weltpixel_selector/customization_settings/login_backgroundimage');

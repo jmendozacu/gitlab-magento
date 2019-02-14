@@ -2,6 +2,15 @@
 
 class WeltPixel_LayeredNavigation_Model_Observer {
 
+
+    /**
+     * Changes the Layout XML based on the Mobile Detect Cookie
+     * @event controller_action_layout_generate_xml_before
+     * @param  observer $observer [description]
+     * @return observer Adjusted Observer Event
+     *
+     * @depreciated
+     */
     public function navigationPositioning($observer) {
 
         $action = $observer->getEvent()->getAction();
