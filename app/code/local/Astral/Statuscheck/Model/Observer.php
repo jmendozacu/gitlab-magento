@@ -8,8 +8,7 @@ class Astral_Statuscheck_Model_Observer {
      *
      */
     public function checkStatus(){
-		Mage::log(__METHOD__, false, 'Order_Process.log'); 
-        $query  = "SELECT * ";
+		$query  = "SELECT * ";
         $query .= "FROM `sales_flat_order` as t1 ";
         $query .= "JOIN `signifyd_connect_case` as t2 ";
         $query .= "ON t1.increment_id = t2.order_increment ";
@@ -29,7 +28,7 @@ class Astral_Statuscheck_Model_Observer {
                                 if (!$order['bypass_score']) {
                                     if (!$bpf && $order['score'] < 700) {
                                     Mage::log(__METHOD__ . ' Order set to hold. IncrementID: '.$order['increment_id'].' Score: '.$order['score'], false, 'Order_Process.log');
-                                    //$this->setToHold($order);
+                                    $this->setToHold($order);
                                     }
                                 }
                             }
