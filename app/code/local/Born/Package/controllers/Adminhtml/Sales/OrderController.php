@@ -19,7 +19,6 @@ class Born_Package_Adminhtml_Sales_OrderController extends Mage_Adminhtml_Sales_
                 $address->implodeStreetAddress()
                     ->save();
                 $order = Mage::getModel('sales/order')->load($address->getParentId());
-                Mage::getModel('bornintegration/observer')->updateSyncAttemptOrderEdit($order); // Reset order sync attempt counter
                 $this->_getSession()->addSuccess(Mage::helper('sales')->__('The order address has been updated.'));
                 $this->_redirect('*/*/view', array('order_id'=>$address->getParentId()));
                 return;
