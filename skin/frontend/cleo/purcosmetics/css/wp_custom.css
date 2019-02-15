@@ -3599,10 +3599,9 @@ a.back-to-top:hover, a.back-to-top:active, a.back-to-top:focus {
 }
 
 .header-right a, .header-right .account-links a {
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 500;
     color: #000000;
-    letter-spacing: 3px;
     display: none;
 }
 
@@ -4134,7 +4133,7 @@ div#media-image-vertical-slider-panel {
 
     .v2 #page-header-section-02 #wpmm-nav {
         width: 100%;
-        padding: 0;
+        padding-left: 20px;
     }
 
     .header-right a, .header-right .account-links a {
@@ -4257,14 +4256,17 @@ div#media-image-vertical-slider-panel {
     #wpmm-nav-container {
         float: left;
     }
+    #wpmm-nav-viewport {
+        position: static;
+    }
     #wpmm-nav li.level0 {
         width: auto;
     }
     #wpmm-nav li.level0 .wpmm-nav-content {
         position: absolute;
-        left: -220px;
-        padding-left: 220px;
-        width: 100vw;
+        left: 0;
+        right: 0;
+        padding-left: 200px;
     }
     #wpmm-nav .subnav-toggle, #wpmm-overlay, #wpmm-opener, #wpmm-closer {
         display: none;
@@ -4272,7 +4274,7 @@ div#media-image-vertical-slider-panel {
     #wpmm-nav li.level0>div.open, body.wpmm-desktop #wpmm-nav li.level0:hover>div {
     }
     .v2 #page-header-section-02 li.level0 .wpmm-nav-content {
-        top: 65px;
+        top: 57px;
     }
     .wrapper-nav-columns {
         padding-top: 0;
