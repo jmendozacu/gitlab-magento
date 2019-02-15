@@ -6,10 +6,11 @@ class WeltPixel_LayeredNavigation_Helper_Positioning extends Mage_Core_Helper_Da
      * 0 LEFT //default
      * 1 TOP
      * 2 RIGHT
-     *
+     * @deprecated
      * if mobile detection is enabled and request comes from a mobile device move to top! <- high priority
      */
     public function getPositioningXmlUpdate() {
+        Mage::log('Magento::Debug::LayeredNav::getPositioningXmlUpdate');
         $xmlUpdate = '';
         $position = Mage::helper('weltpixel_layerednavigation')->getNavigationPosition();
         $moveToTop = Mage::helper('weltpixel_layerednavigation')->moveNavigationToTop();
@@ -43,6 +44,12 @@ class WeltPixel_LayeredNavigation_Helper_Positioning extends Mage_Core_Helper_Da
         return $xmlUpdate;
     }
 
+    /**
+     * Updates layout if layed is detected to be top
+     *
+     * @deprecated
+     * @return [type] [description]
+     */
     private function _getTopLayoutUpdates() {
         return '
                     <reference name="left">
@@ -109,6 +116,11 @@ class WeltPixel_LayeredNavigation_Helper_Positioning extends Mage_Core_Helper_Da
                 ';
     }
 
+    /**
+     * Updates Layout for right type Layout
+     * @deprecated
+     * @return [type] [description]
+     */
     private function _getRightLayoutUpdates() {
         return '
                     <reference name="left">
