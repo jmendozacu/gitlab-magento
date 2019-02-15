@@ -4266,6 +4266,7 @@ div#media-image-vertical-slider-panel {
         position: absolute;
         left: 0;
         right: 0;
+        padding-left: 200px;
     }
     #wpmm-nav .subnav-toggle, #wpmm-overlay, #wpmm-opener, #wpmm-closer {
         display: none;
