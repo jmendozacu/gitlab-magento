@@ -16,7 +16,7 @@
 <div id="wpmm-nav-container">
     <div id="wpmm-nav-viewport">
         <input type="hidden" name="wpmm_width_threshold" id="wpmm-width-threshold" value="<?php echo $this->getWidthThreshold(); ?>" />
-        <ul id="wpmm-nav" class="w">
+        <ul id="wpmm-nav">
             <?php $i = 1; foreach ($menu->getChildren() as $child): ?>
             <?php
                 $displayMode = $_helper->getDisplayModeClass($child->getData('display_mode'));
