@@ -57,6 +57,29 @@
             </layouts>
         </page>
     </global>
+
+    <frontend>
+        <events>
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <weltpixel_selector_changer>
+                        <type>singleton</type>
+                        <class>WeltPixel_Selector_Model_Observer</class>
+                        <method>controllerActionLayoutGenerateBlocksAfter</method>
+                    </weltpixel_selector_changer>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
+            <controller_action_layout_generate_xml_before>
+                <observers>
+                    <weltpixel_selector_controller_action_layout_generate_xml_before>
+                        <class>WeltPixel_Selector_Model_Observer</class>
+                        <method>sidebarOptionsSetup</method>
+                        <type>singleton</type>
+                    </weltpixel_selector_controller_action_layout_generate_xml_before>
+                </observers>
+            </controller_action_layout_generate_xml_before>
+        </events>
+    </frontend>
     <admin>
         <routers>
             <adminhtml>
@@ -134,6 +157,72 @@
                 </weltpixel_selector>
             </updates>
         </layout>
+        <events>
+            <admin_system_config_changed_section_weltpixel_colorsettings>
+                <observers>
+                    <weltpixel_admin_system_config_changed_section_weltpixel_colorsettings>
+                        <type>singleton</type>
+                        <class>WeltPixel_Selector_Model_Observer</class>
+                        <method>generateDynamicCss</method>
+                    </weltpixel_admin_system_config_changed_section_weltpixel_colorsettings>
+                </observers>
+            </admin_system_config_changed_section_weltpixel_colorsettings>
+            <admin_system_config_changed_section_weltpixel_selector>
+                <observers>
+                    <weltpixel_admin_system_config_changed_section_weltpixel_selector>
+                        <type>singleton</type>
+                        <class>WeltPixel_Selector_Model_Observer</class>
+                        <method>generateDynamicCss</method>
+                    </weltpixel_admin_system_config_changed_section_weltpixel_selector>
+                </observers>
+            </admin_system_config_changed_section_weltpixel_selector>
+            <admin_system_config_changed_section_weltpixel_fontsettings>
+                <observers>
+                    <weltpixel_admin_system_config_changed_section_weltpixel_fontsettings>
+                        <type>singleton</type>
+                        <class>WeltPixel_Selector_Model_Observer</class>
+                        <method>generateDynamicCss</method>
+                    </weltpixel_admin_system_config_changed_section_weltpixel_fontsettings>
+                </observers>
+            </admin_system_config_changed_section_weltpixel_fontsettings>
+            <admin_system_config_changed_section_weltpixel_ajaxsearch>
+                <observers>
+                    <weltpixel_admin_system_config_changed_section_weltpixel_ajaxsearch>
+                        <type>singleton</type>
+                        <class>WeltPixel_Selector_Model_Observer</class>
+                        <method>generateDynamicCss</method>
+                    </weltpixel_admin_system_config_changed_section_weltpixel_ajaxsearch>
+                </observers>
+            </admin_system_config_changed_section_weltpixel_ajaxsearch>
+            <admin_system_config_changed_section_weltpixel_productswatch>
+                <observers>
+                    <weltpixel_admin_system_config_changed_section_weltpixel_productswatch>
+                        <type>singleton</type>
+                        <class>WeltPixel_Selector_Model_Observer</class>
+                        <method>generateDynamicCss</method>
+                    </weltpixel_admin_system_config_changed_section_weltpixel_productswatch>
+                </observers>
+            </admin_system_config_changed_section_weltpixel_productswatch>
+            <admin_system_config_changed_section_weltpixel_layerednavigation>
+                <observers>
+                    <weltpixel_admin_system_config_changed_section_weltpixel_layerednavigation>
+                        <type>singleton</type>
+                        <class>WeltPixel_Selector_Model_Observer</class>
+                        <method>generateDynamicCss</method>
+                    </weltpixel_admin_system_config_changed_section_weltpixel_layerednavigation>
+                </observers>
+            </admin_system_config_changed_section_weltpixel_layerednavigation>
+            <store_save_commit_after>
+                <observers>
+                    <weltpixel_store_save_commit_after>
+                        <type>singleton</type>
+                        <class>WeltPixel_Selector_Model_Observer</class>
+                        <method>storeEdited</method>
+                    </weltpixel_store_save_commit_after>
+                </observers>
+            </store_save_commit_after>
+        </events>
+
     </adminhtml>
 
     <default>

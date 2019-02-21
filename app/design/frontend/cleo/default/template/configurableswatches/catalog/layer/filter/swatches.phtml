@@ -69,8 +69,10 @@ $showMoreLess = false;
     <?php endif; ?>
         </li>
     <?php endforeach ?>
+    <?php if (!$_helper->isMobileOrTablet()): ?>
     <?php if ($showMoreLess) : ?>
             <li class="show_more"><span> <?php echo $this->__('More'); ?> &nbsp; <i class="ion-chevron-down"></i></span></li>
             <li class="show_less"><span> <?php echo $this->__('Less'); ?> &nbsp; <i class="ion-chevron-up"></i></span></li>
     <?php endif; ?>
+<?php endif; ?>
 </ol>

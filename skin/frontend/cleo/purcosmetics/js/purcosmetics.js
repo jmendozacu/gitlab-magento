@@ -70,17 +70,6 @@ var customJs = (function ($) {
                 });
             }
 
-            var $layeredNavList = $('#narrow-by-list');
-
-            if ($layeredNavList.length) {
-
-                $layeredNavList.find('dd:first').addClass('current');
-                $layeredNavList.find('dt:first').addClass('current');
-                $(document).on('click', '#narrow-by-list dt', function(event) {
-                    that.toggleCurrentFilter(event, this, $layeredNavList);
-                });
-            }
-
             /** Responsive: tabs to accordion */
             $('.tab-container .accordion-heading').on('click', function() {
                 var i = 1,
@@ -101,16 +90,6 @@ var customJs = (function ($) {
                     });
                 }
             });
-        },
-        toggleCurrentFilter: function(e, element, $layeredNavList) {
-            e.preventDefault();
-            if (!$(element).hasClass('current')) {
-                $layeredNavList.each(function(index){
-                    $(this).children().removeClass('current');
-                });
-                $(element).addClass('current');
-                $(element).next('dd').addClass('current');
-            }
         },
         openCloseMinicart: function(event, minicart) {
             var target = $(event.target);

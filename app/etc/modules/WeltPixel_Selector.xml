@@ -4,6 +4,9 @@
         <WeltPixel_Selector>
             <active>true</active>
             <codePool>community</codePool>
+             <depends>
+                <WeltPixel_Mobiledetect />
+            </depends>
         </WeltPixel_Selector>
     </modules>
 </config>
