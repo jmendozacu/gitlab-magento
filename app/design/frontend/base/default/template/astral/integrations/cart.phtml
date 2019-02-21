@@ -20,13 +20,12 @@ if(isset($criteoId) && !empty($criteoId)):
             }
         }
         var criteoCartObj = <?php echo json_encode($criteoCartEvent); ?>;
-        if (criteoCartObj && typeof criteoCartObj.item !== 'undefined' && criteoCartObj.item > 0) {
-            window.criteo_q = window.criteo_q || []; 
-            window.criteo_q.push(
-                { event: "setAccount", account: "<?php echo $criteoId; ?>"},
-                { event: "setSiteType", type: siteType },
-                criteoCartObj);
-        }
+
+        window.criteo_q = window.criteo_q || []; 
+        window.criteo_q.push(
+            { event: "setAccount", account: "<?php echo $criteoId; ?>"},
+            { event: "setSiteType", type: siteType },
+            criteoCartObj);
     </script>
 <?php endif; ?>
 <?php 
@@ -41,9 +40,7 @@ if(isset($pixelId) && !empty($pixelId)):
     $pixelCartEvent = Mage::helper('astral_integrations_helper/cartDecorator')->getPixelInitiatCheckoutArray($cart); ?>
     <script type="text/javascript">
         var pixelCartObj = <?php echo json_encode($pixelCartEvent); ?>;
-        if (pixelCartObj && typeof pixelCartObj.num_items !== 'undefined' && pixelCartObj.num_items > 0) {
-           fbq('track', 'InitiateCheckout', pixelCartObj);
-        }
+        fbq('track', 'InitiateCheckout', pixelCartObj);
     </script>
 <?php endif; ?>
 

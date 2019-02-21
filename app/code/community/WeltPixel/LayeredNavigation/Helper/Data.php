@@ -19,9 +19,21 @@ class WeltPixel_LayeredNavigation_Helper_Data extends Mage_Core_Helper_Data {
         return Mage::getStoreConfig('weltpixel_layerednavigation/display/show_shop_by');
     }
     
+    public function isMobileOrTablet() {
+        $_helper = Mage::helper('weltpixel_mobiledetect');
+        $mobileDeviceWasDetected = $_helper->isMobile() || $_helper->isTablet();
+        return $mobileDeviceWasDetected;
+    }
+
+    public function moveNavigationToTop() {
+        $_helper = Mage::helper('weltpixel_mobiledetect');
+        $mobileDeviceWasDetected = $_helper->isMobile() || $_helper->isTablet();
+        return (boolean) ($mobileDeviceWasDetected);
+    }
+
     public function isLayeredNavigationOnTop() {
         return ( $this->getNavigationPosition() == 1 ) || ($this->moveNavigationToTop());
-    }
+    }  
 
     public function isAjaxEnabled() {
         return Mage::getStoreConfig('weltpixel_layerednavigation/ajax/enable_ajax');
@@ -94,6 +106,15 @@ class WeltPixel_LayeredNavigation_Helper_Data extends Mage_Core_Helper_Data {
         return Mage::getStoreConfig('weltpixel_layerednavigation/default_display/show_categories_as');
     }
     
+    public function getPriceDisplay() {
+        // for mobile devices use the from - to slider
+        $_helper = Mage::helper('weltpixel_layerednavigation');
+        if ($_helper->isMobileOrTablet()) {
+            return 4;
+        }
+        return Mage::getStoreConfig('weltpixel_layerednavigation/default_display/show_price_filter_as');
+    }
+
     public function getItemsDisplay() {
         return Mage::getStoreConfig('weltpixel_layerednavigation/default_display/display_all_items_as');
     }

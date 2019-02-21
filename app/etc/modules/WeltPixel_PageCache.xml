@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <WeltPixel_Newsletter>
+        <WeltPixel_PageCache>
             <active>true</active>
             <codePool>community</codePool>
             <depends>
                 <WeltPixel_Mobiledetect />
             </depends>
-        </WeltPixel_Newsletter>
+        </WeltPixel_PageCache>
     </modules>
 </config>

@@ -2,17 +2,13 @@
 
 class WeltPixel_Selector_Model_Observer {
 
-    /**
-     * Adds templates for the Menu and Header
-     * Adds Dynamic CSS
-     * @event controller_action_layout_generate_blocks_after
-     * @param  Observer $observer
-     * @return observer
-     */
     public function controllerActionLayoutGenerateBlocksAfter($observer) {
 
+        $_helper = Mage::helper('weltpixel_mobiledetect');
         $isMobile = false;
-
+        if ($_helper->isMobile() || $_helper->isTablet()) {
+            $isMobile = true;
+        }
 
         $packageName = Mage::getDesign()->getPackageName();
         //load all settings in one array and get theme path
@@ -48,6 +44,7 @@ class WeltPixel_Selector_Model_Observer {
 
         $head = $observer->getLayout()->getBlock('head');
         if ($head) :
+            //$head->addItem('link_rel', "//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600", 'rel="stylesheet" type="text/css" media="all"');
             $head->addCss('css/weltpixel/color_' . $cssFile . '.css');
         endif;
 

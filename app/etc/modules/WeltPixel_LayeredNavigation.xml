@@ -5,6 +5,7 @@
             <active>true</active>
             <codePool>community</codePool>
             <depends>
+                <WeltPixel_Mobiledetect />
                 <WeltPixel_Setup />
             </depends>
         </WeltPixel_LayeredNavigation>
