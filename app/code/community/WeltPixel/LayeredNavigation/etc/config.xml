@@ -92,17 +92,6 @@
                 </weltpixel_layerednavigation>
             </updates>
         </layout>
-        <events>
-            <controller_action_layout_generate_xml_before>
-                <observers>
-                    <weltpixel_navigation_positioning_observer>
-                        <class>weltpixel_layerednavigation/observer</class>
-                        <method>navigationPositioning</method>
-                        <type>singleton</type>
-                    </weltpixel_navigation_positioning_observer>
-                </observers>
-            </controller_action_layout_generate_xml_before>
-        </events>
     </frontend>
     <adminhtml>
         <layout>

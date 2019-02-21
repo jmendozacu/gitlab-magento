@@ -3,14 +3,21 @@ $_isHomepage = $this->getIsHomePage();
 $_logoAlt = $this->getLogoAlt();
 $_logoUrl = $this->getUrl('');
 $_logoSrc = $this->getLogoSrc();
+$_logoSmallSrc = $this->getLogoSrcSmall();
 ?>
 
 <?php if ($_isHomepage) { ?>
     <div id="logo">
-        <span><img src="<?php echo $_logoSrc; ?>" alt="<?php echo $_logoAlt; ?>" /></span>
+        <span>
+            <img id="logo-md" src="<?php echo $_logoSrc; ?>" alt="<?php echo $_logoAlt; ?>" />
+            <img id="logo-sm" src="<?php echo $_logoSmallSrc; ?>" alt="<?php echo $_logoAlt; ?>" />
+        </span>
     </div>
 <?php } else { ?>
     <div id="logo">
-        <a href="<?php echo $_logoUrl; ?>"><img src="<?php echo $_logoSrc; ?>" alt="<?php echo $_logoAlt; ?>" /></a>
+        <a href="<?php echo $_logoUrl; ?>">
+            <img id="logo-md" src="<?php echo $_logoSrc; ?>" alt="<?php echo $_logoAlt; ?>" />
+            <img id="logo-sm" src="<?php echo $_logoSmallSrc; ?>" alt="<?php echo $_logoAlt; ?>" />
+        </a>
     </div>
 <?php } ?>
