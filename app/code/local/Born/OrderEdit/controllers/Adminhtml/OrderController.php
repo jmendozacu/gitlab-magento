@@ -215,6 +215,7 @@ class Born_OrderEdit_Adminhtml_OrderController extends Mage_Adminhtml_Controller
                             $table = $resource->getTableName('sales_flat_order');
                             $connection->query("UPDATE `{$table}` SET `state`='".Mage_Sales_Model_Order::STATE_CLOSED."', `status`='".Mage_Sales_Model_Order::STATE_CLOSED."' WHERE `entity_id`='".$order->getId()."'");
                         }
+                    Mage::getModel('bornintegration/observer')->updateSyncAttemptOrderEdit($order); // Reset order sync attempt counter
                     Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('born_orderedit')->__('Order information has been updated successfully.'));
                 }else{
                     if(isset($shippingmethod['shipping_method'])){
@@ -269,6 +270,7 @@ class Born_OrderEdit_Adminhtml_OrderController extends Mage_Adminhtml_Controller
                             $connection->query("UPDATE `{$table}` SET `state`='".Mage_Sales_Model_Order::STATE_CLOSED."', `status`='".Mage_Sales_Model_Order::STATE_CLOSED."' WHERE `entity_id`='".$order->getId()."'");
                         }
                         
+                        Mage::getModel('bornintegration/observer')->updateSyncAttemptOrderEdit($order); // Reset order sync attempt counter
                         Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('born_orderedit')->__('Order information has been updated successfully.'));
                     }else{
                         Mage::getSingleton('adminhtml/session')->addError(Mage::helper('born_orderedit')->__('Information was not provided to update the order.'));

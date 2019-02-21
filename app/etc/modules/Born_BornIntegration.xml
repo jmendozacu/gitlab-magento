@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Born_BornIntegration>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Born_BornIntegration>
+    </modules>
+</config>

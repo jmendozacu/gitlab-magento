@@ -9,7 +9,6 @@
 		<blocks>
 		    <catalog>
 		        <rewrite>
-					<layer_view>Astral_BlockCache_Block_Catalog_Layer_View</layer_view>
 		            <product_view>Astral_BlockCache_Block_Catalog_Product_View</product_view>
 					<category_view>Astral_BlockCache_Block_Catalog_Category_View</category_view>
 		        </rewrite>

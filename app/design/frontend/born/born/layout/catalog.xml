@@ -350,7 +350,7 @@ Compare products page
                     <block type="born_package/catalog_product_view_wishlist" name="product.detail.wishlist" as="pdp_wishlist" template="catalog/product/view/wishlist.phtml"/>
                 </block>
 
-              <!-- <block type="catalog/product_view" name="product.info.sharing" as="sharing" template="catalog/product/view/sharing.phtml"/> -->
+              <block type="catalog/product_view" name="product.info.sharing" as="sharing" template="catalog/product/view/sharing.phtml"/>
                 <block type="born_package/catalog_product_view" name="product.info.addtocart" as="addtocart" template="catalog/product/view/addtocart.phtml"/>
 
                 <block type="born_package/catalog_product_view" name="product.custom.content" template="catalog/product/view/cms.phtml" >
