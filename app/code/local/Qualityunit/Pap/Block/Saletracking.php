@@ -65,7 +65,7 @@ class Qualityunit_Pap_Block_SaleTracking extends Mage_Core_Block_Text {
                 if (!empty($item['data4'])) $sale_tracker .= "sale$i.setData4('".$item['data4']."');\n";
                 if (!empty($item['data5'])) $sale_tracker .= "sale$i.setData5('".$item['data5']."');\n";
 
-                if ($config->isCouponTrackingEnabled()) $sale_tracker .= "sale$i.setCoupon('".$item['COUPON']."');\n";
+                if ($config->isCouponTrackingEnabled()) $sale_tracker .= "sale$i.setCoupon('".$item['couponcode']."');\n";
 
                 $sale_tracker .= '
                     PostAffTracker.register();';

@@ -308,7 +308,7 @@ class Qualityunit_Pap_Model_Pap extends Mage_Core_Model_Abstract {
                 $sales[$i]['totalcost'] = $subtotal - $discount;
                 $sales[$i]['orderid'] = $order->getIncrementId();
                 $sales[$i]['productid'] = $this->safeString($product->getSku());
-                $sales[$i]['COUPON'] = $couponcode;
+                $sales[$i]['couponcode'] = $couponcode;
                 $sales[$i]['status'] = $status;
                 $sales[$i]['campaignid'] = $config->getCampaignID();
 

@@ -21,7 +21,7 @@ class Qualityunit_Pap_Model_Config_Source_CustomVariables {
             array('label'=>'Customer ID', 'value'=>'customerID'),
             array('label'=>'Customer email', 'value'=>'customerEmail'),
             array('label'=>'Customer name', 'value'=>'customerName'),
-            array('label'=>'Coupon code', 'value'=>'COUPON')
+            array('label'=>'Coupon code', 'value'=>'couponCode')
         );
     }
 }

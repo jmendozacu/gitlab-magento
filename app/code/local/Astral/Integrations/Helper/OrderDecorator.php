@@ -82,7 +82,7 @@ class Astral_Integrations_Helper_OrderDecorator extends Mage_Core_Helper_Abstrac
             $event['total'] = number_format($this->getRevenue($order), 2); 
             $event['discount'] = number_format($order->getDiscountAmount(), 2);
             $event['currency'] = $order->getOrderCurrencyCode();
-            $event['COUPON'] = $order->getCouponCode();
+            $event['couponCode'] = $order->getCouponCode();
             $orderItems = $order->getAllVisibleItems();
             $i = 1;
 
