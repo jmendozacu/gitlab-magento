@@ -563,7 +563,7 @@ class Qualityunit_Pap_Model_Pap extends Mage_Core_Model_Abstract {
                 }
                 return (!empty($name)) ? $name : null;
                 break;
-            case 'couponCode':
+            case 'COUPON':
                 return (!empty($order) && $order->getQuoteId()) ? Mage::getModel('sales/quote')->load($order->getQuoteId())->getCouponCode() : null;
                 break;
             default:
