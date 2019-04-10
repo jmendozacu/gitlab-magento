@@ -6,3 +6,4 @@
 /skin/frontend/rwd/born_cos/node_modules/*
 /var/log/*
 /var/report/*
+.DS_Store
